@@ -31,7 +31,7 @@ fields:
         form:
             fields:
                 name:
-                    label: 'offline.snipcartshop::lang.plugin.custom_fields.name'
+                    label: 'offline.snipcartshop::lang.plugin.custom_field_options.option'
                     oc.commentPosition: ''
                     span: auto
                     type: text

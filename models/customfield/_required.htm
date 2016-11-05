@@ -1,0 +1,9 @@
+<?php if($value): ?>
+<span class="oc-icon-circle text-danger">
+    <?= e(trans('offline.snipcartshop::lang.plugin.custom_fields.is_required')) ?>
+</span>
+<?php else: ?>
+<span class="oc-icon-circle text-muted">
+    <?= e(trans('offline.snipcartshop::lang.plugin.custom_fields.is_not_required')) ?>
+</span>
+<?php endif; ?>

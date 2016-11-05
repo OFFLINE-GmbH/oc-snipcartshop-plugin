@@ -123,3 +123,31 @@ tabs:
             span: auto
             type: dropdown
             tab: 'offline.snipcartshop::lang.plugin.common.inventory'
+        main_image:
+            label: 'offline.snipcartshop::lang.plugin.common.main_image'
+            oc.commentPosition: ''
+            mode: image
+            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
+            imageWidth: '120'
+            imageHeight: '120'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.common.images'
+        images:
+            label: 'offline.snipcartshop::lang.plugin.common.images'
+            oc.commentPosition: ''
+            mode: image
+            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
+            imageWidth: '120'
+            imageHeight: '120'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.common.images'

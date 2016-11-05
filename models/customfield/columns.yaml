@@ -6,10 +6,12 @@ columns:
         sortable: true
     type:
         label: 'offline.snipcartshop::lang.plugin.custom_fields.type'
-        type: text
+        type: partial
+        path: $/offline/snipcartshop/models/customfield/_type.htm
         searchable: true
         sortable: true
     required:
         label: 'offline.snipcartshop::lang.plugin.custom_fields.required'
-        type: switch
+        type: partial
+        path: $/offline/snipcartshop/models/customfield/_required.htm
         searchable: true

@@ -19,6 +19,9 @@
             'custom_fields' => 'Benutzerdefinierte Felder',
             'variants' => 'Varianten',
             'select_placeholder' => '-- Bitte wählen',
+            'main_image' => 'Hauptbild',
+            'images' => 'Bilder',
+            'select_image' => 'Bild auswählen',
         ],
         'variant' => [
             'method' => [
@@ -33,7 +36,8 @@
             'add' => 'Option hinzufügen',
             'name' => 'Name',
             'price' => 'Aufpreis',
-            'attributes' => 'Attribute'
+            'attributes' => 'Attribute',
+            'option' => 'Option'
         ],
         'product' => [
             'user_defined_id' => 'Artikelnummer',
@@ -66,7 +70,9 @@
             'type' => 'Typ',
             'options' => 'Optionen',
             'required' => 'Pflichtfeld',
-            'required_comment' => 'Dieses Feld muss beim Tätigen einer Bestellung ausgefüllt werden'
+            'required_comment' => 'Dieses Feld muss beim Tätigen einer Bestellung ausgefüllt werden',
+            'is_required' => 'Pflichtfeld',
+            'is_not_required' => 'Kein Pflichtfeld',
         ],
     ],
 ];
