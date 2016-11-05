@@ -2,6 +2,7 @@
 
 use OFFLINE\SnipcartShop\Models\CustomField;
 use OFFLINE\SnipcartShop\Models\Product;
+use OFFLINE\SnipcartShop\Models\Variant;
 use PluginTestCase;
 
 class CustomFieldTest extends PluginTestCase

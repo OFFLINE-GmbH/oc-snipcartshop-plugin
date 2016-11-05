@@ -33,4 +33,5 @@ class CustomField extends Model
             'otherKey' => 'variant_id',
         ],
     ];
+
 }
