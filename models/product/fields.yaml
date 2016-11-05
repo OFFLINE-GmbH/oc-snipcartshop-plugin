@@ -1,0 +1,125 @@
+fields:
+    user_defined_id:
+        label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    name:
+        label: 'offline.snipcartshop::lang.plugin.product.name'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    price:
+        label: 'offline.snipcartshop::lang.plugin.product.price'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    description_short:
+        label: 'offline.snipcartshop::lang.plugin.product.description_short'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    description:
+        label: 'offline.snipcartshop::lang.plugin.product.description'
+        size: ''
+        oc.commentPosition: ''
+        span: auto
+        type: richeditor
+    published:
+        label: 'offline.snipcartshop::lang.plugin.product.published'
+        span: auto
+        type: switch
+        comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
+tabs:
+    fields:
+        custom_fields@update:
+            label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+            oc.commentPosition: ''
+            list: $/offline/snipcartshop/models/customfield/columns.yaml
+            span: auto
+            type: partial
+            path: $/offline/snipcartshop/controllers/products/_custom_fields.htm
+            tab: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+        variants@update:
+            label: 'offline.snipcartshop::lang.plugin.common.variants'
+            oc.commentPosition: ''
+            list: $/offline/snipcartshop/models/variant/columns.yaml
+            span: auto
+            type: partial
+            path: $/offline/snipcartshop/controllers/products/_variants.htm
+            tab: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+        shippable:
+            label: 'offline.snipcartshop::lang.plugin.product.shippable'
+            span: auto
+            type: switch
+            comment: 'offline.snipcartshop::lang.plugin.product.shippable_comment'
+            tab: 'offline.snipcartshop::lang.plugin.common.shipping'
+        weight:
+            label: 'offline.snipcartshop::lang.plugin.product.weight'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.shipping'
+        width:
+            label: 'offline.snipcartshop::lang.plugin.product.width'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.shipping'
+        length:
+            label: 'offline.snipcartshop::lang.plugin.product.length'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.shipping'
+        height:
+            label: 'offline.snipcartshop::lang.plugin.product.height'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.shipping'
+        taxable:
+            label: 'offline.snipcartshop::lang.plugin.product.taxable'
+            span: auto
+            type: switch
+            comment: 'offline.snipcartshop::lang.plugin.product.taxable_comment'
+            tab: 'offline.snipcartshop::lang.plugin.common.taxes'
+        stackable:
+            label: 'offline.snipcartshop::lang.plugin.product.stackable'
+            span: auto
+            type: switch
+            comment: 'offline.snipcartshop::lang.plugin.product.stackable_comment'
+            tab: 'offline.snipcartshop::lang.plugin.common.cart'
+        quantity_default:
+            label: 'offline.snipcartshop::lang.plugin.product.quantity_default'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.cart'
+        quantity_min:
+            label: 'offline.snipcartshop::lang.plugin.product.quantity_min'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.cart'
+        quantity_max:
+            label: 'offline.snipcartshop::lang.plugin.product.quantity_max'
+            oc.commentPosition: ''
+            span: auto
+            type: number
+            tab: 'offline.snipcartshop::lang.plugin.common.cart'
+        allow_out_of_stock_purchases:
+            label: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases'
+            span: auto
+            type: switch
+            comment: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases_comment'
+            tab: 'offline.snipcartshop::lang.plugin.common.inventory'
+        inventory_management_method:
+            label: 'offline.snipcartshop::lang.plugin.product.inventory_management_method'
+            oc.commentPosition: ''
+            options:
+                singe: 'offline.snipcartshop::lang.plugin.variant.method.single'
+                variant: 'offline.snipcartshop::lang.plugin.variant.method.variant'
+            span: auto
+            type: dropdown
+            tab: 'offline.snipcartshop::lang.plugin.common.inventory'

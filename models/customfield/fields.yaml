@@ -1,0 +1,42 @@
+fields:
+    required:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.required'
+        span: full
+        type: switch
+        comment: 'offline.snipcartshop::lang.plugin.custom_fields.required_comment'
+    name:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.name'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    type:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.type'
+        oc.commentPosition: ''
+        options:
+            text: 'offline.snipcartshop::lang.plugin.custom_field_options.text'
+            textarea: 'offline.snipcartshop::lang.plugin.custom_field_options.textarea'
+            dropdown: 'offline.snipcartshop::lang.plugin.custom_field_options.dropdown'
+        span: auto
+        type: dropdown
+    options:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.options'
+        oc.commentPosition: ''
+        prompt: 'offline.snipcartshop::lang.plugin.custom_field_options.add'
+        span: full
+        type: repeater
+        trigger:
+            action: show
+            field: type
+            condition: value[dropdown]
+        form:
+            fields:
+                name:
+                    label: 'offline.snipcartshop::lang.plugin.custom_fields.name'
+                    oc.commentPosition: ''
+                    span: auto
+                    type: text
+                price:
+                    label: 'offline.snipcartshop::lang.plugin.product.price'
+                    oc.commentPosition: ''
+                    span: auto
+                    type: number

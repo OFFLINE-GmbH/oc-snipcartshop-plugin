@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: id
+    custom_fields:
+        label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+        type: text
+        sortable: true
+    stock:
+        label: 'offline.snipcartshop::lang.plugin.product.stock'
+        type: number
+        sortable: true
+    allow_out_of_stock_purchases:
+        label: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases'
+        type: switch
+        searchable: true
+        sortable: true

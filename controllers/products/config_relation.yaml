@@ -1,0 +1,23 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+custom_fields:
+    label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+    view:
+        list: $/offline/snipcartshop/models/customfield/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/offline/snipcartshop/models/customfield/fields.yaml
+        recordsPerPage: 10
+    deferredBinding: true
+
+variants:
+    label: 'offline.snipcartshop::lang.plugin.common.variants'
+    view:
+        list: $/offline/snipcartshop/models/variant/columns.yaml
+        toolbarButtons: create|delete
+    manage:
+        form: $/offline/snipcartshop/models/variant/fields.yaml
+        recordsPerPage: 10
+    deferredBinding: true

@@ -1,0 +1,15 @@
+columns:
+    name:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.name'
+        type: text
+        searchable: true
+        sortable: true
+    type:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.type'
+        type: text
+        searchable: true
+        sortable: true
+    required:
+        label: 'offline.snipcartshop::lang.plugin.custom_fields.required'
+        type: switch
+        searchable: true

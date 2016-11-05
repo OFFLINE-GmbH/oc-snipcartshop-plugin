@@ -1,0 +1,16 @@
+plugin:
+    name: 'offline.snipcartshop::lang.plugin.name'
+    description: 'offline.snipcartshop::lang.plugin.description'
+    author: 'OFFLINE GmbH'
+    icon: oc-icon-shopping-cart
+    homepage: ''
+navigation:
+    snipcart-shop:
+        label: 'offline.snipcartshop::lang.plugin.common.shop'
+        url: offline/snipcartshop/products
+        icon: icon-shopping-cart
+        sideMenu:
+            snipcartshop-products:
+                label: 'offline.snipcartshop::lang.plugin.common.products'
+                url: offline/snipcartshop/products
+                icon: icon-cart-plus
