@@ -31,6 +31,14 @@ class Product extends Model
         'images'    => 'System\Models\File',
         'downloads' => 'System\Models\File',
     ];
+    public $hasManyThrough = [
+        'customfieldoptions' => [
+            'OFFLINE\SnipcartShop\Models\CustomFieldOption',
+            'key'        => 'product_id',
+            'through'    => 'OFFLINE\SnipcartShop\Models\Variant',
+            'throughKey' => 'custom_field_id',
+        ],
+    ];
 
     public function getVariantOptionsAttribute()
     {
