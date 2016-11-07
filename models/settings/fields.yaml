@@ -1,0 +1,56 @@
+fields:
+    currency_section:
+        label: offline.snipcartshop::lang.plugin.settings.sections.currencies
+        type: section
+        span: left
+        comment: offline.snipcartshop::lang.plugin.settings.sections.currencies_comment
+
+    currencies:
+        type: repeater
+        span: left
+        label: offline.snipcartshop::lang.plugin.settings.currencies
+        form:
+            fields:
+                code:
+                    type: text
+                    label: offline.snipcartshop::lang.plugin.settings.currency_code
+#
+#
+#    allowed_extensions:
+#        type: text
+#        span: right
+#        label: offline.snipcartshop::lang.plugin.settings.allowed_extensions
+#        comment: offline.snipcartshop::lang.plugin.settings.allowed_extensions_comment
+#        placeholder: "jpg,jpeg,png,gif"
+#
+#    log_unprocessable:
+#        type: switch
+#        span: right
+#        label: offline.snipcartshop::lang.plugin.settings.log_unprocessable
+#        comment: offline.snipcartshop::lang.plugin.settings.log_unprocessable_comment
+#
+#    html_section:
+#        label: offline.snipcartshop::lang.plugin.settings.sections.html
+#        type: section
+#        comment: offline.snipcartshop::lang.plugin.settings.sections.html_comment
+#
+#    alternative_src:
+#        type: text
+#        span: left
+#        label: offline.snipcartshop::lang.plugin.settings.alternative_src
+#        comment: offline.snipcartshop::lang.plugin.settings.alternative_src_comment
+#        placeholder: "data-original"
+#
+#    alternative_src_set:
+#        type: text
+#        span: right
+#        label: offline.snipcartshop::lang.plugin.settings.alternative_src_set
+#        comment: offline.snipcartshop::lang.plugin.settings.alternative_src_set_comment
+#        placeholder: "data-original-set"
+#
+#    add_class:
+#        type: text
+#        span: left
+#        label: offline.snipcartshop::lang.plugin.settings.add_class
+#        comment: offline.snipcartshop::lang.plugin.settings.add_class_comment
+#        placeholder: "img-responsive"

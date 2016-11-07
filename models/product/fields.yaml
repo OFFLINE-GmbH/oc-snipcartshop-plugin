@@ -1,31 +1,19 @@
 fields:
-    user_defined_id:
-        label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
-        oc.commentPosition: ''
-        span: auto
-        type: text
     name:
         label: 'offline.snipcartshop::lang.plugin.product.name'
         oc.commentPosition: ''
         span: auto
         type: text
-    price:
-        label: 'offline.snipcartshop::lang.plugin.product.price'
+    user_defined_id:
+        label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
         oc.commentPosition: ''
         span: auto
-        type: number
-        tab: 'offline.snipcartshop::lang.plugin.product.price'
+        type: text
     published:
         label: 'offline.snipcartshop::lang.plugin.product.published'
         span: auto
         type: switch
         comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
-    currency:
-        label: 'offline.snipcartshop::lang.plugin.product.currency'
-        oc.commentPosition: ''
-        span: auto
-        type: text
-        tab: 'offline.snipcartshop::lang.plugin.product.price'
 tabs:
     fields:
         description_short:
@@ -83,7 +71,8 @@ tabs:
                         label: 'offline.snipcartshop::lang.plugin.product.currency'
                         oc.commentPosition: ''
                         span: auto
-                        type: text
+                        type: dropdown
+
                     price:
                         label: 'offline.snipcartshop::lang.plugin.product.price'
                         oc.commentPosition: ''

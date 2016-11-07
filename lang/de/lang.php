@@ -9,6 +9,17 @@
                 'preview' => 'Produkt-Vorschau',
             ]
         ],
+        'settings' => [
+            'category' => 'Shop',
+            'label' => 'Snipcart-Shop konfigurieren',
+            'description' => 'Konfigurieren Sie Ihren Shop',
+            'sections' => [
+                'currencies' => 'Währungen',
+                'currencies_comment' => 'Welche Währungen werden in Ihrem Shop verwendet?'
+            ],
+            'currencies' => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
+            'currency_code' => 'Währungscode'
+        ],
         'common' => [
             'shop' => 'Shop',
             'products' => 'Produkte',

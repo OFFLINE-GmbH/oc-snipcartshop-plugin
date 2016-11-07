@@ -10,6 +10,17 @@ class Plugin extends PluginBase
 
     public function registerSettings()
     {
+        return [
+            'settings' => [
+                'label'       => 'offline.snipcartshop::lang.plugin.settings.label',
+                'description' => 'offline.snipcartshop::lang.plugin.settings.description',
+                'category'    => 'offline.snipcartshop::lang.plugin.settings.category',
+                'icon'        => 'icon-shop',
+                'class'       => 'OFFLINE\SnipcartShop\Models\Settings',
+                'order'       => 0,
+                'keywords'    => 'shop store snipcart'
+            ]
+        ];
     }
 
     public function registerFormWidgets()
