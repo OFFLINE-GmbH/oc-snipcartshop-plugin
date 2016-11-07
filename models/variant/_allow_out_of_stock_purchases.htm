@@ -1,0 +1,9 @@
+<?php if($value): ?>
+<span class="oc-icon-circle text-success">
+    <?= e(trans('offline.snipcartshop::lang.plugin.common.allowed')) ?>
+</span>
+<?php else: ?>
+<span class="oc-icon-circle text-muted">
+    <?= e(trans('offline.snipcartshop::lang.plugin.common.not_allowed')) ?>
+</span>
+<?php endif; ?>

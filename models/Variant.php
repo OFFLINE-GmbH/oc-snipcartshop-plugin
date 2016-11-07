@@ -27,7 +27,7 @@ class Variant extends Model
             'OFFLINE\SnipcartShop\Models\CustomFieldOption',
             'table'    => 'offline_snipcartshop_product_variant_custom_field_option',
             'key'      => 'variant_id',
-            'otherKey' => 'custom_field_option_id',
+            'otherKey' => 'custom_field_option_id'
         ],
     ];
 

@@ -29,7 +29,7 @@ class BuilderTableCreateOfflineSnipcartshopProducts extends Migration
             $table->boolean('stackable')->default(true);
             $table->boolean('shippable')->default(true);
             $table->boolean('taxable')->default(true);
-            $table->boolean('published')->default(true);
+            $table->boolean('published')->default(false);
             $table->timestamps();
         });
     }

@@ -18,7 +18,7 @@ class CustomField extends Model
     public $rules = [
         'product_id' => 'exists:offline_snipcartshop_products,id',
         'name'       => 'required',
-        'type'       => 'in:text,textarea,dropdown',
+        'type'       => 'in:text,textarea,dropdown,checkbox',
         'required'   => 'boolean',
     ];
 

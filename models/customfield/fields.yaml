@@ -16,6 +16,7 @@ fields:
             text: 'offline.snipcartshop::lang.plugin.custom_field_options.text'
             textarea: 'offline.snipcartshop::lang.plugin.custom_field_options.textarea'
             dropdown: 'offline.snipcartshop::lang.plugin.custom_field_options.dropdown'
+            checkbox: 'offline.snipcartshop::lang.plugin.custom_field_options.checkbox'
         span: auto
         type: dropdown
     fieldOptions:

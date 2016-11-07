@@ -22,6 +22,8 @@
             'main_image' => 'Hauptbild',
             'images' => 'Bilder',
             'select_image' => 'Bild auswählen',
+            'allowed' => 'Erlaubt',
+            'not_allowed' => 'Nicht erlaubt',
         ],
         'variant' => [
             'method' => [
@@ -33,6 +35,7 @@
             'text' => 'Textfeld',
             'textarea' => 'Mehrzeiliges Textfeld',
             'dropdown' => 'Auswahlliste',
+            'checkbox' => 'Checkbox',
             'add' => 'Option hinzufügen',
             'name' => 'Name',
             'price' => 'Aufpreis',
@@ -64,6 +67,8 @@
             'shippable_comment' => 'Dieser Artikel kann versendet werden',
             'taxable' => 'Besteuert',
             'taxable_comment' => 'Auf diesen Artikel fallen Steuern an',
+            'add_currency' => 'Währung hinzufügen',
+            'currency' => 'Währung',
         ],
         'custom_fields' => [
             'name' => 'Feldname',

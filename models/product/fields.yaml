@@ -13,25 +13,83 @@ fields:
         label: 'offline.snipcartshop::lang.plugin.product.price'
         oc.commentPosition: ''
         span: auto
-        type: text
-    description_short:
-        label: 'offline.snipcartshop::lang.plugin.product.description_short'
-        oc.commentPosition: ''
-        span: auto
-        type: text
-    description:
-        label: 'offline.snipcartshop::lang.plugin.product.description'
-        size: ''
-        oc.commentPosition: ''
-        span: auto
-        type: richeditor
+        type: number
+        tab: 'offline.snipcartshop::lang.plugin.product.price'
     published:
         label: 'offline.snipcartshop::lang.plugin.product.published'
         span: auto
         type: switch
         comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
+    currency:
+        label: 'offline.snipcartshop::lang.plugin.product.currency'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+        tab: 'offline.snipcartshop::lang.plugin.product.price'
 tabs:
     fields:
+        description_short:
+            label: 'offline.snipcartshop::lang.plugin.product.description_short'
+            oc.commentPosition: ''
+            span: auto
+            type: text
+            tab: 'offline.snipcartshop::lang.plugin.product.description'
+        main_image:
+            label: 'offline.snipcartshop::lang.plugin.common.main_image'
+            oc.commentPosition: ''
+            mode: image
+            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
+            imageWidth: '120'
+            imageHeight: '120'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.product.description'
+        description:
+            label: 'offline.snipcartshop::lang.plugin.product.description'
+            size: giant
+            oc.commentPosition: ''
+            span: left
+            type: richeditor
+            tab: 'offline.snipcartshop::lang.plugin.product.description'
+        images:
+            label: 'offline.snipcartshop::lang.plugin.common.images'
+            oc.commentPosition: ''
+            mode: image
+            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
+            imageWidth: '120'
+            imageHeight: '120'
+            useCaption: true
+            thumbOptions:
+                mode: crop
+                extension: auto
+            span: auto
+            type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.product.description'
+
+        price:
+            label: 'offline.snipcartshop::lang.plugin.product.price'
+            oc.commentPosition: ''
+            prompt: 'offline.snipcartshop::lang.plugin.product.add_currency'
+            span: full
+            type: repeater
+            tab: 'offline.snipcartshop::lang.plugin.product.price'
+            form:
+                fields:
+                    currency:
+                        label: 'offline.snipcartshop::lang.plugin.product.currency'
+                        oc.commentPosition: ''
+                        span: auto
+                        type: text
+                    price:
+                        label: 'offline.snipcartshop::lang.plugin.product.price'
+                        oc.commentPosition: ''
+                        span: auto
+                        type: number
+
         custom_fields@update:
             label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
             oc.commentPosition: ''
@@ -123,31 +181,3 @@ tabs:
             span: auto
             type: dropdown
             tab: 'offline.snipcartshop::lang.plugin.common.inventory'
-        main_image:
-            label: 'offline.snipcartshop::lang.plugin.common.main_image'
-            oc.commentPosition: ''
-            mode: image
-            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
-            imageWidth: '120'
-            imageHeight: '120'
-            useCaption: true
-            thumbOptions:
-                mode: crop
-                extension: auto
-            span: auto
-            type: fileupload
-            tab: 'offline.snipcartshop::lang.plugin.common.images'
-        images:
-            label: 'offline.snipcartshop::lang.plugin.common.images'
-            oc.commentPosition: ''
-            mode: image
-            prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
-            imageWidth: '120'
-            imageHeight: '120'
-            useCaption: true
-            thumbOptions:
-                mode: crop
-                extension: auto
-            span: auto
-            type: fileupload
-            tab: 'offline.snipcartshop::lang.plugin.common.images'

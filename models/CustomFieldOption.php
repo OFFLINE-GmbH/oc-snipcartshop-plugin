@@ -27,6 +27,7 @@ class CustomFieldOption extends Model
 
     public $belongsTo = [
         'product' => 'OFFLINE\SnipcartShop\Models\Product',
+        'custom_field' => 'OFFLINE\SnipcartShop\Models\CustomField',
     ];
 
     public $belongsToMany = [
