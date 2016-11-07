@@ -11,14 +11,6 @@ class Variant extends Model
 
     public $table = 'offline_snipcartshop_product_variants';
     public $timestamps = true;
-    public $jsonable = ['options'];
-
-    /**
-     * Used to add the custom field relations after
-     * saving the variant.
-     * @var array
-     */
-    public $deferredCustomFields = null;
 
     public $rules = [
         'product_id'                   => 'required|exists:offline_snipcartshop_products,id',
@@ -31,12 +23,12 @@ class Variant extends Model
     ];
 
     public $belongsToMany = [
-        'custom_fields' => [
-            'OFFLINE\SnipcartShop\Models\CustomField',
-            'table'    => 'offline_snipcartshop_product_variant_custom_field',
+        'custom_field_options' => [
+            'OFFLINE\SnipcartShop\Models\CustomFieldOption',
+            'table'    => 'offline_snipcartshop_product_variant_custom_field_option',
             'key'      => 'variant_id',
-            'otherKey' => 'custom_field_id',
-            'pivot' => ['option']
+            'otherKey' => 'custom_field_option_id',
         ],
     ];
+
 }

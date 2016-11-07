@@ -9,7 +9,7 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: number
-    custom_fields:
+    custom_field_options:
         label: ''
         oc.commentPosition: ''
         span: full

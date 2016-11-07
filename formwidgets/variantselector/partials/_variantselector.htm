@@ -8,8 +8,8 @@
 
 <?php
 foreach($fields as $label => $field):
-$customField = $value->find($field->id);
-$currentValue = $customField ? $customField->pivot->option : '';
+$customFieldOption = $value->where('custom_field_id', $field->id)->first();
+$currentValue = $customFieldOption ? $customFieldOption->id : '';
 ?>
 
 <div class="form-group">
@@ -18,10 +18,10 @@ $currentValue = $customField ? $customField->pivot->option : '';
             id="<?= $this->getId('input') . $field->id ?>">
         <option value=""><?= e(trans('offline.snipcartshop::lang.plugin.common.select_placeholder')) ?></option>
         <?php
-        foreach($field->options as $option):
-        $selected = $currentValue === $option['name'] ? 'selected="selected"' : '';
+        foreach($field->options()->get() as $option):
+        $selected = $currentValue === $option->id ? 'selected="selected"' : '';
         ?>
-        <option value="<?= e($option['name']) ?>" <?= $selected ?>><?= e($option['name']) ?></option>
+        <option value="<?= e($option->id) ?>" <?= $selected ?>><?= e($option->name) ?></option>
         <?php endforeach; ?>
     </select>
 </div>

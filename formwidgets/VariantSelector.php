@@ -39,20 +39,7 @@ class VariantSelector extends FormWidgetBase
      */
     public function getLoadValue()
     {
-        return $this->model->custom_fields()->get();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getSaveValue($value)
-    {
-        $sync = [];
-        foreach ($value as $id => $option) {
-            $sync[$id] = ['option' => $option];
-        }
-
-        return $sync;
+        return $this->model->custom_field_options()->get();
     }
 
 }
