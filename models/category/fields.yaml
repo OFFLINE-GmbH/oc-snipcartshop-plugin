@@ -1,0 +1,21 @@
+fields:
+    name:
+        label: 'offline.snipcartshop::lang.plugin.category.name'
+        oc.commentPosition: ''
+        span: auto
+        type: text
+    meta_title:
+        label: 'offline.snipcartshop::lang.plugin.common.meta_title'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    meta_description:
+        label: 'offline.snipcartshop::lang.plugin.common.meta_description'
+        size: large
+        oc.commentPosition: ''
+        span: left
+        type: textarea
+    parent:
+        label: 'offline.snipcartshop::lang.plugin.category.parent'
+        type: dropdown
+        span: left

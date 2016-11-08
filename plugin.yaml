@@ -14,3 +14,7 @@ navigation:
                 label: 'offline.snipcartshop::lang.plugin.common.products'
                 url: offline/snipcartshop/products
                 icon: icon-cart-plus
+            snipcartshop-categories:
+                label: 'offline.snipcartshop::lang.plugin.common.categories'
+                url: offline/snipcartshop/categories
+                icon: icon-sitemap
