@@ -11,6 +11,9 @@ class Category extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\NestedTree;
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+    public $translatable = ['name', 'meta_description', 'meta_title'];
+
     public $rules = [
         'name' => 'required',
     ];

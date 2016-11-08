@@ -13,6 +13,9 @@ class Product extends Model
     public $timestamps = true;
     public $jsonable = ['price'];
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+    public $translatable = ['name', 'description_short', 'description', 'meta_title', 'meta_description'];
+
     public $rules = [
         'name'  => 'required',
         'price' => 'required',

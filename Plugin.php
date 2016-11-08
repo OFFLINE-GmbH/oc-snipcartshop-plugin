@@ -15,7 +15,7 @@ class Plugin extends PluginBase
                 'label'       => 'offline.snipcartshop::lang.plugin.settings.label',
                 'description' => 'offline.snipcartshop::lang.plugin.settings.description',
                 'category'    => 'offline.snipcartshop::lang.plugin.settings.category',
-                'icon'        => 'icon-shop',
+                'icon'        => 'icon-shopping-cart',
                 'class'       => 'OFFLINE\SnipcartShop\Models\Settings',
                 'order'       => 0,
                 'keywords'    => 'shop store snipcart'

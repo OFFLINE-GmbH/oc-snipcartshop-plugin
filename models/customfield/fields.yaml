@@ -36,13 +36,14 @@ fields:
                     oc.commentPosition: ''
                     span: auto
                     type: text
-                name:
+                    cssClass: 'hidden'
+                option_name:
                     label: 'offline.snipcartshop::lang.plugin.custom_field_options.option'
                     oc.commentPosition: ''
-                    span: auto
+                    span: left
                     type: text
-                price:
+                option_price:
                     label: 'offline.snipcartshop::lang.plugin.product.price'
                     oc.commentPosition: ''
-                    span: auto
+                    span: right
                     type: number

@@ -9,9 +9,11 @@ class CustomFieldOption extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
-
     public $table = 'offline_snipcartshop_product_custom_field_options';
     public $timestamps = true;
+
+//    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+//    public $translatable = ['name'];
 
     public $fillable = [
         'id',
