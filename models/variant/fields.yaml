@@ -1,0 +1,17 @@
+fields:
+    allow_out_of_stock_purchases:
+        label: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases'
+        span: auto
+        type: switch
+        comment: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases_comment'
+    stock:
+        label: 'offline.snipcartshop::lang.plugin.product.stock'
+        oc.commentPosition: ''
+        span: auto
+        type: number
+    custom_field_options:
+        label: ''
+        oc.commentPosition: ''
+        span: full
+        type: OFFLINE\SnipcartShop\FormWidgets\VariantSelector
+

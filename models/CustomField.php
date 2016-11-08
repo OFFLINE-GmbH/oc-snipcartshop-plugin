@@ -1,0 +1,127 @@
+<?php namespace OFFLINE\SnipcartShop\Models;
+
+use Model;
+
+/**
+ * CustomField Model
+ */
+class CustomField extends Model
+{
+    use \October\Rain\Database\Traits\Validation;
+
+
+    public $table = 'offline_snipcartshop_product_custom_fields';
+    public $timestamps = true;
+    public $jsonable = ['options'];
+    public $fieldOptions = [];
+
+    public $rules = [
+        'product_id' => 'exists:offline_snipcartshop_products,id',
+        'name'       => 'required',
+        'type'       => 'in:text,textarea,dropdown,checkbox',
+        'required'   => 'boolean',
+    ];
+
+    public $belongsTo = [
+        'product' => 'OFFLINE\SnipcartShop\Models\Product',
+    ];
+    public $hasMany = [
+        'options' => ['OFFLINE\SnipcartShop\Models\CustomFieldOption', 'order' => 'sort_order'],
+    ];
+
+    public $belongsToMany = [
+        'variants' => [
+            'OFFLINE\SnipcartShop\Models\Variant',
+            'table'    => 'offline_snipcartshop_product_variant_custom_field',
+            'key'      => 'custom_field_id',
+            'otherKey' => 'variant_id',
+        ],
+    ];
+
+    public function afterSave()
+    {
+        $this->handleFieldOptionsChanges();
+    }
+
+    public function afterFetch()
+    {
+        $this->setFieldOptions();
+    }
+
+    /**
+     * This method creates, updates and deletes all releated field
+     * options. We need to implement our own relation handler here since
+     * October does not support a convenient way to manage hasManyThrough
+     * relations via the backend yet.
+     */
+    protected function handleFieldOptionsChanges()
+    {
+        $this->handleRemovedFieldOptions();
+
+        // Field is set by repeater form widget
+        $sortOrder = input('___index_fieldOptions', []);
+
+        foreach ($this->fieldOptions as $index => $data) {
+            $data['sort_order'] = array_key_exists($index, $sortOrder) ? $sortOrder[$index] : 0;
+            // Existing fields have an id
+            if ($data['id']) {
+                $this->updateRelatedFieldOption($data);
+            } else {
+                $this->createRelatedFieldOption($data);
+            }
+        }
+
+        // Reload the new options into the fieldOptions attribute.
+        $this->setFieldOptions();
+    }
+
+    /**
+     * This method is used to populate the related field options
+     * attribute with data for the repeater field in the backend.
+     */
+    protected function setFieldOptions()
+    {
+        $this->fieldOptions = $this->options()->get()->map(function ($item) {
+            return ['id' => $item->id, 'name' => $item->name, 'price' => $item->price];
+        })->toArray();
+    }
+
+    /**
+     * Removes field options that are no longer present
+     * in the post data sent by the repeater form widget.
+     */
+    protected function handleRemovedFieldOptions()
+    {
+        $existing = $this->options()->get()->pluck('id')->toArray();
+        $sent     = collect($this->fieldOptions)->pluck('id')->toArray();
+
+        $removed = array_diff($existing, $sent);
+
+        CustomFieldOption::whereIn('id', $removed)->delete();
+    }
+
+    /**
+     * This method updates a related field option with
+     * the data sent by the repeater form widget.
+     */
+    protected function updateRelatedFieldOption(array $data)
+    {
+        $option = CustomFieldOption::find($data['id']);
+        $option->fill($data);
+        $option->save();
+
+        return $option;
+    }
+
+    /**
+     * This method creates a related field option with
+     * the data sent by the repeater form widget.
+     */
+    protected function createRelatedFieldOption(array $data)
+    {
+        $option = CustomFieldOption::create($data);
+        $this->options()->save($option);
+
+        return $option;
+    }
+}

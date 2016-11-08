@@ -1,0 +1,18 @@
+columns:
+    user_defined_id:
+        label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
+        type: text
+        searchable: true
+        sortable: true
+    name:
+        label: 'offline.snipcartshop::lang.plugin.product.name'
+        type: text
+        searchable: true
+        sortable: true
+    published:
+        label: 'offline.snipcartshop::lang.plugin.product.published'
+        type: text
+        sortable: true
+    stock:
+        label: 'offline.snipcartshop::lang.plugin.product.stock'
+        type: number
