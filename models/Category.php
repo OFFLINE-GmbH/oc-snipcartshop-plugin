@@ -1,6 +1,5 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
-use Illuminate\Http\Request;
 use Model;
 
 /**
@@ -44,15 +43,60 @@ class Category extends Model
     {
         $options = [
             // null key for "no parent"
-            null => '(' . trans('offline.snipcartshop::lang.plugin.category.no_parent') . ')'
+            null => '(' . trans('offline.snipcartshop::lang.plugin.category.no_parent') . ')',
         ];
 
         // In edit mode, exclude the node itself.
         $items = $this->id ? Category::withoutSelf()->get() : Category::getAll();
-        $items->each(function($item) use (&$options) {
+        $items->each(function ($item) use (&$options) {
             return $options[$item->id] = sprintf('%s %s', str_repeat('--', $item->getLevel()), $item->name);
         });
 
         return $options;
+    }
+
+    public static function getMenuTypeInfo($type)
+    {
+        $result = [];
+        if ($type == 'all-snipcartshop-categories') {
+            $result = [
+                'dynamicItems' => true,
+            ];
+        }
+//        if ($result) {
+//            $references = [];
+//            Category::get()->each(function($item) use (&$references) {
+//                $references[$item->id] = $item->name;
+//            });
+//            $result['references'] = $references;
+//        }
+        return $result;
+    }
+
+    public static function resolveMenuItem($item, $url, $theme)
+    {
+        $structure = [];
+        $category  = new Category();
+
+        $iterator = function ($items) use (&$iterator, &$structure) {
+            $branch = [];
+            foreach ($items as $item) {
+                $branchItem             = [];
+                $branchItem['url']      = 'url';
+                $branchItem['isActive'] = true;
+                $branchItem['title']    = $item->name;
+                if ($item->children) {
+                    $branchItem['items'] = $iterator($item->children);
+                }
+
+                $branch[] = $branchItem;
+            }
+
+            return $branch;
+        };
+
+        $structure['items'] = $iterator($category->getEagerRoot());
+
+        return $structure;
     }
 }
