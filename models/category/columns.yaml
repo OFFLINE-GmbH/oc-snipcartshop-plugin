@@ -1,0 +1,6 @@
+columns:
+    name:
+        label: 'offline.snipcartshop::lang.plugin.category.name'
+        type: text
+        searchable: true
+        sortable: true

@@ -11,7 +11,8 @@ columns:
         sortable: true
     published:
         label: 'offline.snipcartshop::lang.plugin.product.published'
-        type: text
+        type: partial
+        path: $/offline/snipcartshop/models/product/_published.htm
         sortable: true
     stock:
         label: 'offline.snipcartshop::lang.plugin.product.stock'

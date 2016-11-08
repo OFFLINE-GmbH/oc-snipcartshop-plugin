@@ -7,7 +7,12 @@
                 'create' => 'Produkt erstellen',
                 'update' => 'Produkt bearbeiten',
                 'preview' => 'Produkt-Vorschau',
-            ]
+            ],
+            'categories' => [
+                'create' => 'Kategorie erstellen',
+                'update' => 'Kategorie bearbeiten',
+                'preview' => 'Kategorie-Vorschau',
+            ],
         ],
         'settings' => [
             'category' => 'Shop',
@@ -35,6 +40,12 @@
             'select_image' => 'Bild auswählen',
             'allowed' => 'Erlaubt',
             'not_allowed' => 'Nicht erlaubt',
+            'seo' => 'SEO',
+            'categories' => 'Kategorien',
+            'meta_title' => 'Meta-Titel',
+            'meta_description' => 'Meta-Beschreibung',
+            'reorder' => 'Reihenfolge ändern',
+            'id' => 'ID',
         ],
         'variant' => [
             'method' => [
@@ -57,6 +68,7 @@
             'user_defined_id' => 'Artikelnummer',
             'name' => 'Produktname',
             'published' => 'Veröffentlicht',
+            'not_published' => 'Nicht veröffentlicht',
             'published_comment' => 'Dieser Artikel ist im Shop sichtbar',
             'stock' => 'Lagerbestand',
             'price' => 'Preis',
@@ -80,6 +92,11 @@
             'taxable_comment' => 'Auf diesen Artikel fallen Steuern an',
             'add_currency' => 'Währung hinzufügen',
             'currency' => 'Währung',
+        ],
+        'category' => [
+            'name' => 'Name',
+            'parent' => 'Elternelement',
+            'no_parent' => 'Kein Elternelement',
         ],
         'custom_fields' => [
             'name' => 'Feldname',

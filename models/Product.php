@@ -41,6 +41,15 @@ class Product extends Model
         ],
     ];
 
+    public $belongsToMany = [
+        'categories' => [
+            'OFFLINE\SnipcartShop\Models\Category',
+            'table'    => 'offline_snipcartshop_category_product',
+            'key'      => 'product_id',
+            'otherKey' => 'category_id',
+        ],
+    ];
+
     /**
      * If only a single currency is configured, we
      * replace the currency repeater with a simple number input.
@@ -91,5 +100,10 @@ class Product extends Model
     public function getVariantOptionsAttribute()
     {
         return $this->custom_fields()->where('type', 'dropdown')->get();
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
     }
 }
