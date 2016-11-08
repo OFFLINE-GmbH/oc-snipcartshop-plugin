@@ -35,6 +35,9 @@
             'select_image' => 'Bild auswählen',
             'allowed' => 'Erlaubt',
             'not_allowed' => 'Nicht erlaubt',
+            'seo' => 'SEO',
+            'meta_title' => 'Meta-Titel',
+            'meta_description' => 'Meta-Beschreibung',
         ],
         'variant' => [
             'method' => [

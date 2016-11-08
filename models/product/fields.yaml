@@ -14,6 +14,18 @@ fields:
         span: auto
         type: switch
         comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
+    currency:
+        label: 'offline.snipcartshop::lang.plugin.product.currency'
+        oc.commentPosition: ''
+        span: auto
+        type: dropdown
+        tab: 'offline.snipcartshop::lang.plugin.product.price'
+    price:
+        label: 'offline.snipcartshop::lang.plugin.product.price'
+        oc.commentPosition: ''
+        span: auto
+        type: number
+        tab: 'offline.snipcartshop::lang.plugin.product.price'
 tabs:
     fields:
         description_short:
@@ -57,7 +69,6 @@ tabs:
             span: auto
             type: fileupload
             tab: 'offline.snipcartshop::lang.plugin.product.description'
-
         price:
             label: 'offline.snipcartshop::lang.plugin.product.price'
             oc.commentPosition: ''
@@ -72,13 +83,11 @@ tabs:
                         oc.commentPosition: ''
                         span: auto
                         type: dropdown
-
                     price:
                         label: 'offline.snipcartshop::lang.plugin.product.price'
                         oc.commentPosition: ''
                         span: auto
                         type: number
-
         custom_fields@update:
             label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
             oc.commentPosition: ''
@@ -170,3 +179,17 @@ tabs:
             span: auto
             type: dropdown
             tab: 'offline.snipcartshop::lang.plugin.common.inventory'
+        meta_title:
+            label: 'offline.snipcartshop::lang.plugin.common.meta_title'
+            oc.commentPosition: ''
+            span: auto
+            type: text
+            tab: 'offline.snipcartshop::lang.plugin.common.seo'
+        meta_description:
+            label: 'offline.snipcartshop::lang.plugin.common.meta_description'
+            size: large
+            oc.commentPosition: ''
+            span: left
+            type: textarea
+            tab: 'offline.snipcartshop::lang.plugin.common.seo'
+'': {  }

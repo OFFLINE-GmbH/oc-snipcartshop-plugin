@@ -5,3 +5,4 @@
     - builder_table_create_offline_snipcartshop_product_custom_fields.php
     - builder_table_create_offline_snipcartshop_product_custom_field_options.php
     - builder_table_create_offline_snipcartshop_product_variant_custom_field_option.php
+    - builder_table_create_offline_snipcartshop_categories.php

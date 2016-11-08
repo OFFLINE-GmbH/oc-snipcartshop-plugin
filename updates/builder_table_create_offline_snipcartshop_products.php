@@ -16,6 +16,8 @@ class BuilderTableCreateOfflineSnipcartshopProducts extends Migration
             $table->text('price');
             $table->string('description_short')->nullable();
             $table->text('description')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->integer('weight')->nullable()->unsigned();
             $table->integer('width')->nullable()->unsigned();
             $table->integer('length')->nullable()->unsigned();
