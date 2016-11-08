@@ -1,8 +1,4 @@
 columns:
-    id:
-        label: 'offline.snipcartshop::lang.plugin.common.id'
-        type: number
-        sortable: false
     name:
         label: 'offline.snipcartshop::lang.plugin.category.name'
         type: text

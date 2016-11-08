@@ -14,18 +14,6 @@ fields:
         span: auto
         type: switch
         comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
-    currency:
-        label: 'offline.snipcartshop::lang.plugin.product.currency'
-        oc.commentPosition: ''
-        span: auto
-        type: dropdown
-        tab: 'offline.snipcartshop::lang.plugin.product.price'
-    price:
-        label: 'offline.snipcartshop::lang.plugin.product.price'
-        oc.commentPosition: ''
-        span: auto
-        type: number
-        tab: 'offline.snipcartshop::lang.plugin.product.price'
 tabs:
     fields:
         description_short:
@@ -192,4 +180,11 @@ tabs:
             span: left
             type: textarea
             tab: 'offline.snipcartshop::lang.plugin.common.seo'
-'': {  }
+        categories:
+            label: 'offline.snipcartshop::lang.plugin.common.categories'
+            oc.commentPosition: ''
+            nameFrom: name
+            descriptionFrom: description
+            span: auto
+            type: relation
+            tab: 'offline.snipcartshop::lang.plugin.common.categories'

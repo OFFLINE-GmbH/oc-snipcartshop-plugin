@@ -19,6 +19,15 @@ class Category extends Model
 
     public $table = 'offline_snipcartshop_categories';
 
+    public $belongsToMany = [
+        'products' => [
+            'OFFLINE\SnipcartShop\Models\Product',
+            'table'    => 'offline_snipcartshop_category_product',
+            'key'      => 'category_id',
+            'otherKey' => 'product_id',
+        ],
+    ];
+
     /**
      * Returns an array with possible parent categories.
      *
