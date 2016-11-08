@@ -101,4 +101,9 @@ class Product extends Model
     {
         return $this->custom_fields()->where('type', 'dropdown')->get();
     }
+
+    public function scopePublished($query)
+    {
+        return $query->where('published', true);
+    }
 }

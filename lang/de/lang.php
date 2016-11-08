@@ -68,6 +68,7 @@
             'user_defined_id' => 'Artikelnummer',
             'name' => 'Produktname',
             'published' => 'Veröffentlicht',
+            'not_published' => 'Nicht veröffentlicht',
             'published_comment' => 'Dieser Artikel ist im Shop sichtbar',
             'stock' => 'Lagerbestand',
             'price' => 'Preis',
