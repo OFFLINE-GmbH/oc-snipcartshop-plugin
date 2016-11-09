@@ -4,11 +4,14 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
-    user_defined_id:
-        label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
+    slug:
+        label: 'offline.snipcartshop::lang.plugin.common.slug'
         oc.commentPosition: ''
         span: auto
         type: text
+        preset:
+            field: name
+            type: slug
     published:
         label: 'offline.snipcartshop::lang.plugin.product.published'
         span: auto
@@ -16,8 +19,8 @@ fields:
         comment: 'offline.snipcartshop::lang.plugin.product.published_comment'
 tabs:
     fields:
-        description_short:
-            label: 'offline.snipcartshop::lang.plugin.product.description_short'
+        user_defined_id:
+            label: 'offline.snipcartshop::lang.plugin.product.user_defined_id'
             oc.commentPosition: ''
             span: auto
             type: text
@@ -35,6 +38,12 @@ tabs:
                 extension: auto
             span: auto
             type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.product.description'
+        description_short:
+            label: 'offline.snipcartshop::lang.plugin.product.description_short'
+            oc.commentPosition: ''
+            span: auto
+            type: text
             tab: 'offline.snipcartshop::lang.plugin.product.description'
         description:
             label: 'offline.snipcartshop::lang.plugin.product.description'

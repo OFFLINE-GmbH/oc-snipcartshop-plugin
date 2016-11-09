@@ -1,0 +1,16 @@
+<div class="product">
+    <a href="{{ __SELF__.productPage | page({slug: product.slug}) }}">
+        <div class="product__image">
+            <img src="{{ product.image.thumb(200, 200, 'crop') }}" alt=""/>
+        </div>
+        <div class="product__name">
+            {{ product.name }}
+        </div>
+        <div class="product__description">
+            {{ product.description_short }}
+        </div>
+        <div class="product__price">
+            {{ product.priceFormatted }}
+        </div>
+    </a>
+</div>

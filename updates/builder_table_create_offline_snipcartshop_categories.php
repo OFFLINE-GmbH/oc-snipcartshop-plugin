@@ -12,6 +12,7 @@ class BuilderTableCreateOfflineSnipcartshopCategories extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name', 255);
+            $table->string('slug', 255)->unique();
             $table->string('meta_title');
             $table->text('meta_description');
             $table->integer('sort_order');

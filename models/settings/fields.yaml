@@ -1,9 +1,21 @@
 fields:
+    api_key:
+       label: offline.snipcartshop::lang.plugin.settings.api_key
+       type: text
+       span: full
+       comment: offline.snipcartshop::lang.plugin.settings.api_key_comment
+
     currency_section:
-        label: offline.snipcartshop::lang.plugin.settings.sections.currencies
+       label: offline.snipcartshop::lang.plugin.settings.sections.currencies
+       type: section
+       span: left
+       comment: offline.snipcartshop::lang.plugin.settings.sections.currencies_comment
+
+    checkout_section:
+        label: offline.snipcartshop::lang.plugin.settings.sections.checkout
         type: section
-        span: left
-        comment: offline.snipcartshop::lang.plugin.settings.sections.currencies_comment
+        span: right
+        comment: offline.snipcartshop::lang.plugin.settings.sections.checkout_comment
 
     currencies:
         type: repeater
@@ -14,6 +26,28 @@ fields:
                 code:
                     type: text
                     label: offline.snipcartshop::lang.plugin.settings.currency_code
+
+
+    auto_pop:
+        label: offline.snipcartshop::lang.plugin.settings.auto_pop
+        span: right
+        type: switch
+        default: "slug"
+        comment: offline.snipcartshop::lang.plugin.settings.auto_pop_comment
+
+    product_page:
+        label: offline.snipcartshop::lang.plugin.settings.product_page
+        span: right
+        type: dropdown
+        comment: offline.snipcartshop::lang.plugin.settings.product_page_comment
+
+    product_page_slug:
+        label: offline.snipcartshop::lang.plugin.settings.product_page_slug
+        span: right
+        type: text
+        default: "slug"
+        comment: offline.snipcartshop::lang.plugin.settings.product_page_slug_comment
+
 #
 #
 #    allowed_extensions:

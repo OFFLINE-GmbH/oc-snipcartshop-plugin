@@ -1,5 +1,5 @@
 <?php return [
-    'plugin' => [
+    'plugin'     => [
         'name'                 => 'Snipcart Shop',
         'description'          => 'Ecommerce plugin using the Snipcart backend for October CMS',
         'titles'               => [
@@ -18,15 +18,25 @@
             'all_categories' => 'Alle Shop-Kategorien',
         ],
         'settings'             => [
-            'category'      => 'Shop',
-            'label'         => 'Snipcart-Shop konfigurieren',
-            'description'   => 'Konfigurieren Sie Ihren Shop',
-            'sections'      => [
+            'category'                  => 'Shop',
+            'label'                     => 'Snipcart-Shop konfigurieren',
+            'description'               => 'Konfigurieren Sie Ihren Shop',
+            'sections'                  => [
                 'currencies'         => 'Währungen',
                 'currencies_comment' => 'Welche Währungen werden in Ihrem Shop verwendet?',
+                'checkout'           => 'Checkout',
+                'checkout_comment'   => 'Einstellungen zum Checkout',
             ],
-            'currencies'    => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
-            'currency_code' => 'Währungscode',
+            'currencies'                => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
+            'currency_code'             => 'Währungscode',
+            'product_page'              => 'Produkt-Seite mit Checkout-Button',
+            'product_page_comment'      => 'Auf dieser Seite muss der Checkout-Button von Snipcart vorhanden sein.',
+            'product_page_slug'         => 'URL-Parameter (Standard: "slug")',
+            'product_page_slug_comment' => 'Verwende diesen Parameter aus der URL um das Produkt zu finden.',
+            'auto_pop'                  => 'Warenkorb nach Hinzufügen anzeigen',
+            'auto_pop_comment'          => 'Der Warenkorb wird direkt angezeigt, wenn ein Produkt hinzugefügt wurde',
+            'api_key'                   => 'API-Key',
+            'api_key_comment'           => 'API-Key von snipcart.com',
         ],
         'common'               => [
             'shop'               => 'Shop',
@@ -49,6 +59,8 @@
             'meta_description'   => 'Meta-Beschreibung',
             'reorder'            => 'Reihenfolge ändern',
             'id'                 => 'ID',
+            'created_at'         => 'Erstellungsdatum',
+            'slug'               => 'URL',
         ],
         'variant'              => [
             'method' => [
@@ -109,6 +121,65 @@
             'required_comment' => 'Dieses Feld muss beim Tätigen einer Bestellung ausgefüllt werden',
             'is_required'      => 'Pflichtfeld',
             'is_not_required'  => 'Kein Pflichtfeld',
+        ],
+    ],
+    'components' => [
+        'dependencies' => [
+            'details' => [
+                'name'        => 'Snipcart-Abhängigkeiten',
+                'description' => 'Von Snipcart benötigte JS-Dateien',
+            ],
+            'properties' => [
+                'include_jquery' => [
+                    'title' => 'jQuery einbinden',
+                    'description' => 'Bindet jQuery von code.jquery.com ein'
+                ]
+            ]
+        ],
+        'products'     => [
+            'details'    => [
+                'name'        => 'Produkt-Liste',
+                'description' => 'Zeigt eine Liste von Produkten an',
+            ],
+            'properties' => [
+                'categoryFilter'    => [
+                    'title'       => 'Kategorie-Filter',
+                    'description' => 'Zeige nur Produkte aus dieser Kategorie an.',
+                    'no_filter'   => 'Alle Produkte anzeigen',
+                    'by_slug'     => 'Kategorie aus URL übernehmen',
+                ],
+                'categorySlug'      => [
+                    'title'       => 'Kategorie URL-Parameter',
+                    'description' => 'Verwende diesen Parameter um den Kategorie-Filter aus der URL zu übernehmen',
+                ],
+                'productsPerPage'   => [
+                    'title' => 'Anzahl Produkte pro Seite',
+                ],
+                'noProductsMessage' => [
+                    'title'       => '«Keine Produkte»-Meldung',
+                    'description' => 'Dieser Test wird angezeigt, wenn keine Artikel angezeigt werden können.',
+                ],
+                'sortOrder'         => [
+                    'title'       => 'Sortierung',
+                    'description' => 'Nach welchem Attribut die Produkte sortiert werden.',
+                ],
+                'productPage'       => [
+                    'title'       => 'Produkt-Seite',
+                    'description' => 'Die Links werden auf diese Seite verweisen.',
+                ],
+            ],
+        ],
+        'product'      => [
+            'details'    => [
+                'name'        => 'Produkt-Details',
+                'description' => 'Zeigt die Details zu einem Produkt an',
+            ],
+            'properties' => [
+                'productSlug' => [
+                    'title'       => 'Produkt URL-Parameter',
+                    'description' => 'Verwende diesen Parameter um das Produkt aus der URL zu übernehmen',
+                ],
+            ],
         ],
     ],
 ];

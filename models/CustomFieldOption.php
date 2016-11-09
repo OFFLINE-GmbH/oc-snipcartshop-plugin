@@ -28,7 +28,7 @@ class CustomFieldOption extends Model
     ];
 
     public $belongsTo = [
-        'product' => 'OFFLINE\SnipcartShop\Models\Product',
+        'product'      => 'OFFLINE\SnipcartShop\Models\Product',
         'custom_field' => 'OFFLINE\SnipcartShop\Models\CustomField',
     ];
 
@@ -40,4 +40,15 @@ class CustomFieldOption extends Model
             'otherKey' => 'variant_id',
         ],
     ];
+
+    public function getDataAttributeStringAttribute()
+    {
+        $string = $this->name;
+
+        if ($this->price) {
+            $string .= sprintf("[+%s]", number_format($this->price, 2, '.', ''));
+        }
+
+        return $string;
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace OFFLINE\SnipcartShop\Models;
 
+use Cms\Classes\Page;
 use Model;
 
 class Settings extends Model
@@ -19,6 +20,11 @@ class Settings extends Model
      */
     public static function currencies()
     {
-        return collect(Settings::get('currencies'))->pluck('code');
+        return collect(Settings::get('currencies'))->pluck('code', 'code');
+    }
+
+    public function getProductPageOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
 }

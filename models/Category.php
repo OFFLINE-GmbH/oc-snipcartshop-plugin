@@ -11,10 +11,11 @@ class Category extends Model
     use \October\Rain\Database\Traits\NestedTree;
 
     public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
-    public $translatable = ['name', 'meta_description', 'meta_title'];
+    public $translatable = ['name', 'slug', 'meta_description', 'meta_title'];
 
     public $rules = [
         'name' => 'required',
+        'slug' => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:offline_snipcartshop_categories'],
     ];
 
     public $timestamps = true;
@@ -98,5 +99,18 @@ class Category extends Model
         $structure['items'] = $iterator($category->getEagerRoot());
 
         return $structure;
+    }
+
+    public static function allowedSortingOptions()
+    {
+        $name    = trans('offline.snipcartshop::lang.plugin.product.name');
+        $created = trans('offline.snipcartshop::lang.plugin.common.created_at');
+
+        return [
+            'name asc'        => "${name}, A->Z",
+            'name desc'       => "${name}, Z->A",
+            'created_at asc'  => "${created}, A->Z",
+            'created_at desc' => "${created}, Z->A",
+        ];
     }
 }

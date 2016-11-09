@@ -1,0 +1,9 @@
+{% if images %}
+    <div class="product__image-grid">
+        {% for image in images %}
+            <div class="product-image">
+                <img src="{{ image.thumb(200, 200, 'crop') }}" alt=""/>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

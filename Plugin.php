@@ -1,13 +1,18 @@
 <?php namespace OFFLINE\SnipcartShop;
 
+use Event;
 use OFFLINE\SnipcartShop\Models\Category;
 use System\Classes\PluginBase;
-use Event;
 
 class Plugin extends PluginBase
 {
     public function registerComponents()
     {
+        return [
+            'OFFLINE\SnipcartShop\Components\Products' => 'products',
+            'OFFLINE\SnipcartShop\Components\Product'  => 'product',
+            'OFFLINE\SnipcartShop\Components\SnipcartDependencies'  => 'snipcartDependencies',
+        ];
     }
 
     public function registerSettings()

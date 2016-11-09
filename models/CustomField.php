@@ -152,4 +152,24 @@ class CustomField extends Model
 
         return $data;
     }
+
+    public function getDataAttributeStringAttribute()
+    {
+
+        if ($this->type === 'checkbox') {
+            return 'true|false';
+        }
+
+        $options = $this->options()->get();
+
+        if (count($options) < 1) {
+            return;
+        }
+
+        $return = $options->map(function ($option) {
+            return $option->dataAttributeString;
+        });
+
+        return $return->implode('|');
+    }
 }
