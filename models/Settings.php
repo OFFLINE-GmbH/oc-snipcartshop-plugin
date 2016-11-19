@@ -27,4 +27,14 @@ class Settings extends Model
     {
         return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
+
+    public function getWebhookUrlAttribute()
+    {
+        if ( ! $url = Settings::get('webhookUrl', false)) {
+            $url = str_random(30);
+            Settings::set('webhookUrl', $url);
+        }
+
+        return $url;
+    }
 }

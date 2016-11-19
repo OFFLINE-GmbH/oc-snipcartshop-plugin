@@ -1,6 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop;
 
 use Event;
+use OFFLINE\SnipcartShop\Classes\OrderCompleted;
 use OFFLINE\SnipcartShop\Models\Category;
 use System\Classes\PluginBase;
 
@@ -9,9 +10,9 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'OFFLINE\SnipcartShop\Components\Products' => 'products',
-            'OFFLINE\SnipcartShop\Components\Product'  => 'product',
-            'OFFLINE\SnipcartShop\Components\SnipcartDependencies'  => 'snipcartDependencies',
+            'OFFLINE\SnipcartShop\Components\Products'             => 'products',
+            'OFFLINE\SnipcartShop\Components\Product'              => 'product',
+            'OFFLINE\SnipcartShop\Components\SnipcartDependencies' => 'snipcartDependencies',
         ];
     }
 
@@ -38,6 +39,22 @@ class Plugin extends PluginBase
     }
 
     public function boot()
+    {
+        $this->registerEvents();
+    }
+
+    protected function registerEvents()
+    {
+        $this->registerWebhookEvents();
+        $this->registerStaticPagesEvents();
+    }
+
+    protected function registerWebhookEvents()
+    {
+        Event::listen('snipcartshop.order.completed', OrderCompleted::class);
+    }
+
+    protected function registerStaticPagesEvents()
     {
         Event::listen('pages.menuitem.listTypes', function () {
             return [

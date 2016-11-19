@@ -1,0 +1,19 @@
+columns:
+    invoice_number:
+        label: 'offline.snipcartshop::lang.plugin.order.invoice_number'
+        type: text
+        searchable: true
+        sortable: true
+    creation_date:
+        label: 'offline.snipcartshop::lang.plugin.common.created_at'
+        type: date
+        sortable: true
+    billing_address:
+        label: 'offline.snipcartshop::lang.plugin.order.billing_address'
+        type: text
+        searchable: true
+        sortable: true
+    grand_total_formatted:
+        label: 'offline.snipcartshop::lang.plugin.order.grand_total'
+        type: number
+        sortable: true

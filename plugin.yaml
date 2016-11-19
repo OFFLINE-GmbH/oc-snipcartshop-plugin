@@ -18,3 +18,7 @@ navigation:
                 label: 'offline.snipcartshop::lang.plugin.common.categories'
                 url: offline/snipcartshop/categories
                 icon: icon-sitemap
+            snipcartshop-orders:
+                label: 'offline.snipcartshop::lang.plugin.common.orders'
+                url: offline/snipcartshop/orders
+                icon: icon-check-circle

@@ -1,9 +1,22 @@
 fields:
+    api_section:
+       label: offline.snipcartshop::lang.plugin.settings.sections.api
+       type: section
+       span: left
+       comment: offline.snipcartshop::lang.plugin.settings.sections.api_comment
+
     api_key:
        label: offline.snipcartshop::lang.plugin.settings.api_key
        type: text
-       span: full
+       span: left
        comment: offline.snipcartshop::lang.plugin.settings.api_key_comment
+
+    webhook_url:
+       label: offline.snipcartshop::lang.plugin.settings.webhook_url
+       type: partial
+       path: $/offline/snipcartshop/models/settings/_webhook_url.htm
+       span: right
+       comment: offline.snipcartshop::lang.plugin.settings.webhook_url_comment
 
     currency_section:
        label: offline.snipcartshop::lang.plugin.settings.sections.currencies

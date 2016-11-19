@@ -7,3 +7,5 @@
     - builder_table_create_offline_snipcartshop_product_variant_custom_field_option.php
     - builder_table_create_offline_snipcartshop_categories.php
     - builder_table_create_offline_snipcartshop_category_product.php
+    - builder_table_create_offline_snipcartshop_orders.php
+    - builder_table_create_offline_snipcartshop_order_items.php

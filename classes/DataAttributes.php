@@ -65,7 +65,9 @@ class DataAttributes
 
     protected function image()
     {
-        $this->setAttribte('image', url($this->product->image->getThumb(50, 50, 'crop')));
+        if($this->product->image) {
+            $this->setAttribte('image', url($this->product->image->getThumb(50, 50, 'crop')));
+        }
     }
 
     protected function shippingProperties()
@@ -119,6 +121,12 @@ class DataAttributes
         // The setting was saved empty (use default)
         if ($slug = $this->settings->get('product_page_slug', 'slug') === '') {
             $slug = 'slug';
+        }
+
+        if( ! $this->settings->get('product_page')) {
+            throw new \InvalidArgumentException(
+                'SnipcartShop: Please select a product page via the backend settings.'
+            );
         }
 
         $url = $controller->pageUrl(

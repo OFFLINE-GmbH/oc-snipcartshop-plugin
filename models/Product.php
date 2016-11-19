@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Collection;
 use Model;
 use OFFLINE\SnipcartShop\Classes\DataAttributes;
+use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
 use System\Models\File;
 
 /**
@@ -10,7 +11,7 @@ use System\Models\File;
  */
 class Product extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Validation, MoneyFormatter;
 
     public $table = 'offline_snipcartshop_products';
     public $timestamps = true;
@@ -167,7 +168,7 @@ class Product extends Model
 
     public function getPriceFormattedAttribute()
     {
-        return money_format('%.2n', array_values($this->price)[0]['price']);
+        return $this->formatMoney(array_values($this->price)[0]['price']);
     }
 
     public function getCurrencyOptions()
