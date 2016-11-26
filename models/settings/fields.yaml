@@ -61,6 +61,19 @@ fields:
         default: "slug"
         comment: offline.snipcartshop::lang.plugin.settings.product_page_slug_comment
 
+    category_page:
+        label: offline.snipcartshop::lang.plugin.settings.category_page
+        span: right
+        type: dropdown
+        comment: offline.snipcartshop::lang.plugin.settings.category_page_comment
+
+    category_page_slug:
+        label: offline.snipcartshop::lang.plugin.settings.category_page_slug
+        span: right
+        type: text
+        default: "slug"
+        comment: offline.snipcartshop::lang.plugin.settings.category_page_slug_comment
+
 #
 #
 #    allowed_extensions:

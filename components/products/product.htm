@@ -1,7 +1,7 @@
 <div class="product">
     <a href="{{ __SELF__.productPage | page({slug: product.slug}) }}">
         <div class="product__image">
-            <img src="{{ product.image.thumb(200, 200, 'crop') }}" alt=""/>
+            <img src="{{ product.image.thumb(280, 'auto') }}" alt=""/>
         </div>
         <div class="product__name">
             {{ product.name }}

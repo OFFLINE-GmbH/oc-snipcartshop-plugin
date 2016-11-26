@@ -28,6 +28,11 @@ class Settings extends Model
         return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
 
+    public function getCategoryPageOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
+    }
+
     public function getWebhookUrlAttribute()
     {
         if ( ! $url = Settings::get('webhookUrl', false)) {

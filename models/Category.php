@@ -1,5 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
+use Cms\Classes\Controller;
+use InvalidArgumentException;
 use Model;
 
 /**
@@ -74,18 +76,42 @@ class Category extends Model
         return $result;
     }
 
+    /**
+     * @param $item
+     * @param $url
+     * @param $theme
+     *
+     * @return array
+     * @throws \InvalidArgumentException
+     */
     public static function resolveMenuItem($item, $url, $theme)
     {
         $structure = [];
         $category  = new Category();
 
-        $iterator = function ($items) use (&$iterator, &$structure) {
+        if ($pageSlug = Settings::get('category_page_slug', 'slug') === '') {
+            $pageSlug = 'slug';
+        }
+
+        if( ! $pageUrl = Settings::get('category_page')) {
+            throw new InvalidArgumentException(
+                'SnipcartShop: Please select a category page via the backend settings.'
+            );
+        }
+
+        $iterator = function ($items) use (&$iterator, &$structure, $pageUrl, $pageSlug, $url) {
             $branch = [];
+
+            $controller = new Controller();
             foreach ($items as $item) {
+
+                $entryUrl = $controller->pageUrl($pageUrl, [$pageSlug => $item->slug]);
+
                 $branchItem             = [];
-                $branchItem['url']      = 'url';
-                $branchItem['isActive'] = true;
+                $branchItem['url']      = $entryUrl;
+                $branchItem['isActive'] = $entryUrl === $url;
                 $branchItem['title']    = $item->name;
+
                 if ($item->children) {
                     $branchItem['items'] = $iterator($item->children);
                 }

@@ -96,7 +96,7 @@ class Products extends ComponentBase
                 'title'       => $langPrefix . 'productPage.title',
                 'description' => $langPrefix . 'productPage.description',
                 'type'        => 'dropdown',
-                'default'     => 'product',
+                'default'     => '',
             ],
         ];
     }
@@ -156,7 +156,7 @@ class Products extends ComponentBase
         $this->setVar('pageParam', $this->paramName('pageNumber'));
         $this->setVar('categoryParam', $this->paramName('categorySlug'));
         $this->setVar('noProductsMessage', $this->property('noProductsMessage'));
-        $this->setVar('productPage', $this->property('productPage'));
+        $this->setVar('productPage', $this->getProductPage());
     }
 
     public function getCategoryFilterOptions()
@@ -187,6 +187,13 @@ class Products extends ComponentBase
             if ($currentPage > ($lastPage = $this->products->lastPage()) && $currentPage > 1) {
                 throw new NotFoundHttpException();
             }
+        }
+    }
+
+    private function getProductPage()
+    {
+        if($this->property('productPage')) {
+            return $this->property('productPage');
         }
     }
 
