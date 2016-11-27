@@ -44,6 +44,8 @@ class Product extends ComponentBase
         } catch (NotFoundHttpException $e) {
             return Redirect::to('/404');
         }
+
+        $this->setMetaData();
     }
 
     protected function loadProduct()
@@ -63,5 +65,16 @@ class Product extends ComponentBase
         }
 
         return $product;
+    }
+
+    protected function setMetaData()
+    {
+        $this->page->title = $this->product->meta_title
+            ? $this->product->meta_title
+            : $this->product->name;
+
+        if ($this->product->meta_description) {
+            $this->page->meta_description = $this->product->meta_description;
+        }
     }
 }

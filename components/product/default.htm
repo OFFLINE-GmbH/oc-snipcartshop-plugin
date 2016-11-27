@@ -5,7 +5,7 @@
         </div>
         {% partial __SELF__ ~ '::image-grid.htm' images = product.additionalImages %}
     </div>
-    <div class="product_information">
+    <div class="product__information">
         <h2 class="product__name">
             {{ product.name }}
         </h2>
@@ -18,9 +18,10 @@
         <div class="product__price">
             {{ product.priceFormatted }}
         </div>
-        <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
-            {{ 'addtocart'|_ }}
-        </button>
-
+        <div class="product__add-to-cart">
+            <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
+                {{ 'addtocart'|_ }}
+            </button>
+        </div>
     </div>
 </div>

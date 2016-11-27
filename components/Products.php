@@ -64,7 +64,7 @@ class Products extends ComponentBase
                 'title'       => $langPrefix . 'categoryFilter.title',
                 'description' => $langPrefix . 'categoryFilter.description',
                 'type'        => 'dropdown',
-                'default'     => '',
+                'default'     => 'slug',
             ],
             'categorySlug'      => [
                 'title'       => $langPrefix . 'categorySlug.title',
@@ -109,9 +109,12 @@ class Products extends ComponentBase
             $this->setVar('category', $this->loadCategory());
             $this->setVar('products', $this->loadProducts());
             $this->validatePageNumber();
+
         } catch (NotFoundHttpException $e) {
             return Redirect::to('/404');
         }
+
+        $this->setMetaData();
     }
 
     protected function loadProducts()
@@ -192,8 +195,19 @@ class Products extends ComponentBase
 
     private function getProductPage()
     {
-        if($this->property('productPage')) {
+        if ($this->property('productPage')) {
             return $this->property('productPage');
+        }
+    }
+
+    protected function setMetaData()
+    {
+        $this->page->title = $this->category->meta_title
+            ? $this->category->meta_title
+            : $this->category->name;
+
+        if ($this->category->meta_description) {
+            $this->page->meta_description = $this->category->meta_description;
         }
     }
 
