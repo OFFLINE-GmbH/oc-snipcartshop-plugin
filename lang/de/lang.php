@@ -214,6 +214,34 @@
                 ],
             ],
         ],
+        'cartButton' => [
+            'details'    => [
+                'name'        => 'Checkout-Button',
+                'description' => 'Button um Checkout via Snipcart zu starten',
+            ],
+            'properties' => [
+                'buttonLabel' => [
+                    'title'       => 'Button-Aufschrift',
+                    'description' => 'Was soll auf dem Button stehen?',
+                ],
+            ],
+        ],
+        'cartSummary' => [
+            'details'    => [
+                'name'        => 'Warenkorb-Zusammenfassung',
+                'description' => 'Zeigt die Anzahl Produkte und den Gesamtwert des Warenkorbes an',
+            ],
+            'properties' => [
+                'showItemCount' => [
+                    'title'       => 'Zeige Produkte-Anzahl',
+                    'description' => 'Zeigt an, wie viele Produkte sich im Warenkorb befinden',
+                ],
+                'showTotalPrice' => [
+                    'title'       => 'Zeige Gesamtwert',
+                    'description' => 'Zeigt den Wert aller Artikel im Warenkorb an',
+                ],
+            ],
+        ],
         'products'     => [
             'details'    => [
                 'name'        => 'Produkt-Liste',

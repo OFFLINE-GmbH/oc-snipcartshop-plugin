@@ -20,7 +20,7 @@ class Product extends Model
     public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
     public $translatable = [
         'name',
-        'slug',
+        ['slug', 'index' => true],
         'description_short',
         'description',
         'meta_title',

@@ -13,6 +13,8 @@ class Plugin extends PluginBase
             'OFFLINE\SnipcartShop\Components\Products'             => 'products',
             'OFFLINE\SnipcartShop\Components\Product'              => 'product',
             'OFFLINE\SnipcartShop\Components\SnipcartDependencies' => 'snipcartDependencies',
+            'OFFLINE\SnipcartShop\Components\SnipcartCartButton' => 'snipcartCartButton',
+            'OFFLINE\SnipcartShop\Components\SnipcartCartSummary' => 'snipcartCartSummary',
         ];
     }
 
