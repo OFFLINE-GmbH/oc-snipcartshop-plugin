@@ -1,20 +1,35 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
+use Illuminate\Database\Eloquent\Collection;
 use Model;
+use OFFLINE\SnipcartShop\Classes\DataAttributes;
+use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
+use System\Models\File;
 
 /**
  * CustomField Model
  */
 class Product extends Model
 {
-    use \October\Rain\Database\Traits\Validation;
+    use \October\Rain\Database\Traits\Validation, MoneyFormatter;
 
     public $table = 'offline_snipcartshop_products';
     public $timestamps = true;
     public $jsonable = ['price'];
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+    public $translatable = [
+        'name',
+        ['slug', 'index' => true],
+        'description_short',
+        'description',
+        'meta_title',
+        'meta_description',
+    ];
+
     public $rules = [
         'name'  => 'required',
+        'slug'  => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:offline_snipcartshop_products'],
         'price' => 'required',
     ];
 
@@ -81,6 +96,10 @@ class Product extends Model
     public function beforeSave()
     {
         if (count($this->price) > 0) {
+            if ( ! is_array($this->price)) {
+                $this->price = [$this->price];
+            }
+
             // Since the price field is jsonable we'll get back
             // an array with only a single number if just one currency
             // is configured. In this is the case we need to transform
@@ -92,14 +111,81 @@ class Product extends Model
         }
     }
 
-    public function getCurrencyOptions()
+    /**
+     * Return the main image, if one is uploaded. Otherwise
+     * use the first available image.
+     *
+     * @return File
+     */
+    public function getImageAttribute()
     {
-        return Settings::currencies();
+        if ($this->main_image) {
+            return $this->main_image;
+        }
+
+        if ($this->images) {
+            return $this->images->first();
+        }
+    }
+
+    /**
+     * Return all images except the main image.
+     *
+     * @return Collection
+     */
+    public function getAdditionalImagesAttribute()
+    {
+        // If a main image exists for this product we
+        // can just return all additional images.
+        if ($this->main_image) {
+            return $this->images;
+        }
+
+        // If no main image is uploaded we have to exclude the
+        // alternatively selected main image form the collection.
+        $mainImage = $this->image;
+
+        return $this->images->reject(function ($item) use ($mainImage) {
+            return $item->id === $mainImage->id;
+        });
+    }
+
+    /**
+     * This method returns all data-* attribute sneeded
+     * for the snipcart checkout button.
+     *
+     * @return DataAttributes
+     */
+    public function getDataAttributesAttribute()
+    {
+        return new DataAttributes($this);
     }
 
     public function getVariantOptionsAttribute()
     {
         return $this->custom_fields()->where('type', 'dropdown')->get();
+    }
+
+    /**
+     * Returns the price in the currently active currency
+     * formatted as string.
+     *
+     * @throws \RuntimeException
+     * @return string
+     */
+    public function getPriceFormattedAttribute()
+    {
+        $activeCurrency = Settings::activeCurrency();
+        $currency = collect($this->price)
+            ->where('currency', $activeCurrency)
+            ->first();
+
+        return $this->formatMoney($currency['price'], $activeCurrency);
+    }
+
+    public function getCurrencyOptions()
+    {
+        return Settings::currencies();
     }
 
     public function scopePublished($query)

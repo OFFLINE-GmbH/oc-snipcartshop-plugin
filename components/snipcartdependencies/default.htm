@@ -1,0 +1,15 @@
+{% if __SELF__.includeJquery %}
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
+{% endif %}
+
+<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css"/>
+<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"
+        data-api-key="{{ __SELF__.apiKey }}"
+        data-autopop="{{ __SELF__.autoPop }}"
+        id="snipcart"></script>
+
+<script>
+    Snipcart.api.cart.currency('{{ __SELF__.activeCurrency | lower }}');
+</script>

@@ -1,0 +1,96 @@
+<table class="table data">
+    <thead>
+    <tr>
+        <th>
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.product.name')) ?>
+            </span>
+        </th>
+        <th class="text-right">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.order.quantity')) ?>
+            </span>
+        </th>
+        <th class="text-right">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.product.price')) ?>
+            </span>
+        </th>
+        <th class="text-right">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.order.total')) ?>
+            </span>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($order['items'] as $item): ?>
+    <tr>
+        <td>
+            <?= e($item['name']) ?>
+            <div class="attributes">
+                <?php if($item['custom_fields']): ?>
+                    <?php foreach($item['custom_fields'] as $field): ?>
+                        <?= e($field['name']) ?>: <?= e($field['value']) ?><br/>
+                    <?php endforeach; ?>
+                <?php endif; ?>
+            </div>
+        </td>
+        <td class="text-right"><?= e($item['quantity']) ?></td>
+        <td class="text-right"><?= e($item['price_formatted']) ?></td>
+        <td class="text-right"><?= e($item['total_price_formatted']) ?></td>
+    </tr>
+    <?php endforeach; ?>
+    <tr class="orderfooter separator separator-bottom">
+        <td colspan="3">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.order.subtotal')) ?>
+            </span>
+        </td>
+        <td class="text-right">
+            <span>
+                <?= e($order['subtotal_formatted']) ?>
+            </span>
+        </td>
+    </tr>
+    <?php if ($order['shipping_method']): ?>
+    <tr class="orderfooter">
+        <td colspan="3">
+                <span>
+                    <?= e(trans('offline.snipcartshop::lang.plugin.common.shipping')) ?>:
+                    <?= e($order['shipping_method']) ?>
+                </span>
+        </td>
+        <td class="text-right">
+                <span>
+                    <?= e($order['shipping_fees_formatted']) ?>
+                </span>
+        </td>
+    </tr>
+    <?php endif; ?>
+    <?php if ($order['taxes']): ?>
+    <?php foreach ($order['taxes'] as $tax): ?>
+    <tr class="orderfooter">
+        <td colspan="3">
+                    <span>
+                        <?= e($tax['taxName']) ?> (<?= e($this->formatTaxRate($tax['taxRate'])) ?>)
+                    </span>
+        </td>
+        <td class="text-right">
+                    <span>
+                        <?= e($tax['amount']) ?>
+                    </span>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    <?php endif; ?>
+    <tr class="orderfooter-bottomline">
+        <td colspan="3">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.order.grand_total')) ?>
+            </span>
+        </td>
+        <td class="text-right"><span><?= e($order['grand_total_formatted']) ?></span></td>
+    </tr>
+    </tbody>
+</table>

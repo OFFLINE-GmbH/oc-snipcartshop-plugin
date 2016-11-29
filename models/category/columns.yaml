@@ -4,3 +4,8 @@ columns:
         type: text
         searchable: true
         sortable: true
+    slug:
+        label: 'offline.snipcartshop::lang.plugin.common.slug'
+        type: text
+        searchable: true
+        sortable: true

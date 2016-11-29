@@ -1,0 +1,20 @@
+<div class="sidebar-box">
+    <h4 class="sidebar-box__heading"><?= $heading ?></h4>
+    <p>
+        <?= e($address['company']) ?><br/>
+        <?= e($address['fullName']) ?><br/>
+        <?= e($address['address1']) ?><br/>
+        <?php if($address['address2']): ?>
+            <?= e($address['address2']) ?><br/>
+        <?php endif; ?>
+        <?= e($address['postalCode']) ?>
+        <?= e($address['city']) ?>
+        <?= e($address['province']) ?><br/>
+        <?= e($address['country']) ?>
+    </p>
+
+    <p>
+        <?= e($order['email']) ?><br />
+        <?= e($address['phone']) ?>
+    </p>
+</div>

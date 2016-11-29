@@ -13,6 +13,7 @@ class BuilderTableCreateOfflineSnipcartshopProducts extends Migration
             $table->increments('id')->unsigned();
             $table->string('user_defined_id')->nullable();
             $table->string('name');
+            $table->string('slug', 255)->unique();
             $table->text('price');
             $table->string('description_short')->nullable();
             $table->text('description')->nullable();

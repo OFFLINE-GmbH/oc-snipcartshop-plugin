@@ -8,10 +8,14 @@ class ProductTest extends PluginTestCase
 {
     public function test_it_casts_the_price_to_json()
     {
-        $price = ['CHF' => 1000, 'USD' => 2000];
+        $price = [
+            ['currency' => 'CHF', 'price' => 1000],
+            ['currency' => 'USD', 'price' => 1000],
+        ];
 
         $product        = new Product();
         $product->name  = 'Test';
+        $product->slug  = 'test';
         $product->price = $price;
         $product->save();
 
@@ -43,6 +47,7 @@ class ProductTest extends PluginTestCase
     {
         $product        = new Product();
         $product->name  = 'Test';
+        $product->slug  = 'test';
         $product->price = 20;
         $product->save();
 

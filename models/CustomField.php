@@ -9,6 +9,8 @@ class CustomField extends Model
 {
     use \October\Rain\Database\Traits\Validation;
 
+    public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
+    public $translatable = ['name'];
 
     public $table = 'offline_snipcartshop_product_custom_fields';
     public $timestamps = true;
@@ -32,8 +34,8 @@ class CustomField extends Model
     public $belongsToMany = [
         'variants' => [
             'OFFLINE\SnipcartShop\Models\Variant',
-            'table'    => 'offline_snipcartshop_product_variant_custom_field',
-            'key'      => 'custom_field_id',
+            'table'    => 'offline_snipcartshop_product_variant_custom_field_option',
+            'key'      => 'custom_field_option_id',
             'otherKey' => 'variant_id',
         ],
     ];
@@ -58,11 +60,10 @@ class CustomField extends Model
     {
         $this->handleRemovedFieldOptions();
 
-        // Field is set by repeater form widget
-        $sortOrder = input('___index_fieldOptions', []);
-
         foreach ($this->fieldOptions as $index => $data) {
-            $data['sort_order'] = array_key_exists($index, $sortOrder) ? $sortOrder[$index] : 0;
+
+            $data = $this->normalizeData($data, $index);
+
             // Existing fields have an id
             if ($data['id']) {
                 $this->updateRelatedFieldOption($data);
@@ -82,7 +83,11 @@ class CustomField extends Model
     protected function setFieldOptions()
     {
         $this->fieldOptions = $this->options()->get()->map(function ($item) {
-            return ['id' => $item->id, 'name' => $item->name, 'price' => $item->price];
+            return [
+                'id'           => $item->id,
+                'option_name'  => $item->name,
+                'option_price' => $item->price,
+            ];
         })->toArray();
     }
 
@@ -123,5 +128,48 @@ class CustomField extends Model
         $this->options()->save($option);
 
         return $option;
+    }
+
+    /**
+     * Here we set the sort_order attribute and rename the
+     * option_* attributes. These dummy attributes are needed
+     * to make the Rainlab.Translate plugin work correctly
+     * in the repeater where another "name" field for the option
+     * is present.
+     *
+     * @return array
+     */
+    protected function normalizeData($data, $index)
+    {
+        // Field is set by repeater form widget
+        $sortOrder = input('___index_fieldOptions', []);
+
+        $data['name']       = $data['option_name'];
+        $data['price']      = $data['option_price'];
+        $data['sort_order'] = array_key_exists($index, $sortOrder) ? $sortOrder[$index] : 0;
+
+        unset($data['option_name'], $data['option_price']);
+
+        return $data;
+    }
+
+    public function getDataAttributeStringAttribute()
+    {
+
+        if ($this->type === 'checkbox') {
+            return 'true|false';
+        }
+
+        $options = $this->options()->get();
+
+        if (count($options) < 1) {
+            return;
+        }
+
+        $return = $options->map(function ($option) {
+            return $option->dataAttributeString;
+        });
+
+        return $return->implode('|');
     }
 }
