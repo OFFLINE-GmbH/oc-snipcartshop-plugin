@@ -228,7 +228,7 @@
         ],
         'cartSummary' => [
             'details'    => [
-                'name'        => 'Warenkorb-Zusammenfassung',
+                'name'        => 'Warenkorb',
                 'description' => 'Zeigt die Anzahl Produkte und den Gesamtwert des Warenkorbes an',
             ],
             'properties' => [
@@ -240,6 +240,12 @@
                     'title'       => 'Zeige Gesamtwert',
                     'description' => 'Zeigt den Wert aller Artikel im Warenkorb an',
                 ],
+            ],
+        ],
+        'currencyPicker' => [
+            'details'    => [
+                'name'        => 'Währungsauswahl',
+                'description' => 'Zeigt eine Auswahl für die aktuelle Shopwährung an',
             ],
         ],
         'products'     => [

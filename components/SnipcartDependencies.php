@@ -24,6 +24,11 @@ class SnipcartDependencies extends ComponentBase
      * @var boolean
      */
     public $includeJquery = false;
+    /**
+     * Currently active currency.
+     * @var string
+     */
+    public $activeCurrency = [];
 
     public function componentDetails()
     {
@@ -51,6 +56,7 @@ class SnipcartDependencies extends ComponentBase
     {
         $this->setVar('apiKey', Settings::get('api_key', ''));
         $this->setVar('autoPop', Settings::get('auto_pop', true));
+        $this->setVar('activeCurrency', Settings::activeCurrency());
         $this->setVar('includeJquery', $this->property('includeJquery'));
     }
 

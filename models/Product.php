@@ -166,9 +166,21 @@ class Product extends Model
         return $this->custom_fields()->where('type', 'dropdown')->get();
     }
 
+    /**
+     * Returns the price in the currently active currency
+     * formatted as string.
+     *
+     * @throws \RuntimeException
+     * @return string
+     */
     public function getPriceFormattedAttribute()
     {
-        return $this->formatMoney(array_values($this->price)[0]['price']);
+        $activeCurrency = Settings::activeCurrency();
+        $currency = collect($this->price)
+            ->where('currency', $activeCurrency)
+            ->first();
+
+        return $this->formatMoney($currency['price'], $activeCurrency);
     }
 
     public function getCurrencyOptions()

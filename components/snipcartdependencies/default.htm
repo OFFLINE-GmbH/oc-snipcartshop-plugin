@@ -11,5 +11,5 @@
         id="snipcart"></script>
 
 <script>
-    Snipcart.api.cart.currency('chf');
+    Snipcart.api.cart.currency('{{ __SELF__.activeCurrency | lower }}');
 </script>
