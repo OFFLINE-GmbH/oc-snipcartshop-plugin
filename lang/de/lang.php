@@ -242,6 +242,22 @@
                 ],
             ],
         ],
+        'customerDashboard' => [
+            'details'    => [
+                'name'        => 'Kundenkonto',
+                'description' => 'Zeigt den Link zum Öffnen des Kundenkontos an',
+            ],
+            'properties' => [
+                'customerDashboardLabel' => [
+                    'title'       => 'Kundenkonto-Text',
+                    'description' => 'Link-Text für den Kundenkonto-Link',
+                ],
+                'logoutLabel' => [
+                    'title'       => 'Logout-Text',
+                    'description' => 'Link-Text für den Logout-Link',
+                ],
+            ],
+        ],
         'currencyPicker' => [
             'details'    => [
                 'name'        => 'Währungsauswahl',

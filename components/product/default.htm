@@ -1,27 +1,29 @@
-<div class="product">
-    <div class="product__images">
-        <div class="product__main-image">
-            <img src="{{ product.image.thumb(600, auto) }}" alt=""/>
+<div class="product-detail">
+    <div class="product">
+        <div class="product__images">
+            <div class="product__main-image">
+                <img src="{{ product.image.thumb(600, auto) }}" alt=""/>
+            </div>
+            {% partial __SELF__ ~ '::image-grid.htm' images = product.additionalImages %}
         </div>
-        {% partial __SELF__ ~ '::image-grid.htm' images = product.additionalImages %}
-    </div>
-    <div class="product__information">
-        <h2 class="product__name">
-            {{ product.name }}
-        </h2>
-        <h3 class="product__description-short">
-            {{ product.description_short }}
-        </h3>
-        <div class="product__description">
-            {{ product.description | raw }}
-        </div>
-        <div class="product__price">
-            {{ product.priceFormatted }}
-        </div>
-        <div class="product__add-to-cart">
-            <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
-                {{ 'cart.add'|_ }}
-            </button>
+        <div class="product__information">
+            <h2 class="product__name">
+                {{ product.name }}
+            </h2>
+            <h3 class="product__description-short">
+                {{ product.description_short }}
+            </h3>
+            <div class="product__description">
+                {{ product.description | raw }}
+            </div>
+            <div class="product__price">
+                {{ product.priceFormatted }}
+            </div>
+            <div class="product__add-to-cart">
+                <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
+                    {{ 'cart.add'|_ }}
+                </button>
+            </div>
         </div>
     </div>
 </div>

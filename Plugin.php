@@ -10,12 +10,13 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'OFFLINE\SnipcartShop\Components\Products'             => 'products',
-            'OFFLINE\SnipcartShop\Components\Product'              => 'product',
-            'OFFLINE\SnipcartShop\Components\CurrencyPicker'       => 'currencyPicker',
-            'OFFLINE\SnipcartShop\Components\SnipcartDependencies' => 'snipcartDependencies',
-            'OFFLINE\SnipcartShop\Components\SnipcartCartButton'   => 'snipcartCartButton',
-            'OFFLINE\SnipcartShop\Components\SnipcartCartSummary'  => 'snipcartCartSummary',
+            'OFFLINE\SnipcartShop\Components\Products'                  => 'products',
+            'OFFLINE\SnipcartShop\Components\Product'                   => 'product',
+            'OFFLINE\SnipcartShop\Components\CurrencyPicker'            => 'currencyPicker',
+            'OFFLINE\SnipcartShop\Components\SnipcartDependencies'      => 'snipcartDependencies',
+            'OFFLINE\SnipcartShop\Components\SnipcartCartButton'        => 'snipcartCartButton',
+            'OFFLINE\SnipcartShop\Components\SnipcartCartSummary'       => 'snipcartCartSummary',
+            'OFFLINE\SnipcartShop\Components\SnipcartCustomerDashboard' => 'snipcartCustomerDashboard',
         ];
     }
 
