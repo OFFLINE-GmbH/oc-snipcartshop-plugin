@@ -17,6 +17,7 @@ class BuilderTableCreateOfflineSnipcartshopDiscounts extends Migration
             $table->string('item_id')->default('""');
             $table->decimal('total_to_reach', 10, 0)->nullable();
             $table->string('type')->default('Rate');
+            $table->string('trigger')->default('Code');
             $table->integer('rate')->nullable()->unsigned();
             $table->decimal('amount', 10, 0)->nullable();
             $table->decimal('alternate_price', 10, 0)->nullable();
@@ -25,8 +26,9 @@ class BuilderTableCreateOfflineSnipcartshopDiscounts extends Migration
             $table->integer('number_of_usages')->nullable()->unsigned();
             $table->integer('number_of_usages_uncompleted')->nullable()->unsigned();
             $table->string('shipping_description')->nullable();
-            $table->decimal('shipping_cost', 10, 0);
+            $table->decimal('shipping_cost', 10, 0)->nullable();
             $table->integer('shipping_guaranteed_days_to_delivery')->nullable()->unsigned();
+            $table->timestamps();
         });
     }
     

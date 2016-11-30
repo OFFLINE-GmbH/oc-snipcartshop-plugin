@@ -22,3 +22,7 @@ navigation:
                 label: 'offline.snipcartshop::lang.plugin.common.orders'
                 url: offline/snipcartshop/orders
                 icon: icon-check-circle
+            snipcartshop-discounts:
+                label: 'offline.snipcartshop::lang.plugin.common.discounts'
+                url: offline/snipcartshop/discounts
+                icon: icon-gift

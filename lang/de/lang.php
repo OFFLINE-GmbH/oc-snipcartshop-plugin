@@ -13,15 +13,20 @@
                 'update'  => 'Kategorie bearbeiten',
                 'preview' => 'Kategorie-Vorschau',
             ],
+            'discounts'  => [
+                'create'  => 'Rabatt erstellen',
+                'update'  => 'Rabatt bearbeiten',
+                'preview' => 'Rabatt-Vorschau',
+            ],
         ],
         'menu_items'           => [
             'all_categories' => 'Alle Shop-Kategorien',
         ],
         'settings'             => [
-            'category'                  => 'Shop',
-            'label'                     => 'Snipcart-Shop konfigurieren',
-            'description'               => 'Konfiguriere Deinen Shop',
-            'sections'                  => [
+            'category'                   => 'Shop',
+            'label'                      => 'Snipcart-Shop konfigurieren',
+            'description'                => 'Konfiguriere Deinen Shop',
+            'sections'                   => [
                 'currencies'         => 'Währungen',
                 'currencies_comment' => 'Welche Währungen werden in deinem Shop verwendet?',
                 'checkout'           => 'Checkout',
@@ -29,26 +34,27 @@
                 'api'                => 'API',
                 'api_comment'        => 'Einstellungen zur API und den Webhooks',
             ],
-            'currencies'                => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
-            'currency_code'             => 'Währungscode',
-            'product_page'              => 'Produkt-Seite mit Checkout-Button',
-            'product_page_comment'      => 'Auf dieser Seite muss der Checkout-Button von Snipcart vorhanden sein.',
-            'product_page_slug'         => 'URL-Parameter (Standard: "slug")',
-            'product_page_slug_comment' => 'Verwende diesen Parameter aus der URL um das Produkt zu finden.',
+            'currencies'                 => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
+            'currency_code'              => 'Währungscode',
+            'product_page'               => 'Produkt-Seite mit Checkout-Button',
+            'product_page_comment'       => 'Auf dieser Seite muss der Checkout-Button von Snipcart vorhanden sein.',
+            'product_page_slug'          => 'URL-Parameter (Standard: "slug")',
+            'product_page_slug_comment'  => 'Verwende diesen Parameter aus der URL um das Produkt zu finden.',
             'category_page'              => 'Kategorie-Seite für Produkte-Übersicht',
             'category_page_comment'      => 'Auf dieser Seite muss die Produkt-Liste Komponente hinzugefügt werden.',
             'category_page_slug'         => 'URL-Parameter (Standard: "slug")',
             'category_page_slug_comment' => 'Verwende diesen Parameter aus der URL um die Kategorie zu finden.',
-            'auto_pop'                  => 'Warenkorb nach Hinzufügen anzeigen',
-            'auto_pop_comment'          => 'Der Warenkorb wird direkt angezeigt, wenn ein Produkt hinzugefügt wurde',
-            'api_key'                   => 'API-Key',
-            'api_key_comment'           => 'API-Key von snipcart.com',
-            'webhook_url'               => 'Webhook-URL',
-            'webhook_url_comment'       => 'Trage diese URL als Webhook-Ziel im snipcart.com Backend ein',
+            'auto_pop'                   => 'Warenkorb nach Hinzufügen anzeigen',
+            'auto_pop_comment'           => 'Der Warenkorb wird direkt angezeigt, wenn ein Produkt hinzugefügt wurde',
+            'api_key'                    => 'API-Key',
+            'api_key_comment'            => 'API-Key von snipcart.com',
+            'webhook_url'                => 'Webhook-URL',
+            'webhook_url_comment'        => 'Trage diese URL als Webhook-Ziel im snipcart.com Backend ein',
         ],
         'common'               => [
             'shop'               => 'Shop',
             'products'           => 'Produkte',
+            'product'            => 'Produkt',
             'orders'             => 'Bestellungen',
             'cart'               => 'Warenkorb',
             'shipping'           => 'Versand',
@@ -56,6 +62,8 @@
             'inventory'          => 'Lagerbestand',
             'custom_fields'      => 'Benutzerdefinierte Felder',
             'variants'           => 'Varianten',
+            'discounts'          => 'Rabatte',
+            'discount'           => 'Rabatt',
             'select_placeholder' => '-- Bitte wählen',
             'main_image'         => 'Hauptbild',
             'images'             => 'Bilder',
@@ -64,6 +72,7 @@
             'not_allowed'        => 'Nicht erlaubt',
             'seo'                => 'SEO',
             'categories'         => 'Kategorien',
+            'category'           => 'Kategorie',
             'meta_title'         => 'Meta-Titel',
             'meta_description'   => 'Meta-Beschreibung',
             'reorder'            => 'Reihenfolge ändern',
@@ -130,6 +139,36 @@
             'required_comment' => 'Dieses Feld muss beim Tätigen einer Bestellung ausgefüllt werden',
             'is_required'      => 'Pflichtfeld',
             'is_not_required'  => 'Kein Pflichtfeld',
+        ],
+        'discounts'            => [
+            'name'                                 => 'Name',
+            'code'                                 => 'Gutschein-Code',
+            'total_to_reach'                       => 'Gültig ab Bestellwert',
+            'type'                                 => 'Gutschein-Typ',
+            'trigger'                              => 'Gültig wenn',
+            'rate'                                 => 'Rabatt (%)',
+            'amount'                               => 'Rabatt-Betrag',
+            'alternate_price'                      => 'Alternativer Preis',
+            'max_number_of_usages'                 => 'Maximale Anzahl Anwendungen',
+            'expires'                              => 'Gültig bis',
+            'number_of_usages'                     => 'Anzahl Anwendungen',
+            'shipping_description'                 => 'Name für alternative Versand-Methode',
+            'shipping_cost'                        => 'Preis für alternative Versand-Methode',
+            'shipping_guaranteed_days_to_delivery' => 'Garantierte Lieferung in Tagen',
+            'section_type'                         => 'Was bewirkt der Gutschein?',
+            'section_trigger'                      => 'Wann ist der Gutschein gültig?',
+            'types'                                => [
+                'fixed_amount'    => 'Fixer-Rabatt',
+                'rate'            => 'Prozentualer-Rabatt',
+                'alternate_price' => 'Alternativer Preis',
+                'shipping'        => 'Alternativer Versand-Preis',
+            ],
+            'triggers'                             => [
+                'total'   => 'Bestimmter Bestellwert erreicht wird',
+                'code'    => 'Gutschein-Code eingegeben wird',
+                'product' => 'Bestimmtes Produkt im Warenkorb liegt',
+            ],
+
         ],
         'order'                => [
             'invoice_number'                      => 'Rechnungsnummer',
@@ -202,7 +241,7 @@
         ],
     ],
     'components' => [
-        'dependencies' => [
+        'dependencies'      => [
             'details'    => [
                 'name'        => 'Snipcart-Abhängigkeiten',
                 'description' => 'Von Snipcart benötigte JS-Dateien',
@@ -214,7 +253,7 @@
                 ],
             ],
         ],
-        'cartButton' => [
+        'cartButton'        => [
             'details'    => [
                 'name'        => 'Checkout-Button',
                 'description' => 'Button um Checkout via Snipcart zu starten',
@@ -226,13 +265,13 @@
                 ],
             ],
         ],
-        'cartSummary' => [
+        'cartSummary'       => [
             'details'    => [
                 'name'        => 'Warenkorb',
                 'description' => 'Zeigt die Anzahl Produkte und den Gesamtwert des Warenkorbes an',
             ],
             'properties' => [
-                'showItemCount' => [
+                'showItemCount'  => [
                     'title'       => 'Zeige Produkte-Anzahl',
                     'description' => 'Zeigt an, wie viele Produkte sich im Warenkorb befinden',
                 ],
@@ -252,19 +291,19 @@
                     'title'       => 'Kundenkonto-Text',
                     'description' => 'Link-Text für den Kundenkonto-Link',
                 ],
-                'logoutLabel' => [
+                'logoutLabel'            => [
                     'title'       => 'Logout-Text',
                     'description' => 'Link-Text für den Logout-Link',
                 ],
             ],
         ],
-        'currencyPicker' => [
-            'details'    => [
+        'currencyPicker'    => [
+            'details' => [
                 'name'        => 'Währungsauswahl',
                 'description' => 'Zeigt eine Auswahl für die aktuelle Shopwährung an',
             ],
         ],
-        'products'     => [
+        'products'          => [
             'details'    => [
                 'name'        => 'Produkt-Liste',
                 'description' => 'Zeigt eine Liste von Produkten an',
@@ -297,7 +336,7 @@
                 ],
             ],
         ],
-        'product'      => [
+        'product'           => [
             'details'    => [
                 'name'        => 'Produkt-Details',
                 'description' => 'Zeigt die Details zu einem Produkt an',

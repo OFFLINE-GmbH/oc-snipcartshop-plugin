@@ -38,6 +38,10 @@ class Product extends Model
         'variants'      => 'OFFLINE\SnipcartShop\Models\Variant',
     ];
 
+    public $belongsTo = [
+        'discount' => 'OFFLINE\SnipcartShop\Models\Discount',
+    ];
+
     public $attachOne = [
         'main_image' => 'System\Models\File',
     ];
@@ -176,7 +180,7 @@ class Product extends Model
     public function getPriceFormattedAttribute()
     {
         $activeCurrency = Settings::activeCurrency();
-        $currency = collect($this->price)
+        $currency       = collect($this->price)
             ->where('currency', $activeCurrency)
             ->first();
 

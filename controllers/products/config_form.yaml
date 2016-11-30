@@ -1,4 +1,4 @@
-name: 'offline.snipcartshop::lang.plugin.common.products'
+name: 'offline.snipcartshop::lang.plugin.common.product'
 modelClass: OFFLINE\SnipcartShop\Models\Product
 form: $/offline/snipcartshop/models/product/fields.yaml
 defaultRedirect: offline/snipcartshop/products

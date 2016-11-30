@@ -1,0 +1,25 @@
+columns:
+    name:
+        label: 'offline.snipcartshop::lang.plugin.discounts.name'
+        type: text
+        searchable: true
+        sortable: true
+    expires:
+        label: 'offline.snipcartshop::lang.plugin.discounts.expires'
+        type: date
+        sortable: true
+    number_of_usages:
+        label: 'offline.snipcartshop::lang.plugin.discounts.number_of_usages'
+        type: number
+        searchable: true
+        sortable: true
+    type:
+        label: 'offline.snipcartshop::lang.plugin.discounts.type'
+        type: text
+        searchable: true
+        sortable: true
+    trigger:
+        label: 'offline.snipcartshop::lang.plugin.discounts.trigger'
+        type: text
+        searchable: true
+        sortable: true

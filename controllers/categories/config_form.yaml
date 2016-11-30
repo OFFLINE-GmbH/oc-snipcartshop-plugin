@@ -1,4 +1,4 @@
-name: 'offline.snipcartshop::lang.plugin.common.categories'
+name: 'offline.snipcartshop::lang.plugin.common.category'
 modelClass: OFFLINE\SnipcartShop\Models\Category
 form: $/offline/snipcartshop/models/category/fields.yaml
 defaultRedirect: offline/snipcartshop/categories

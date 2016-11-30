@@ -1,0 +1,14 @@
+name: 'offline.snipcartshop::lang.plugin.common.discount'
+modelClass: OFFLINE\SnipcartShop\Models\Discount
+form: $/offline/snipcartshop/models/discount/fields.yaml
+defaultRedirect: offline/snipcartshop/discounts
+create:
+    title: 'offline.snipcartshop::lang.plugin.titles.discounts.create'
+    redirect: 'offline/snipcartshop/discounts/update/:id'
+    redirectClose: offline/snipcartshop/discounts
+update:
+    title: 'offline.snipcartshop::lang.plugin.titles.discounts.update'
+    redirect: offline/snipcartshop/discounts
+    redirectClose: offline/snipcartshop/discounts
+preview:
+    title: 'offline.snipcartshop::lang.plugin.titles.discounts.preview'
