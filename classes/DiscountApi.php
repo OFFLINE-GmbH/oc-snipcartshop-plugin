@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
  *
  * @package OFFLINE\SnipcartShop\Classes
  */
-class DiscountService
+class DiscountApi
 {
     /**
      * Snipcart API base uri
