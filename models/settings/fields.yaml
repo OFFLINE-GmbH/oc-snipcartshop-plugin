@@ -5,11 +5,11 @@ fields:
        span: left
        comment: offline.snipcartshop::lang.plugin.settings.sections.api_comment
 
-    api_key:
-       label: offline.snipcartshop::lang.plugin.settings.api_key
+    public_api_key:
+       label: offline.snipcartshop::lang.plugin.settings.public_api_key
        type: text
        span: left
-       comment: offline.snipcartshop::lang.plugin.settings.api_key_comment
+       comment: offline.snipcartshop::lang.plugin.settings.public_api_key_comment
 
     webhook_url:
        label: offline.snipcartshop::lang.plugin.settings.webhook_url
@@ -17,6 +17,12 @@ fields:
        path: $/offline/snipcartshop/models/settings/_webhook_url.htm
        span: right
        comment: offline.snipcartshop::lang.plugin.settings.webhook_url_comment
+
+    private_api_key:
+       label: offline.snipcartshop::lang.plugin.settings.private_api_key
+       type: text
+       span: left
+       comment: offline.snipcartshop::lang.plugin.settings.private_api_key_comment
 
     currency_section:
        label: offline.snipcartshop::lang.plugin.settings.sections.currencies

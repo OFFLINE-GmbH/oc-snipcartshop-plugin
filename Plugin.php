@@ -1,6 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop;
 
 use Event;
+use OFFLINE\SnipcartShop\Classes\DiscountApi;
 use OFFLINE\SnipcartShop\Classes\OrderCompleted;
 use OFFLINE\SnipcartShop\Models\Category;
 use System\Classes\PluginBase;
@@ -40,6 +41,13 @@ class Plugin extends PluginBase
         return [
             'OFFLINE\SnipcartShop\FormWidgets\VariantSelector' => 'variantselector',
         ];
+    }
+
+    public function registerSchedule($schedule)
+    {
+        $schedule->call(function () {
+            (new DiscountApi())->updateDiscountUsages();
+        })->hourly();
     }
 
     public function boot()

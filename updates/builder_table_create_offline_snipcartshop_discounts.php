@@ -11,10 +11,10 @@ class BuilderTableCreateOfflineSnipcartshopDiscounts extends Migration
         {
             $table->engine = 'InnoDB';
             $table->increments('id')->unsigned();
-            $table->string('snipcart_id');
+            $table->string('guid');
             $table->string('name');
             $table->string('code');
-            $table->string('item_id')->default('""');
+            $table->integer('product_id')->nullable();
             $table->decimal('total_to_reach', 10, 0)->nullable();
             $table->string('type')->default('Rate');
             $table->string('trigger')->default('Code');

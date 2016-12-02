@@ -54,7 +54,7 @@ class SnipcartDependencies extends ComponentBase
 
     public function onRun()
     {
-        $this->setVar('apiKey', Settings::get('api_key', ''));
+        $this->setVar('apiKey', Settings::get('public_api_key', ''));
         $this->setVar('autoPop', Settings::get('auto_pop', true));
         $this->setVar('activeCurrency', Settings::activeCurrency());
         $this->setVar('includeJquery', $this->property('includeJquery'));
