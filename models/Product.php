@@ -81,7 +81,7 @@ class Product extends Model
         $currencies = CurrencySettings::currencies();
         if (count($currencies) <= 1) {
             $fields->price->type = 'number';
-            $fields->price->span = 'left';
+            $fields->price->span = 'right';
 
             if (is_array($this->price)) {
                 // Since we use a single number input we have to parse the price

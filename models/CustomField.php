@@ -142,7 +142,7 @@ class CustomField extends Model
     protected function normalizeData($data, $index)
     {
         // Field is set by repeater form widget
-        $sortOrder = input('___index_fieldOptions', []);
+        $sortOrder = array_flip(input('___index_fieldOptions', []));
 
         $data['name']       = $data['option_name'];
         $data['price']      = $data['option_price'];
