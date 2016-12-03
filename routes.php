@@ -1,9 +1,9 @@
 <?php
 use Illuminate\Http\Request;
-use OFFLINE\SnipcartShop\Models\Settings;
+use OFFLINE\SnipcartShop\Models\ApiSettings;
 
 Route::post('/snipcartshop/webhook/{id}', function (Request $request, $id) {
-    if (Settings::get('webhookUrl') !== $id) {
+    if (ApiSettings::get('webhookUrl') !== $id) {
         return response('', 404);
     }
 

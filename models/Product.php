@@ -78,7 +78,7 @@ class Product extends Model
      */
     public function filterFields($fields)
     {
-        $currencies = Settings::currencies();
+        $currencies = CurrencySettings::currencies();
         if (count($currencies) <= 1) {
             $fields->price->type = 'number';
             $fields->price->span = 'left';
@@ -110,7 +110,7 @@ class Product extends Model
             // it to an array and add the currency code.
             $price = array_values($this->price)[0];
             if ( ! is_array($price)) {
-                $this->price = [['currency' => Settings::currencies()->first(), 'price' => $price]];
+                $this->price = [['currency' => CurrencySettings::currencies()->first(), 'price' => $price]];
             }
         }
     }
@@ -179,7 +179,7 @@ class Product extends Model
      */
     public function getPriceFormattedAttribute()
     {
-        $activeCurrency = Settings::activeCurrency();
+        $activeCurrency = CurrencySettings::activeCurrency();
         $currency       = collect($this->price)
             ->where('currency', $activeCurrency)
             ->first();
@@ -189,7 +189,7 @@ class Product extends Model
 
     public function getCurrencyOptions()
     {
-        return Settings::currencies();
+        return CurrencySettings::currencies();
     }
 
     public function scopePublished($query)

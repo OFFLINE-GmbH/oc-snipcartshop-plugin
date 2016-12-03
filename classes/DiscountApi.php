@@ -5,7 +5,7 @@ namespace OFFLINE\SnipcartShop\Classes;
 use GuzzleHttp\Client;
 use October\Rain\Exception\ValidationException;
 use OFFLINE\SnipcartShop\Models\Discount;
-use OFFLINE\SnipcartShop\Models\Settings;
+use OFFLINE\SnipcartShop\Models\ApiSettings;
 
 /**
  * This class communicates with the Snipcart api
@@ -28,7 +28,7 @@ class DiscountApi
 
     public function __construct($apiKey = null, Client $http = null)
     {
-        $this->apiKey = $apiKey ?: Settings::get('private_api_key');
+        $this->apiKey = $apiKey ?: ApiSettings::get('private_api_key');
         $this->http   = $http ?: new Client([
             'base_uri' => self::BASE_URI,
             'headers'  => ['Accept' => 'application/json'],

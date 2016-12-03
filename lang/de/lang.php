@@ -22,20 +22,26 @@
         'menu_items'           => [
             'all_categories' => 'Alle Shop-Kategorien',
         ],
-        'settings'             => [
-            'category'                   => 'Shop',
-            'label'                      => 'Snipcart-Shop konfigurieren',
-            'description'                => 'Konfiguriere Deinen Shop',
-            'sections'                   => [
-                'currencies'         => 'Währungen',
-                'currencies_comment' => 'Welche Währungen werden in deinem Shop verwendet?',
-                'checkout'           => 'Checkout',
-                'checkout_comment'   => 'Einstellungen zum Checkout',
-                'api'                => 'API',
-                'api_comment'        => 'Einstellungen zur API und den Webhooks',
-            ],
+        'api_settings'             => [
+            'label' => 'API- und Webhooks',
+            'description' => 'Einstellungen zur API und den Webhooks',
+            'public_api_key'             => 'Öffentlicher API-Key',
+            'public_api_key_comment'     => 'Öffentlicher API-Key von snipcart.com',
+            'private_api_key'            => 'Privater API-Key',
+            'private_api_key_comment'    => 'Privater API-Key von snipcart.com',
+            'webhook_url'                => 'Webhook-URL',
+            'webhook_url_comment'        => 'Trage diese URL als Webhook-Ziel im snipcart.com Backend ein',
+        ],
+        'currency_settings'             => [
+            'label' => 'Währungen',
+            'description' => 'Einstellungen zu den verwendeten Währungen',
             'currencies'                 => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
             'currency_code'              => 'Währungscode',
+        ],
+        'general_settings'             => [
+            'category'                   => 'Snipcart Shop',
+            'label'                      => 'Grundkonfiguration',
+            'description'                => 'Allgemeine Einstellungen',
             'product_page'               => 'Produkt-Seite mit Checkout-Button',
             'product_page_comment'       => 'Auf dieser Seite muss der Checkout-Button von Snipcart vorhanden sein.',
             'product_page_slug'          => 'URL-Parameter (Standard: "slug")',
@@ -45,13 +51,7 @@
             'category_page_slug'         => 'URL-Parameter (Standard: "slug")',
             'category_page_slug_comment' => 'Verwende diesen Parameter aus der URL um die Kategorie zu finden.',
             'auto_pop'                   => 'Warenkorb nach Hinzufügen anzeigen',
-            'auto_pop_comment'           => 'Der Warenkorb wird direkt angezeigt, wenn ein Produkt hinzugefügt wurde',
-            'public_api_key'             => 'Öffentlicher API-Key',
-            'public_api_key_comment'     => 'Öffentlicher API-Key von snipcart.com',
-            'private_api_key'            => 'Privater API-Key',
-            'private_api_key_comment'    => 'Privater API-Key von snipcart.com',
-            'webhook_url'                => 'Webhook-URL',
-            'webhook_url_comment'        => 'Trage diese URL als Webhook-Ziel im snipcart.com Backend ein',
+            'auto_pop_comment'           => 'Der Warenkorb wird direkt angezeigt, wenn ein Produkt hinzugefügt wurde'
         ],
         'common'               => [
             'shop'               => 'Shop',

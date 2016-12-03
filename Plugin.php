@@ -24,14 +24,32 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'settings' => [
-                'label'       => 'offline.snipcartshop::lang.plugin.settings.label',
-                'description' => 'offline.snipcartshop::lang.plugin.settings.description',
-                'category'    => 'offline.snipcartshop::lang.plugin.settings.category',
+            'general_settings' => [
+                'label'       => 'offline.snipcartshop::lang.plugin.general_settings.label',
+                'description' => 'offline.snipcartshop::lang.plugin.general_settings.description',
+                'category'    => 'offline.snipcartshop::lang.plugin.general_settings.category',
                 'icon'        => 'icon-shopping-cart',
-                'class'       => 'OFFLINE\SnipcartShop\Models\Settings',
+                'class'       => 'OFFLINE\SnipcartShop\Models\GeneralSettings',
                 'order'       => 0,
-                'keywords'    => 'shop store snipcart',
+                'keywords'    => 'shop store snipcart general',
+            ],
+            'api_settings' => [
+                'label'       => 'offline.snipcartshop::lang.plugin.api_settings.label',
+                'description' => 'offline.snipcartshop::lang.plugin.api_settings.description',
+                'category'    => 'offline.snipcartshop::lang.plugin.general_settings.category',
+                'icon'        => 'icon-exchange',
+                'class'       => 'OFFLINE\SnipcartShop\Models\ApiSettings',
+                'order'       => 10,
+                'keywords'    => 'shop store snipcart api',
+            ],
+            'currency_settings' => [
+                'label'       => 'offline.snipcartshop::lang.plugin.currency_settings.label',
+                'description' => 'offline.snipcartshop::lang.plugin.currency_settings.description',
+                'category'    => 'offline.snipcartshop::lang.plugin.general_settings.category',
+                'icon'        => 'icon-money',
+                'class'       => 'OFFLINE\SnipcartShop\Models\CurrencySettings',
+                'order'       => 20,
+                'keywords'    => 'shop store snipcart currency',
             ],
         ];
     }

@@ -7,13 +7,13 @@ use Model;
 use RuntimeException;
 use Session;
 
-class Settings extends Model
+class CurrencySettings extends Model
 {
     public $implement = ['System.Behaviors.SettingsModel'];
 
     public $settingsCode = 'offline_snipcartshop_settings';
 
-    public $settingsFields = 'fields.yaml';
+    public $settingsFields = '$/offline/snipcartshop/models/settings/fields_currency.yaml';
 
     const CURRENCY_SESSION_KEY = 'snipcartshop.activeCurrency';
 
@@ -22,7 +22,7 @@ class Settings extends Model
      */
     public static function currencies()
     {
-        return collect(Settings::get('currencies'))->pluck('code', 'code');
+        return collect(CurrencySettings::get('currencies'))->pluck('code', 'code');
     }
 
     /**
@@ -55,23 +55,4 @@ class Settings extends Model
         return Session::set(static::CURRENCY_SESSION_KEY, $currency);
     }
 
-    public function getProductPageOptions()
-    {
-        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
-    }
-
-    public function getCategoryPageOptions()
-    {
-        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
-    }
-
-    public function getWebhookUrlAttribute()
-    {
-        if ( ! $url = Settings::get('webhookUrl', false)) {
-            $url = str_random(30);
-            Settings::set('webhookUrl', $url);
-        }
-
-        return $url;
-    }
 }

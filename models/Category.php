@@ -84,11 +84,11 @@ class Category extends Model
         $structure = [];
         $category  = new Category();
 
-        if ($pageSlug = Settings::get('category_page_slug', 'slug') === '') {
+        if ($pageSlug = GeneralSettings::get('category_page_slug', 'slug') === '') {
             $pageSlug = 'slug';
         }
 
-        if( ! $pageUrl = Settings::get('category_page')) {
+        if( ! $pageUrl = GeneralSettings::get('category_page')) {
             throw new InvalidArgumentException(
                 'SnipcartShop: Please select a category page via the backend settings.'
             );
