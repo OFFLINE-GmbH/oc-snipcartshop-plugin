@@ -68,13 +68,6 @@ class Category extends Model
                 'dynamicItems' => true,
             ];
         }
-//        if ($result) {
-//            $references = [];
-//            Category::get()->each(function($item) use (&$references) {
-//                $references[$item->id] = $item->name;
-//            });
-//            $result['references'] = $references;
-//        }
         return $result;
     }
 
