@@ -13,6 +13,7 @@ class Plugin extends PluginBase
         return [
             'OFFLINE\SnipcartShop\Components\Products'                  => 'products',
             'OFFLINE\SnipcartShop\Components\Product'                   => 'product',
+            'OFFLINE\SnipcartShop\Components\Categories'                => 'categories',
             'OFFLINE\SnipcartShop\Components\CurrencyPicker'            => 'currencyPicker',
             'OFFLINE\SnipcartShop\Components\SnipcartDependencies'      => 'snipcartDependencies',
             'OFFLINE\SnipcartShop\Components\SnipcartCartButton'        => 'snipcartCartButton',
@@ -24,7 +25,7 @@ class Plugin extends PluginBase
     public function registerSettings()
     {
         return [
-            'general_settings' => [
+            'general_settings'  => [
                 'label'       => 'offline.snipcartshop::lang.plugin.general_settings.label',
                 'description' => 'offline.snipcartshop::lang.plugin.general_settings.description',
                 'category'    => 'offline.snipcartshop::lang.plugin.general_settings.category',
@@ -33,7 +34,7 @@ class Plugin extends PluginBase
                 'order'       => 0,
                 'keywords'    => 'shop store snipcart general',
             ],
-            'api_settings' => [
+            'api_settings'      => [
                 'label'       => 'offline.snipcartshop::lang.plugin.api_settings.label',
                 'description' => 'offline.snipcartshop::lang.plugin.api_settings.description',
                 'category'    => 'offline.snipcartshop::lang.plugin.general_settings.category',
