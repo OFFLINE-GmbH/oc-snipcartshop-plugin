@@ -127,6 +127,7 @@
             'taxable_comment'                      => 'Auf diesen Artikel fallen Steuern an',
             'add_currency'                         => 'Währung hinzufügen',
             'currency'                             => 'Währung',
+            'general'                              => 'Allgemein',
         ],
         'category'             => [
             'name'      => 'Name',
