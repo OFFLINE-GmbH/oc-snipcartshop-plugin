@@ -38,6 +38,10 @@ class Product extends Model
         'variants'      => 'OFFLINE\SnipcartShop\Models\Variant',
     ];
 
+    public $belongsTo = [
+        'discount' => 'OFFLINE\SnipcartShop\Models\Discount',
+    ];
+
     public $attachOne = [
         'main_image' => 'System\Models\File',
     ];
@@ -74,10 +78,10 @@ class Product extends Model
      */
     public function filterFields($fields)
     {
-        $currencies = Settings::currencies();
+        $currencies = CurrencySettings::currencies();
         if (count($currencies) <= 1) {
             $fields->price->type = 'number';
-            $fields->price->span = 'left';
+            $fields->price->span = 'right';
 
             if (is_array($this->price)) {
                 // Since we use a single number input we have to parse the price
@@ -106,7 +110,7 @@ class Product extends Model
             // it to an array and add the currency code.
             $price = array_values($this->price)[0];
             if ( ! is_array($price)) {
-                $this->price = [['currency' => Settings::currencies()->first(), 'price' => $price]];
+                $this->price = [['currency' => CurrencySettings::currencies()->first(), 'price' => $price]];
             }
         }
     }
@@ -175,8 +179,8 @@ class Product extends Model
      */
     public function getPriceFormattedAttribute()
     {
-        $activeCurrency = Settings::activeCurrency();
-        $currency = collect($this->price)
+        $activeCurrency = CurrencySettings::activeCurrency();
+        $currency       = collect($this->price)
             ->where('currency', $activeCurrency)
             ->first();
 
@@ -185,7 +189,7 @@ class Product extends Model
 
     public function getCurrencyOptions()
     {
-        return Settings::currencies();
+        return CurrencySettings::currencies();
     }
 
     public function scopePublished($query)

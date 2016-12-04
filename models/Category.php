@@ -13,7 +13,7 @@ class Category extends Model
     use \October\Rain\Database\Traits\NestedTree;
 
     public $implement = [
-        '@RainLab.Translate.Behaviors.TranslatableModel'
+        '@RainLab.Translate.Behaviors.TranslatableModel',
     ];
     public $translatable = ['name', ['slug', 'index' => true], 'meta_description', 'meta_title'];
 
@@ -68,13 +68,7 @@ class Category extends Model
                 'dynamicItems' => true,
             ];
         }
-//        if ($result) {
-//            $references = [];
-//            Category::get()->each(function($item) use (&$references) {
-//                $references[$item->id] = $item->name;
-//            });
-//            $result['references'] = $references;
-//        }
+
         return $result;
     }
 
@@ -91,23 +85,26 @@ class Category extends Model
         $structure = [];
         $category  = new Category();
 
-        if ($pageSlug = Settings::get('category_page_slug', 'slug') === '') {
+        if ($pageSlug = GeneralSettings::get('category_page_slug', 'slug') === '') {
             $pageSlug = 'slug';
         }
 
-        if( ! $pageUrl = Settings::get('category_page')) {
+        if ( ! $pageUrl = GeneralSettings::get('category_page')) {
             throw new InvalidArgumentException(
                 'SnipcartShop: Please select a category page via the backend settings.'
             );
         }
 
-        $iterator = function ($items) use (&$iterator, &$structure, $pageUrl, $pageSlug, $url) {
+        $iterator = function ($items, $baseUrl = '') use (&$iterator, &$structure, $pageUrl, $pageSlug, $url) {
             $branch = [];
 
             $controller = new Controller();
             foreach ($items as $item) {
 
-                $entryUrl = $controller->pageUrl($pageUrl, [$pageSlug => $item->slug]);
+                // Prepend the parent categories slug if available
+                $slug = $baseUrl ? $baseUrl . '/' . $item->slug : $item->slug;
+
+                $entryUrl = $controller->pageUrl($pageUrl, [$pageSlug => $slug]);
 
                 $branchItem             = [];
                 $branchItem['url']      = $entryUrl;
@@ -115,7 +112,7 @@ class Category extends Model
                 $branchItem['title']    = $item->name;
 
                 if ($item->children) {
-                    $branchItem['items'] = $iterator($item->children);
+                    $branchItem['items'] = $iterator($item->children, $item->slug);
                 }
 
                 $branch[] = $branchItem;

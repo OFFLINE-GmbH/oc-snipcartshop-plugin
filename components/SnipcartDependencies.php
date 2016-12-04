@@ -1,7 +1,9 @@
 <?php namespace OFFLINE\SnipcartShop\Components;
 
 use Cms\Classes\ComponentBase;
-use OFFLINE\SnipcartShop\Models\Settings;
+use OFFLINE\SnipcartShop\Models\GeneralSettings;
+use OFFLINE\SnipcartShop\Models\ApiSettings;
+use OFFLINE\SnipcartShop\Models\CurrencySettings;
 
 class SnipcartDependencies extends ComponentBase
 {
@@ -54,9 +56,9 @@ class SnipcartDependencies extends ComponentBase
 
     public function onRun()
     {
-        $this->setVar('apiKey', Settings::get('api_key', ''));
-        $this->setVar('autoPop', Settings::get('auto_pop', true));
-        $this->setVar('activeCurrency', Settings::activeCurrency());
+        $this->setVar('apiKey', ApiSettings::get('public_api_key', ''));
+        $this->setVar('autoPop', GeneralSettings::get('auto_pop', true));
+        $this->setVar('activeCurrency', CurrencySettings::activeCurrency());
         $this->setVar('includeJquery', $this->property('includeJquery'));
     }
 

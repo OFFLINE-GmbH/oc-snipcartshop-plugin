@@ -1,0 +1,11 @@
+fields:
+    currencies:
+        type: repeater
+        span: left
+        label: offline.snipcartshop::lang.plugin.currency_settings.currencies
+        form:
+            fields:
+                code:
+                    type: text
+                    label: offline.snipcartshop::lang.plugin.currency_settings.currency_code
+

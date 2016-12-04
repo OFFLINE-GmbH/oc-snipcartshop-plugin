@@ -136,7 +136,12 @@ class Products extends ComponentBase
 
         // Use the category slug from the URL
         if ($categoryId === 'slug') {
-            $slug = $this->property('categorySlug');
+            // Only use the last part of the slug to find the category
+            // This should be a future improvement: Search for the full
+            // slug. This way two subcategories can have the same slug.
+            // i. e. "parent-a/child" and "parent-b/child"
+            $slugs = explode('/', $this->property('categorySlug'));
+            $slug  = end($slugs);
 
             $category = $category->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
                 ? $category->transWhere('slug', $slug)
@@ -167,9 +172,9 @@ class Products extends ComponentBase
         $categories = Category::listsNested('name', 'id', '-- ');
 
         return [
-            ''     => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.no_filter'),
-            'slug' => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.by_slug'),
-        ] + $categories;
+                ''     => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.no_filter'),
+                'slug' => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.by_slug'),
+            ] + $categories;
     }
 
     public function getSortOrderOptions()
@@ -179,7 +184,8 @@ class Products extends ComponentBase
 
     public function getProductPageOptions()
     {
-        return Page::sortBy('baseFileName')->lists('title', 'baseFileName');
+        return [null => '(' . trans('offline.snipcartshop::lang.plugin.common.use_backend_defaults') . ')']
+            + Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
 
     protected function validatePageNumber()

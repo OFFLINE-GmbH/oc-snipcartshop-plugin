@@ -21,4 +21,15 @@ class Products extends Controller
         parent::__construct();
         BackendMenu::setContext('OFFLINE.SnipcartShop', 'snipcart-shop', 'snipcartshop-products');
     }
+
+    public function create()
+    {
+        $this->bodyClass = 'compact-container';
+        parent::create();
+    }
+    public function update($recordId = null)
+    {
+        $this->bodyClass = 'compact-container';
+        parent::update($recordId);
+    }
 }

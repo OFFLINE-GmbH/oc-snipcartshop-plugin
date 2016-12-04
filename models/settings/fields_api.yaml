@@ -1,0 +1,19 @@
+fields:
+    public_api_key:
+       label: offline.snipcartshop::lang.plugin.api_settings.public_api_key
+       type: text
+       span: left
+       comment: offline.snipcartshop::lang.plugin.api_settings.public_api_key_comment
+
+    private_api_key:
+       label: offline.snipcartshop::lang.plugin.api_settings.private_api_key
+       type: text
+       span: left
+       comment: offline.snipcartshop::lang.plugin.api_settings.private_api_key_comment
+
+    webhook_url:
+       label: offline.snipcartshop::lang.plugin.api_settings.webhook_url
+       type: partial
+       path: $/offline/snipcartshop/models/settings/_webhook_url.htm
+       span: left
+       comment: offline.snipcartshop::lang.plugin.api_settings.webhook_url_comment

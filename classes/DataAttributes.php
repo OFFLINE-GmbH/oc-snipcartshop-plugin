@@ -5,7 +5,7 @@ namespace OFFLINE\SnipcartShop\Classes;
 
 use Cms\Classes\Controller;
 use OFFLINE\SnipcartShop\Models\Product;
-use OFFLINE\SnipcartShop\Models\Settings;
+use OFFLINE\SnipcartShop\Models\GeneralSettings;
 
 class DataAttributes
 {
@@ -24,10 +24,10 @@ class DataAttributes
      */
     protected $attributes = [];
 
-    public function __construct(Product $product, Settings $settings = null)
+    public function __construct(Product $product, GeneralSettings $settings = null)
     {
         $this->product  = $product;
-        $this->settings = $settings ?: new Settings();
+        $this->settings = $settings ?: new GeneralSettings();
 
         $this->generate();
     }

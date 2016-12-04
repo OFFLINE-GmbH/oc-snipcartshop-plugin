@@ -3,7 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Collection;
 use \Redirect;
-use OFFLINE\SnipcartShop\Models\Settings;
+use OFFLINE\SnipcartShop\Models\CurrencySettings;
 
 class CurrencyPicker extends ComponentBase
 {
@@ -30,8 +30,8 @@ class CurrencyPicker extends ComponentBase
 
     public function onRun()
     {
-        $this->setVar('currencies', Settings::currencies());
-        $this->setVar('activeCurrency', Settings::activeCurrency());
+        $this->setVar('currencies', CurrencySettings::currencies());
+        $this->setVar('activeCurrency', CurrencySettings::activeCurrency());
     }
 
     public function onSwitchCurrency()
@@ -40,7 +40,7 @@ class CurrencyPicker extends ComponentBase
             return;
         }
 
-        Settings::setActiveCurrency($locale);
+        CurrencySettings::setActiveCurrency($locale);
 
         return Redirect::back();
     }
