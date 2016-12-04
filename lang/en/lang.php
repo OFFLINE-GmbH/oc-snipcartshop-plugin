@@ -278,12 +278,17 @@
                     'title' => 'Start from category',
                     'description' => 'Only show child categories of this category',
                 ],
+                'categorySlug' => [
+                    'title' => 'Category slug parameter',
+                    'description' => 'Use this parameter to load the parent category from the url',
+                ],
                 'categoryPage' => [
                     'title' => 'Category page',
                     'description' => 'Links will point to this page. If nothing is entered the default settings from the backend settings will be used.',
                 ],
             ],
             'no_parent' => 'Show all categories',
+            'by_slug' => 'Use category in url as parent',
         ],
         'cartButton' => [
             'details' => [
@@ -349,7 +354,7 @@
                 ],
                 'categorySlug' => [
                     'title' => 'Category slug parameter',
-                    'description' => 'Use this parameter to load the slug from the url',
+                    'description' => 'Use this parameter to load the category from the url',
                 ],
                 'productsPerPage' => [
                     'title' => 'Number of products per page',

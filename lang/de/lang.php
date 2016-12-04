@@ -278,12 +278,17 @@
                     'title' => 'Startkategorie',
                     'description' => 'Zeige nur dieser Kategorie untergeordnete Kategorien an',
                 ],
+                'categorySlug' => [
+                    'title' => 'Kategorie URL-Parameter',
+                    'description' => 'Verwende diesen Parameter um die Startkategorie aus der URL zu übernehmen',
+                ],
                 'categoryPage' => [
                     'title' => 'Kategorie-Seite',
                     'description' => 'Die Links werden auf diese Seite verweisen. Wenn nichts ausgewählt wird, wird die Page aus den Backend Settings verwendet.',
                 ],
             ],
             'no_parent' => 'Zeige alle Kategorien',
+            'by_slug' => 'Verwende Kategorie aus URL als Startkategorie',
         ],
         'cartButton' => [
             'details' => [

@@ -39,6 +39,12 @@ class Categories extends ComponentBase
                 'description' => $langPrefix . 'parent.description',
                 'type'        => 'dropdown',
             ],
+            'categorySlug'      => [
+                'title'       => $langPrefix . 'categorySlug.title',
+                'description' => $langPrefix . 'categorySlug.description',
+                'type'        => 'string',
+                'default'     => '{{ :slug }}',
+            ],
             'categoryPage'       => [
                 'title'       => $langPrefix . 'categoryPage.title',
                 'description' => $langPrefix . 'categoryPage.description',
@@ -50,6 +56,7 @@ class Categories extends ComponentBase
     public function getParentOptions()
     {
         return [null => '(' . trans('offline.snipcartshop::lang.components.categories.no_parent') . ')']
+            + ['{slug}' => '(' . trans('offline.snipcartshop::lang.components.categories.by_slug') . ')']
             + Category::listsNested('name', 'id');
     }
 
@@ -77,6 +84,21 @@ class Categories extends ComponentBase
 
     protected function getCategories()
     {
+        if($this->parent === '{slug}') {
+            // Get the last slug part and use this as category slug
+            $slugs = explode('/', $this->property('categorySlug'));
+            $slug  = end($slugs);
+
+            // Find the id of the current category and set it as parent
+            $category = new Category();
+            $category = $category->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
+                ? $category->transWhere('slug', $slug)
+                : $category->where('slug', $slug);
+
+            $this->parent = $category->first(['id'])->id;
+        }
+
+        // Return children or all categories, based on the current parent setting
         return $this->parent ? Category::find($this->parent)->getAllChildren() : Category::getNested();
     }
 

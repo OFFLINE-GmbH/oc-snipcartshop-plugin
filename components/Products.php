@@ -3,6 +3,7 @@
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
 use OFFLINE\SnipcartShop\Models\Category;
+use OFFLINE\SnipcartShop\Models\GeneralSettings;
 use OFFLINE\SnipcartShop\Models\Product;
 use Redirect;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -204,6 +205,8 @@ class Products extends ComponentBase
         if ($this->property('productPage')) {
             return $this->property('productPage');
         }
+
+        return GeneralSettings::get('product_page');
     }
 
     protected function setMetaData()
