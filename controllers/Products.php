@@ -12,6 +12,8 @@ class Products extends Controller
         'Backend.Behaviors.RelationController',
     ];
 
+    public $requiredPermissions = ['offline.snipcartshop.manage_products'];
+
     public $listConfig = 'config_list.yaml';
     public $formConfig = 'config_form.yaml';
     public $relationConfig = 'config_relation.yaml';

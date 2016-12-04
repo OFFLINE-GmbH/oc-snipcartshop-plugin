@@ -32,6 +32,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-shopping-cart',
                 'class'       => 'OFFLINE\SnipcartShop\Models\GeneralSettings',
                 'order'       => 0,
+                'permissions' => ['offline.snipcartshop.settings.manage_general'],
                 'keywords'    => 'shop store snipcart general',
             ],
             'api_settings'      => [
@@ -41,6 +42,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-exchange',
                 'class'       => 'OFFLINE\SnipcartShop\Models\ApiSettings',
                 'order'       => 10,
+                'permissions' => ['offline.snipcartshop.settings.manage_api'],
                 'keywords'    => 'shop store snipcart api',
             ],
             'currency_settings' => [
@@ -50,6 +52,7 @@ class Plugin extends PluginBase
                 'icon'        => 'icon-money',
                 'class'       => 'OFFLINE\SnipcartShop\Models\CurrencySettings',
                 'order'       => 20,
+                'permissions' => ['offline.snipcartshop.settings.manage_currency'],
                 'keywords'    => 'shop store snipcart currency',
             ],
         ];
@@ -70,11 +73,6 @@ class Plugin extends PluginBase
     }
 
     public function boot()
-    {
-        $this->registerEvents();
-    }
-
-    protected function registerEvents()
     {
         $this->registerWebhookEvents();
         $this->registerStaticPagesEvents();
