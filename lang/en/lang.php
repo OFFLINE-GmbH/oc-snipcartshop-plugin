@@ -41,7 +41,7 @@
         'general_settings' => [
             'category' => 'Snipcart Shop',
             'label' => 'Configuration',
-            'description' => 'General Settings',
+            'description' => 'General settings',
             'product_page' => 'Product page with checkout button',
             'product_page_comment' => 'The snipcart checkout button has to be placed on this page.',
             'product_page_slug' => 'URL parameter (Default: "slug")',
