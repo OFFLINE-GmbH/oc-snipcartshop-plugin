@@ -1,7 +1,7 @@
 <?php return [
     'plugin' => [
         'name' => 'Snipcart Shop',
-        'description' => 'Ecommerce plugin using the Snipcart backend for October CMS',
+        'description' => 'Ecommerce plugin für October CMS mit Snipcart Backend',
         'titles' => [
             'products' => [
                 'create' => 'Produkt erstellen',
@@ -23,7 +23,7 @@
             'all_categories' => 'Alle Shop-Kategorien',
         ],
         'api_settings' => [
-            'label' => 'API- und Webhooks',
+            'label' => 'API und Webhooks',
             'description' => 'Einstellungen zur API und den Webhooks',
             'public_api_key' => 'Öffentlicher API-Key',
             'public_api_key_comment' => 'Öffentlicher API-Key von snipcart.com',
@@ -192,7 +192,7 @@
             'shipping_address_same_as_billing' => 'Versandadresse gleich wie Rechnungsadresse',
             'credit_card_last4_digits' => 'Letzte 4 Ziffern',
             'tracking_number' => 'Trackingnummer',
-            'tracking_url' => 'Traackingurl',
+            'tracking_url' => 'Trackingurl',
             'shipping_fees' => 'Versandkosten',
             'shipping_provider' => 'Spediteur',
             'shipping_method' => 'Versandart',
@@ -245,7 +245,6 @@
         ],
         'permissions' => [
             'manage_products' => 'Kann Produkte verwalten',
-            'see_menu_entry' => 'Sieht den Shop Menü-Eintrag',
             'manage_categories' => 'Kann Kategorien verwalten',
             'manage_orders' => 'Kann Bestellungen verwalten',
             'manage_discounts' => 'Kann Rabatte verwalten',
