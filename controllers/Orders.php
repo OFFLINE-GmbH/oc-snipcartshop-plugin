@@ -34,6 +34,11 @@ class Orders extends Controller
         dd($this);
     }
 
+    public function onRefund()
+    {
+        dd($this);
+    }
+
     protected function formatTaxRate($rate)
     {
         return sprintf("%.2f%%", (float)$rate * 100);

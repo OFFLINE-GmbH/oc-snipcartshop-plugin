@@ -218,6 +218,7 @@
             'payment_transaction_id' => 'Transaktions-ID',
             'change_status' => 'Status ändern',
             'refund' => 'Zurückerstatten',
+            'refund_confirm' => 'Möchten Sie diese Bestellung wirklich zurückerstatten?',
             'items' => 'Artikel',
             'quantity' => 'Menge',
             'shipping_address_is_same_as_billing' => 'Rechnungs- und Versandadresse sind gleich',
@@ -384,7 +385,6 @@
                     'description' => 'Verwende diesen Parameter um das Produkt aus der URL zu übernehmen',
                 ],
             ],
-            'added_to_cart' => 'Produkt zu Warenkorb hinzugefügt'
         ],
     ],
 ];

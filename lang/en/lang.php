@@ -218,6 +218,7 @@
             'payment_transaction_id' => 'Payment transaction id',
             'change_status' => 'Change status',
             'refund' => 'Refund',
+            'refund_confirm' => 'Do you really want to refund this order?',
             'items' => 'Items',
             'quantity' => 'Quantity',
             'shipping_address_is_same_as_billing' => 'Shipping address is same as billing address',

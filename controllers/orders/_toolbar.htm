@@ -11,6 +11,8 @@
         <?php endforeach; ?>
     </ul>
 </div>
-<button type="button" class="btn btn-default oc-icon-gavel">
+<button type="button" class="btn btn-default oc-icon-gavel"
+        data-request="onRefund"
+        data-request-confirm="<?= e(trans('offline.snipcartshop::lang.plugin.order.refund_confirm')) ?>">
     <?= e(trans('offline.snipcartshop::lang.plugin.order.refund')) ?>
 </button>
