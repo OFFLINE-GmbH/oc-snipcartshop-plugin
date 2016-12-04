@@ -4,11 +4,13 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
+        placeholder: 'offline.snipcartshop::lang.plugin.product.name'
     slug:
         label: 'offline.snipcartshop::lang.plugin.common.slug'
         oc.commentPosition: ''
         span: auto
         type: text
+        placeholder: 'offline.snipcartshop::lang.plugin.common.slug'
         preset:
             field: name
             type: slug

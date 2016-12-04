@@ -4,8 +4,8 @@ namespace OFFLINE\SnipcartShop\Classes;
 
 
 use Cms\Classes\Controller;
-use OFFLINE\SnipcartShop\Models\Product;
 use OFFLINE\SnipcartShop\Models\GeneralSettings;
+use OFFLINE\SnipcartShop\Models\Product;
 
 class DataAttributes
 {
@@ -118,8 +118,9 @@ class DataAttributes
     {
         $controller = new Controller();
 
+        $slug = $this->settings->get('product_page_slug', 'slug');
         // The setting was saved empty (use default)
-        if ($slug = $this->settings->get('product_page_slug', 'slug') === '') {
+        if ($slug === '') {
             $slug = 'slug';
         }
 
