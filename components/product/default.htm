@@ -20,9 +20,21 @@
                 {{ product.priceFormatted }}
             </div>
             <div class="product__add-to-cart">
-                <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
+                {% if not autoPop %}
+                    {# To give the user a feedback we use the october native #}
+                    {# flash massages if the autoPop feature is disabled #}
+                    <form data-request="onAdd" data-request-flash id="triggerFlash">
+                        <button class="snipcart-add-item" {{ product.dataAttributes | raw }}
+                                onClick="$('#triggerFlash').request('onAdd')">
+                            {{ 'cart.add'|_ }}
+                        </button>
+                    </form>
+                {% else %}
+                    {# Otherwise just let snipcart handle the feedback #}
+                    <button class="snipcart-add-item" {{ product.dataAttributes | raw }}
                     {{ 'cart.add'|_ }}
-                </button>
+                    </button>
+                {% endif %}
             </div>
         </div>
     </div>

@@ -384,6 +384,7 @@
                     'description' => 'Use this parameter to load the slug from the url',
                 ],
             ],
+            'added_to_cart' => 'Added product successfully'
         ],
     ],
 ];

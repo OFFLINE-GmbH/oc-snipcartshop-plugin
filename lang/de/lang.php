@@ -384,6 +384,7 @@
                     'description' => 'Verwende diesen Parameter um das Produkt aus der URL zu übernehmen',
                 ],
             ],
+            'added_to_cart' => 'Produkt zu Warenkorb hinzugefügt'
         ],
     ],
 ];

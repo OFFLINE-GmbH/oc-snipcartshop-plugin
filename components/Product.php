@@ -1,6 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop\Components;
 
 use Cms\Classes\ComponentBase;
+use OFFLINE\SnipcartShop\Models\GeneralSettings;
 use OFFLINE\SnipcartShop\Models\Product as ProductModel;
 use Redirect;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
@@ -14,6 +15,11 @@ class Product extends ComponentBase
      * @var ProductModel
      */
     public $product;
+    /**
+     * If the snipcart overlay will open automatically.
+     * @var boolean
+     */
+    public $autoPop;
 
     public function componentDetails()
     {
@@ -41,11 +47,17 @@ class Product extends ComponentBase
     {
         try {
             $this->setVar('product', $this->loadProduct());
+            $this->setVar('autoPop', GeneralSettings::get('auto_pop', true));
         } catch (NotFoundHttpException $e) {
             return Redirect::to('/404');
         }
 
         $this->setMetaData();
+    }
+
+    public function onAdd()
+    {
+        \Flash::success(trans('offline.snipcartshop::lang.components.product.added_to_cart'));
     }
 
     protected function loadProduct()

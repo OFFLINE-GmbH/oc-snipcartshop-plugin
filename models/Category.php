@@ -85,7 +85,8 @@ class Category extends Model
         $structure = [];
         $category  = new Category();
 
-        if ($pageSlug = GeneralSettings::get('category_page_slug', 'slug') === '') {
+        $pageSlug = GeneralSettings::get('category_page_slug', 'slug');
+        if ($pageSlug === '') {
             $pageSlug = 'slug';
         }
 
@@ -105,7 +106,6 @@ class Category extends Model
                 $slug = $baseUrl ? $baseUrl . '/' . $item->slug : $item->slug;
 
                 $entryUrl = $controller->pageUrl($pageUrl, [$pageSlug => $slug]);
-
                 $branchItem             = [];
                 $branchItem['url']      = $entryUrl;
                 $branchItem['isActive'] = $entryUrl === $url;

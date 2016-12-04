@@ -3,7 +3,7 @@ fields:
         label: offline.snipcartshop::lang.plugin.general_settings.auto_pop
         span: left
         type: switch
-        default: "slug"
+        default: true
         comment: offline.snipcartshop::lang.plugin.general_settings.auto_pop_comment
 
     product_page:
