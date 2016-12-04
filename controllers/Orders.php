@@ -12,6 +12,8 @@ class Orders extends Controller
 
     public $listConfig = 'config_list.yaml';
 
+    public $requiredPermissions = ['offline.snipcartshop.manage_orders'];
+
     public function __construct()
     {
         parent::__construct();
