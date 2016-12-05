@@ -245,7 +245,7 @@
             'deferred' => 'Zahlung verzögert',
             'paid_deferred' => 'Verzögert bezahlt',
             'charged_back' => 'Zahlung beglichen',
-            'refunded' => 'Zahlung Rückerstattet',
+            'refunded' => 'Zahlung rückerstattet',
             'paidout' => 'Ausgezahlt',
             'failed' => 'Zahlung fehlerhaft',
             'pending' => 'Zahlung pendent',

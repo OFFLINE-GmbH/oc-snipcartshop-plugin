@@ -38,6 +38,10 @@ class Order extends Model
         ];
     }
 
+    public static function scopeStatus() {
+        return ['a', 'b'];
+    }
+
     public function getCreationDateFormattedAttribute()
     {
         return $this->creation_date->format('d.m.Y H:i:s');

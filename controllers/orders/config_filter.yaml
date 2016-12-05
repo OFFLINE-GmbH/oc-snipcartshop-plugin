@@ -1,0 +1,20 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    status:
+        label: Status
+        type: group
+        conditions: status in (:filtered)
+        options: 'statusFilterOptions'
+
+    creation_date:
+        label: Date
+        type: daterange
+        conditions: creation_date >= ':after' AND creation_date <= ':before'
+
+    completion_date:
+        label: Date
+        type: daterange
+        conditions: completion_date >= ':after' AND completion_date <= ':before'
