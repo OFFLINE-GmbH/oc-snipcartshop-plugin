@@ -13,6 +13,9 @@
                 'update' => 'Kategorie bearbeiten',
                 'preview' => 'Kategorie-Vorschau',
             ],
+            'orders' => [
+                'show' => 'Bestellungsdetails',
+            ],
             'discounts' => [
                 'create' => 'Rabatt erstellen',
                 'update' => 'Rabatt bearbeiten',

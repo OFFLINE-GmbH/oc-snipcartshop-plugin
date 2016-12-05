@@ -13,6 +13,9 @@
                 'update' => 'Edit category',
                 'preview' => 'Category preview',
             ],
+            'orders' => [
+                'show' => 'Order details',
+            ],
             'discounts' => [
                 'create' => 'Create discount',
                 'update' => 'Edit discount',

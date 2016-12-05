@@ -1,15 +1,12 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
 use Model;
-use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
 
 /**
  * Model
  */
 class Order extends Model
 {
-
-    use MoneyFormatter;
 
     public $timestamps = false;
     public $guarded = ['id'];
@@ -32,16 +29,16 @@ class Order extends Model
 
     public function getGrandTotalFormattedAttribute()
     {
-        return $this->formatMoney($this->grand_total);
+        return format_money($this->grand_total);
     }
 
     public function getSubtotalFormattedAttribute()
     {
-        return $this->formatMoney($this->subtotal);
+        return format_money($this->subtotal);
     }
 
     public function getShippingFeesFormattedAttribute()
     {
-        return $this->formatMoney($this->shipping_fees);
+        return format_money($this->shipping_fees);
     }
 }

@@ -1,15 +1,12 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
 use Model;
-use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
 
 /**
  * Model
  */
 class OrderItem extends Model
 {
-    use MoneyFormatter;
-
     /**
      * Format of all $dates.
      * @var string
@@ -32,11 +29,11 @@ class OrderItem extends Model
 
     public function getPriceFormattedAttribute()
     {
-        return $this->formatMoney($this->price);
+        return format_money($this->price);
     }
 
     public function getTotalPriceFormattedAttribute()
     {
-        return $this->formatMoney($this->total_price);
+        return format_money($this->total_price);
     }
 }

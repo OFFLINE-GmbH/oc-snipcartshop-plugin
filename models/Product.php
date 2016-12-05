@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Eloquent\Collection;
 use Model;
+use October\Rain\Database\Traits\Validation;
 use OFFLINE\SnipcartShop\Classes\DataAttributes;
-use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
 use System\Models\File;
 
 /**
@@ -11,7 +11,7 @@ use System\Models\File;
  */
 class Product extends Model
 {
-    use \October\Rain\Database\Traits\Validation, MoneyFormatter;
+    use Validation;
 
     public $table = 'offline_snipcartshop_products';
     public $timestamps = true;
@@ -184,7 +184,7 @@ class Product extends Model
             ->where('currency', $activeCurrency)
             ->first();
 
-        return $this->formatMoney($currency['price'], $activeCurrency);
+        return format_money($currency['price'], $activeCurrency);
     }
 
     public function getCurrencyOptions()

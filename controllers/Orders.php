@@ -23,6 +23,7 @@ class Orders extends Controller
     public function show()
     {
         $this->bodyClass = 'compact-container';
+        $this->pageTitle = trans('offline.snipcartshop::lang.plugin.titles.orders.show');
         $this->addCss('/plugins/offline/snipcartshop/assets/backend.css');
 
         $order               = Order::with('items')->findOrFail($this->params[0]);
