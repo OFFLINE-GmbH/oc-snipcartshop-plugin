@@ -1,6 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop;
 
 use Event;
+use OFFLINE\SnipcartShop\Classes\ApiClient;
 use OFFLINE\SnipcartShop\Classes\DiscountApi;
 use OFFLINE\SnipcartShop\Classes\OrderCompleted;
 use OFFLINE\SnipcartShop\Models\Category;

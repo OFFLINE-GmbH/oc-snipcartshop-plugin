@@ -22,8 +22,12 @@
 
 <div class="scoreboard-item title-value">
     <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.status')) ?></h4>
-    <p><?= e(trans('offline.snipcartshop::lang.plugin.order_status.' . strtolower($order['status']))) ?></p>
-    <p class="description"><?= e(trans('offline.snipcartshop::lang.plugin.payment_status.' . strtolower($order['payment_status']))) ?></p>
+    <p id="order_status">
+        <?= e(trans('offline.snipcartshop::lang.plugin.order_status.' . strtolower($order['status']))) ?>
+    </p>
+    <p class="description" id="payment_status">
+        <?= e(trans('offline.snipcartshop::lang.plugin.payment_status.' . strtolower($order['payment_status']))) ?>
+    </p>
 </div>
 
 <div class="scoreboard-item title-value">

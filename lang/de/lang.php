@@ -85,6 +85,7 @@
             'created_at' => 'Erstellungsdatum',
             'slug' => 'URL',
             'use_backend_defaults' => 'Standard-Einstellung aus Backend-Settings übernehmen',
+            'api_error' => 'Fehler beim Speichern der Änderungen. Die API-Anfrage war fehlerhaft.',
         ],
         'variant' => [
             'method' => [
@@ -164,7 +165,6 @@
             'shipping_guaranteed_days_to_delivery' => 'Garantierte Lieferung in Tagen',
             'section_type' => 'Was bewirkt der Gutschein?',
             'section_trigger' => 'Wann ist der Gutschein gültig?',
-            'api_error' => 'Fehler beim Speichern der Änderungen. Die API-Anfrage war fehlerhaft.',
             'types' => [
                 'fixed_amount' => 'Fixer-Rabatt',
                 'rate' => 'Prozentualer-Rabatt',
@@ -195,7 +195,7 @@
             'shipping_address_same_as_billing' => 'Versandadresse gleich wie Rechnungsadresse',
             'credit_card_last4_digits' => 'Letzte 4 Ziffern',
             'tracking_number' => 'Trackingnummer',
-            'tracking_url' => 'Trackingurl',
+            'tracking_url' => 'Tracking-URL',
             'shipping_fees' => 'Versandkosten',
             'shipping_provider' => 'Spediteur',
             'shipping_method' => 'Versandart',
@@ -219,12 +219,18 @@
             'custom_fields' => 'Benutzerdefinierte Felder',
             'shipping_enabled' => 'Versand aktiv',
             'payment_transaction_id' => 'Transaktions-ID',
-            'change_status' => 'Status ändern',
-            'refund' => 'Zurückerstatten',
-            'refund_confirm' => 'Möchten Sie diese Bestellung wirklich zurückerstatten?',
+            'change_order_status' => 'Bestellungsstatus ändern',
+            'change_payment_status' => 'Bezahlstatus ändern',
             'items' => 'Artikel',
             'quantity' => 'Menge',
             'shipping_address_is_same_as_billing' => 'Rechnungs- und Versandadresse sind gleich',
+            'update_tracking_info' => 'Sendungsverfolgung hinterlegen',
+            'invalid_status' => 'Der ausgewählte Status existiert nicht',
+            'updated' => 'Bestellung aktualisiert',
+            'modal' => [
+                'cancel' => 'Abbrechen',
+                'update' => 'Daten aktualisieren',
+            ]
         ],
         'order_status' => [
             'processed' => 'Verarbeitet',
@@ -237,8 +243,8 @@
         'payment_status' => [
             'paid' => 'Bezahlt',
             'deferred' => 'Zahlung verzögert',
-            'paiddeferred' => 'Verzögert bezahlt',
-            'chargedback' => 'Zahlung beglichen',
+            'paid_deferred' => 'Verzögert bezahlt',
+            'charged_back' => 'Zahlung beglichen',
             'refunded' => 'Zahlung Rückerstattet',
             'paidout' => 'Ausgezahlt',
             'failed' => 'Zahlung fehlerhaft',

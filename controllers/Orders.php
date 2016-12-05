@@ -2,6 +2,9 @@
 
 use Backend\Classes\Controller;
 use BackendMenu;
+use Flash;
+use October\Rain\Exception\ValidationException;
+use OFFLINE\SnipcartShop\Classes\OrderApi;
 use OFFLINE\SnipcartShop\Models\Order;
 
 class Orders extends Controller
@@ -13,11 +16,17 @@ class Orders extends Controller
     public $listConfig = 'config_list.yaml';
 
     public $requiredPermissions = ['offline.snipcartshop.manage_orders'];
+    /**
+     * @var OrderApi
+     */
+    private $api;
 
-    public function __construct()
+    public function __construct(OrderApi $api)
     {
         parent::__construct();
         BackendMenu::setContext('OFFLINE.SnipcartShop', 'snipcart-shop', 'snipcartshop-orders');
+
+        $this->api = $api;
     }
 
     public function show()
@@ -30,14 +39,57 @@ class Orders extends Controller
         $this->vars['order'] = $order;
     }
 
-    public function onChangeStatus()
+    /**
+     * @throws ValidationException
+     */
+    public function onChangeOrderStatus()
     {
-        dd($this);
+        $status          = input('status');
+        $availableStatus = trans('offline.snipcartshop::lang.plugin.order_status');
+        if ( ! array_key_exists($status, $availableStatus)) {
+            throw new ValidationException([trans('offline.snipcartshop::lang.plugin.order.invalid_status')]);
+        }
+
+        $this->updateOrder(['status' => $status]);
+
+        return [
+            '#order_status' => $availableStatus[$status],
+        ];
     }
 
-    public function onRefund()
+
+    public function onChangePaymentStatus()
     {
-        dd($this);
+        $status          = input('status');
+        $availableStatus = trans('offline.snipcartshop::lang.plugin.payment_status');
+        if ( ! array_key_exists($status, $availableStatus)) {
+            throw new ValidationException([trans('offline.snipcartshop::lang.plugin.order.invalid_status')]);
+        }
+
+        $this->updateOrder(['payment_status' => $status]);
+
+        return [
+            '#payment_status' => $availableStatus[$status],
+        ];
+    }
+
+    public function onUpdateTrackingInfo()
+    {
+        $trackingNumber = input('trackingNumber');
+        $trackingUrl    = input('trackingUrl');
+
+        $this->updateOrder(['tracking_url' => $trackingUrl, 'tracking_number' => $trackingNumber]);
+    }
+
+    protected function updateOrder(array $attributes)
+    {
+        $order = Order::findOrFail(input('id'));
+        $order->forceFill($attributes);
+
+        $this->api->update($order);
+
+        $order->save();
+        Flash::success(trans('offline.snipcartshop::lang.plugin.order.updated'));
     }
 
     protected function formatTaxRate($rate)

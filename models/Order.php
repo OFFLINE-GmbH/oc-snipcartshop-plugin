@@ -22,6 +22,22 @@ class Order extends Model
         'items' => 'OFFLINE\SnipcartShop\Models\OrderItem',
     ];
 
+    /**
+     * This method is used to provide the data for the
+     * api call to update the order's status.
+     *
+     * @return array
+     */
+    public function requestData()
+    {
+        return [
+            'status'         => studly_case($this->status),
+            'paymentStatus'  => studly_case($this->payment_status),
+            'trackingNumber' => $this->tracking_number,
+            'trackingUrl'    => $this->tracking_url,
+        ];
+    }
+
     public function getCreationDateFormattedAttribute()
     {
         return $this->creation_date->format('d.m.Y H:i:s');
