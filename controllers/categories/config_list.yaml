@@ -1,0 +1,13 @@
+title: 'offline.snipcartshop::lang.plugin.common.categories'
+modelClass: OFFLINE\SnipcartShop\Models\Category
+list: $/offline/snipcartshop/models/category/columns.yaml
+recordUrl: 'offline/snipcartshop/categories/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+showTree: 1
+treeExpanded: 1

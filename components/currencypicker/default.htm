@@ -1,0 +1,7 @@
+{{ form_open() }}
+<select name="currency" data-request="onSwitchCurrency" class="form-control">
+    {% for code, name in currencies %}
+        <option value="{{ code }}" {{ code == activeCurrency ? 'selected' }}>{{ name }}</option>
+    {% endfor %}
+</select>
+{{ form_close() }}

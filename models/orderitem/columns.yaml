@@ -1,0 +1,22 @@
+columns:
+    name:
+        label: 'offline.snipcartshop::lang.plugin.product.name'
+        type: text
+        searchable: true
+        sortable: true
+    quantity:
+        label: 'offline.snipcartshop::lang.plugin.order.quantity'
+        type: number
+        sortable: true
+    price:
+        label: 'offline.snipcartshop::lang.plugin.product.price'
+        type: text
+        sortable: true
+    total_price:
+        label: 'offline.snipcartshop::lang.plugin.order.items_total'
+        type: text
+        sortable: true
+    custom_fields:
+        label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
+        type: text
+        sortable: true

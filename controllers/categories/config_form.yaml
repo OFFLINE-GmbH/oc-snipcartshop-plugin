@@ -1,0 +1,14 @@
+name: 'offline.snipcartshop::lang.plugin.common.category'
+modelClass: OFFLINE\SnipcartShop\Models\Category
+form: $/offline/snipcartshop/models/category/fields.yaml
+defaultRedirect: offline/snipcartshop/categories
+create:
+    title: 'offline.snipcartshop::lang.plugin.titles.categories.create'
+    redirect: 'offline/snipcartshop/categories/update/:id'
+    redirectClose: offline/snipcartshop/categories
+update:
+    title: 'offline.snipcartshop::lang.plugin.titles.categories.update'
+    redirect: offline/snipcartshop/categories
+    redirectClose: offline/snipcartshop/categories
+preview:
+    title: 'offline.snipcartshop::lang.plugin.titles.categories.preview'

@@ -1,0 +1,43 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+#    status:
+#        label: offline.snipcartshop::lang.plugin.order.status
+#        type: group
+#        conditions: status in (:filtered)
+#        options:
+#            processed: offline.snipcartshop::lang.plugin.order_status.processed
+#            disputed: offline.snipcartshop::lang.plugin.order_status.disputed
+#            shipped: offline.snipcartshop::lang.plugin.order_status.shipped
+#            delivered: offline.snipcartshop::lang.plugin.order_status.delivered
+#            pending: offline.snipcartshop::lang.plugin.order_status.pending
+#            cancelled: offline.snipcartshop::lang.plugin.order_status.cancelled
+#
+#    payment_status:
+#        label: offline.snipcartshop::lang.plugin.order.payment_status
+#        type: group
+#        conditions: payment_status in (:filtered)
+#        options:
+#            paid: offline.snipcartshop::lang.plugin.payment_status.paid
+#            deferred: offline.snipcartshop::lang.plugin.payment_status.deferred
+#            paid_deferred: offline.snipcartshop::lang.plugin.payment_status.paid_deferred
+#            charged_back: offline.snipcartshop::lang.plugin.payment_status.charged_back
+#            refunded: offline.snipcartshop::lang.plugin.payment_status.refunded
+#            paidout: offline.snipcartshop::lang.plugin.payment_status.paidout
+#            failed: offline.snipcartshop::lang.plugin.payment_status.failed
+#            pending: offline.snipcartshop::lang.plugin.payment_status.pending
+#            expired: offline.snipcartshop::lang.plugin.payment_status.expired
+#            cancelled: offline.snipcartshop::lang.plugin.payment_status.cancelled
+#            open: offline.snipcartshop::lang.plugin.payment_status.open
+
+    creation_date:
+        label: offline.snipcartshop::lang.plugin.order.creation_date
+        type: daterange
+        conditions: creation_date >= ':after' AND creation_date <= ':before'
+
+    completion_date:
+        label: offline.snipcartshop::lang.plugin.order.completion_date
+        type: daterange
+        conditions: completion_date >= ':after' AND completion_date <= ':before'

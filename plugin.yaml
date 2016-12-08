@@ -1,0 +1,60 @@
+plugin:
+    name: 'offline.snipcartshop::lang.plugin.name'
+    description: 'offline.snipcartshop::lang.plugin.description'
+    author: 'OFFLINE GmbH'
+    icon: oc-icon-shopping-cart
+    homepage: ''
+navigation:
+    snipcart-shop:
+        label: 'offline.snipcartshop::lang.plugin.common.shop'
+        url: offline/snipcartshop/products
+        icon: icon-shopping-cart
+        permissions:
+            - 'offline.snipcartshop.*'
+        sideMenu:
+            snipcartshop-products:
+                label: 'offline.snipcartshop::lang.plugin.common.products'
+                url: offline/snipcartshop/products
+                icon: icon-cart-plus
+                permissions:
+                    - offline.snipcartshop.manage_products
+            snipcartshop-categories:
+                label: 'offline.snipcartshop::lang.plugin.common.categories'
+                url: offline/snipcartshop/categories
+                icon: icon-sitemap
+                permissions:
+                    - offline.snipcartshop.manage_categories
+            snipcartshop-orders:
+                label: 'offline.snipcartshop::lang.plugin.common.orders'
+                url: offline/snipcartshop/orders
+                icon: icon-check-circle
+                permissions:
+                    - offline.snipcartshop.manage_orders
+            snipcartshop-discounts:
+                label: 'offline.snipcartshop::lang.plugin.common.discounts'
+                url: offline/snipcartshop/discounts
+                icon: icon-gift
+                permissions:
+                    - offline.snipcartshop.manage_discounts
+permissions:
+    offline.snipcartshop.manage_products:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.manage_products'
+    offline.snipcartshop.manage_categories:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.manage_categories'
+    offline.snipcartshop.manage_orders:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.manage_orders'
+    offline.snipcartshop.manage_discounts:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.manage_discounts'
+    offline.snipcartshop.settings.manage_general:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.settings.manage_general'
+    offline.snipcartshop.settings.manage_api:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.settings.manage_api'
+    offline.snipcartshop.settings.manage_currency:
+        tab: 'offline.snipcartshop::lang.plugin.name'
+        label: 'offline.snipcartshop::lang.plugin.permissions.settings.manage_currency'

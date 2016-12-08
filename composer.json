@@ -1,0 +1,10 @@
+{
+  "require": {
+    "guzzlehttp/guzzle": "^6.2"
+  },
+  "autoload": {
+    "files": [
+      "helpers.php"
+    ]
+  }
+}

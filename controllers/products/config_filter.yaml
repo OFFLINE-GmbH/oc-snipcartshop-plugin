@@ -1,0 +1,14 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+    created_at:
+        label: offline.snipcartshop::lang.plugin.common.created_at
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'
+
+    published:
+        label: offline.snipcartshop::lang.plugin.common.hide_published
+        type: checkbox
+        conditions: published <> true

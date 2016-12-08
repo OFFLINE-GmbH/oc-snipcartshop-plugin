@@ -1,0 +1,42 @@
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.invoice_number')) ?></h4>
+    <p><?= e($order['invoice_number']) ?></p>
+    <p class="description"><?= e($order['creation_date_formatted']) ?></p>
+</div>
+
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.customer')) ?></h4>
+    <p><?= e($order['billing_address']['fullName']) ?></p>
+    <p class="description">
+        <?= e($order['billing_address']['address1']) ?>,
+        <?= e($order['billing_address']['postalCode']) ?>
+        <?= e($order['billing_address']['city']) ?>
+    </p>
+</div>
+
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.grand_total')) ?></h4>
+    <p><?= e($order['grand_total_formatted']) ?></p>
+    <p class="description"><?= e(strtoupper($order['currency'])) ?></p>
+</div>
+
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.status')) ?></h4>
+    <p id="order_status">
+        <?= e(trans('offline.snipcartshop::lang.plugin.order_status.' . strtolower($order['status']))) ?>
+    </p>
+    <p class="description" id="payment_status">
+        <?= e(trans('offline.snipcartshop::lang.plugin.payment_status.' . strtolower($order['payment_status']))) ?>
+    </p>
+</div>
+
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.credit_card')) ?></h4>
+    <p><?= e($order['credit_card_last4_digits']) ?></p>
+    <p class="description"><?= e(trans('offline.snipcartshop::lang.plugin.order.credit_card_last4_digits')) ?></p>
+</div>
+<div class="scoreboard-item title-value">
+    <h4><?= e(trans('offline.snipcartshop::lang.plugin.order.payment_gateway_used')) ?></h4>
+    <p><?= e($order['payment_gateway_used']) ?></p>
+    <p class="description"><?= e($order['payment_method']) ?></p>
+</div>

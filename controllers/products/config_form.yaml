@@ -1,0 +1,14 @@
+name: 'offline.snipcartshop::lang.plugin.common.product'
+modelClass: OFFLINE\SnipcartShop\Models\Product
+form: $/offline/snipcartshop/models/product/fields.yaml
+defaultRedirect: offline/snipcartshop/products
+create:
+    title: 'offline.snipcartshop::lang.plugin.titles.products.create'
+    redirect: 'offline/snipcartshop/products/update/:id'
+    redirectClose: offline/snipcartshop/products
+update:
+    title: 'offline.snipcartshop::lang.plugin.titles.products.update'
+    redirect: offline/snipcartshop/products
+    redirectClose: offline/snipcartshop/products
+preview:
+    title: 'offline.snipcartshop::lang.plugin.titles.products.preview'

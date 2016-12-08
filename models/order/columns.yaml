@@ -1,0 +1,32 @@
+columns:
+    invoice_number:
+        label: 'offline.snipcartshop::lang.plugin.order.invoice_number'
+        type: text
+        searchable: true
+        sortable: true
+    creation_date:
+        label: 'offline.snipcartshop::lang.plugin.common.created_at'
+        type: date
+        sortable: true
+    status:
+        label: 'offline.snipcartshop::lang.plugin.order.status'
+        type: partial
+        path: $/offline/snipcartshop/models/order/_status.htm
+        sortable: true
+        searchable: true
+    payment_status:
+        label: 'offline.snipcartshop::lang.plugin.order.payment_status'
+        type: partial
+        path: $/offline/snipcartshop/models/order/_payment_status.htm
+        sortable: true
+        searchable: true
+    billing_address:
+        label: 'offline.snipcartshop::lang.plugin.order.billing_address'
+        path: $/offline/snipcartshop/models/order/_billing_address.htm
+        type: partial
+        searchable: true
+        sortable: true
+    grand_total_formatted:
+        label: 'offline.snipcartshop::lang.plugin.order.grand_total'
+        type: number
+        sortable: true
