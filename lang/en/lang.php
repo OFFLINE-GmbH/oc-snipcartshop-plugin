@@ -83,6 +83,7 @@
             'reorder' => 'Reorder entries',
             'id' => 'ID',
             'created_at' => 'Created at',
+            'hide_published' => 'Hide published',
             'slug' => 'URL',
             'use_backend_defaults' => 'Use defaults configured in backend settings',
             'api_error' => 'Could not save discount. Error while sending changes to the Snipcart API.',
@@ -133,6 +134,8 @@
             'add_currency' => 'Add currency',
             'currency' => 'Currency',
             'general' => 'General',
+            'is_taxable' => 'Use tax',
+            'is_not_taxable' => 'Use no tax',
         ],
         'category' => [
             'name' => 'Name',

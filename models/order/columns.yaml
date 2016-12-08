@@ -22,7 +22,8 @@ columns:
         searchable: true
     billing_address:
         label: 'offline.snipcartshop::lang.plugin.order.billing_address'
-        type: text
+        path: $/offline/snipcartshop/models/order/_billing_address.htm
+        type: partial
         searchable: true
         sortable: true
     grand_total_formatted:
