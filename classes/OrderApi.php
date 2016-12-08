@@ -2,7 +2,6 @@
 
 namespace OFFLINE\SnipcartShop\Classes;
 
-use GuzzleHttp\Client;
 use October\Rain\Exception\ValidationException;
 use OFFLINE\SnipcartShop\Models\Order;
 

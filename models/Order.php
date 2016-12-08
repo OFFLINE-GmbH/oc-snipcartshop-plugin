@@ -38,7 +38,8 @@ class Order extends Model
         ];
     }
 
-    public static function scopeStatus() {
+    public static function scopeStatus()
+    {
         return ['a', 'b'];
     }
 

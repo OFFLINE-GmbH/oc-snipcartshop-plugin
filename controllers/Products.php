@@ -2,7 +2,6 @@
 
 use Backend\Classes\Controller;
 use BackendMenu;
-use OFFLINE\SnipcartShop\FormWidgets\VariantSelector;
 
 class Products extends Controller
 {
@@ -29,6 +28,7 @@ class Products extends Controller
         $this->bodyClass = 'compact-container';
         parent::create();
     }
+
     public function update($recordId = null)
     {
         $this->bodyClass = 'compact-container';

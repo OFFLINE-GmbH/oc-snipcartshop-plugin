@@ -1,8 +1,6 @@
 <?php
 
-
 namespace OFFLINE\SnipcartShop\Components;
-
 
 trait SetsVars
 {

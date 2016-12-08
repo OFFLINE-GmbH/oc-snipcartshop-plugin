@@ -7,7 +7,6 @@ use Backend\Classes\FormWidgetBase;
  */
 class VariantSelector extends FormWidgetBase
 {
-
     /**
      * {@inheritDoc}
      */

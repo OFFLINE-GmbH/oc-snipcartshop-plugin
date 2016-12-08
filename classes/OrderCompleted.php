@@ -10,8 +10,7 @@ use OFFLINE\SnipcartShop\Models\OrderItem;
 class OrderCompleted
 {
     protected $ignoreFieldsOrder = [
-        'items', // Temporary
-
+        'items',
         'discounts',
         'plans',
         'refunds',

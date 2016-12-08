@@ -2,8 +2,8 @@
 
 use Cms\Classes\ComponentBase;
 use Illuminate\Support\Collection;
-use \Redirect;
 use OFFLINE\SnipcartShop\Models\CurrencySettings;
+use Redirect;
 
 class CurrencyPicker extends ComponentBase
 {

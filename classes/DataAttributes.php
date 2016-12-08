@@ -60,13 +60,13 @@ class DataAttributes
 
     protected function description()
     {
-        $this->setAttribte('description', $this->product->description_short);
+        $this->setAttribute('description', $this->product->description_short);
     }
 
     protected function image()
     {
-        if($this->product->image) {
-            $this->setAttribte('image', url($this->product->image->getThumb(50, 50, 'crop')));
+        if ($this->product->image) {
+            $this->setAttribute('image', url($this->product->image->getThumb(50, 50, 'crop')));
         }
     }
 
@@ -76,19 +76,19 @@ class DataAttributes
         $this->applyAttribute('width');
         $this->applyAttribute('length');
         $this->applyAttribute('height');
-        $this->setAttribte('shippable', $this->product->shippable ? 'true' : 'false');
+        $this->setAttribute('shippable', $this->product->shippable ? 'true' : 'false');
     }
 
     protected function quantities()
     {
         if ($default = $this->product->quantity_default !== null) {
-            $this->setAttribte('quantity', (int)$default);
+            $this->setAttribute('quantity', (int)$default);
         }
         if ($min = $this->product->quantity_min !== null) {
-            $this->setAttribte('min-quantity', (int)$min);
+            $this->setAttribute('min-quantity', (int)$min);
         }
         if ($max = $this->product->quantity_max !== null) {
-            $this->setAttribte('max-quantity', (int)$max);
+            $this->setAttribute('max-quantity', (int)$max);
         }
     }
 
@@ -106,12 +106,12 @@ class DataAttributes
             }
         }
 
-        $this->setAttribte('price', $price);
+        $this->setAttribute('price', $price);
     }
 
     protected function taxes()
     {
-        $this->setAttribte('taxable', $this->product->taxable ? 'true' : 'false');
+        $this->setAttribute('taxable', $this->product->taxable ? 'true' : 'false');
     }
 
     protected function url()
@@ -124,7 +124,7 @@ class DataAttributes
             $slug = 'slug';
         }
 
-        if( ! $this->settings->get('product_page')) {
+        if ( ! $this->settings->get('product_page')) {
             throw new \InvalidArgumentException(
                 'SnipcartShop: Please select a product page via the backend settings.'
             );
@@ -135,7 +135,7 @@ class DataAttributes
             [$slug => $this->product->slug]
         );
 
-        $this->setAttribte('url', $url);
+        $this->setAttribute('url', $url);
     }
 
     protected function customFields()
@@ -160,7 +160,7 @@ class DataAttributes
 
         $fields->each(function ($field) {
             $field->each(function ($value, $name) {
-                $this->setAttribte($name, $value);
+                $this->setAttribute($name, $value);
             });
         });
     }
@@ -179,7 +179,7 @@ class DataAttributes
             return $this;
         }
 
-        return $this->setAttribte($attribute, $value);
+        return $this->setAttribute($attribute, $value);
     }
 
     /**
@@ -190,7 +190,7 @@ class DataAttributes
      *
      * @return $this
      */
-    protected function setAttribte($name, $value)
+    protected function setAttribute($name, $value)
     {
         $this->attributes[$name] = $value;
 

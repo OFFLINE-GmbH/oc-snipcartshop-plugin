@@ -1,9 +1,9 @@
 <?php namespace OFFLINE\SnipcartShop\Components;
 
 use Cms\Classes\ComponentBase;
+use Cms\Classes\Page;
 use OFFLINE\SnipcartShop\Models\Category;
 use OFFLINE\SnipcartShop\Models\GeneralSettings;
-use Cms\Classes\Page;
 
 class Categories extends ComponentBase
 {
@@ -34,21 +34,21 @@ class Categories extends ComponentBase
         $langPrefix = 'offline.snipcartshop::lang.components.categories.properties.';
 
         return [
-            'parent' => [
+            'parent'       => [
                 'title'       => $langPrefix . 'parent.title',
                 'description' => $langPrefix . 'parent.description',
                 'type'        => 'dropdown',
             ],
-            'categorySlug'      => [
+            'categorySlug' => [
                 'title'       => $langPrefix . 'categorySlug.title',
                 'description' => $langPrefix . 'categorySlug.description',
                 'type'        => 'string',
                 'default'     => '{{ :slug }}',
             ],
-            'categoryPage'       => [
+            'categoryPage' => [
                 'title'       => $langPrefix . 'categoryPage.title',
                 'description' => $langPrefix . 'categoryPage.description',
-                'type'        => 'dropdown'
+                'type'        => 'dropdown',
             ],
         ];
     }
@@ -84,7 +84,7 @@ class Categories extends ComponentBase
 
     protected function getCategories()
     {
-        if($this->parent === '{slug}') {
+        if ($this->parent === '{slug}') {
             // Get the last slug part and use this as category slug
             $slugs = explode('/', $this->property('categorySlug'));
             $slug  = end($slugs);

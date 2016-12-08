@@ -12,19 +12,17 @@ class Category extends Model
     use \October\Rain\Database\Traits\Validation;
     use \October\Rain\Database\Traits\NestedTree;
 
+    public $timestamps = true;
+    public $table = 'offline_snipcartshop_categories';
+    public $translatable = ['name', ['slug', 'index' => true], 'meta_description', 'meta_title'];
     public $implement = [
         '@RainLab.Translate.Behaviors.TranslatableModel',
     ];
-    public $translatable = ['name', ['slug', 'index' => true], 'meta_description', 'meta_title'];
 
     public $rules = [
         'name' => 'required',
         'slug' => ['required', 'regex:/^[a-z0-9\/\:_\-\*\[\]\+\?\|]*$/i', 'unique:offline_snipcartshop_categories'],
     ];
-
-    public $timestamps = true;
-
-    public $table = 'offline_snipcartshop_categories';
 
     public $belongsToMany = [
         'products' => [
@@ -105,7 +103,7 @@ class Category extends Model
                 // Prepend the parent categories slug if available
                 $slug = $baseUrl ? $baseUrl . '/' . $item->slug : $item->slug;
 
-                $entryUrl = $controller->pageUrl($pageUrl, [$pageSlug => $slug]);
+                $entryUrl               = $controller->pageUrl($pageUrl, [$pageSlug => $slug]);
                 $branchItem             = [];
                 $branchItem['url']      = $entryUrl;
                 $branchItem['isActive'] = $entryUrl === $url;

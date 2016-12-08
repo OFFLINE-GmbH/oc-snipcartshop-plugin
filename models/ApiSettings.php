@@ -2,9 +2,7 @@
 
 namespace OFFLINE\SnipcartShop\Models;
 
-use Cms\Classes\Page;
 use Model;
-use RuntimeException;
 use Session;
 
 class ApiSettings extends Model

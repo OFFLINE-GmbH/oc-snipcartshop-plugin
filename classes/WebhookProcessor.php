@@ -2,9 +2,8 @@
 
 namespace OFFLINE\SnipcartShop\Classes;
 
-
+use Event;
 use Illuminate\Http\Request;
-use \Event;
 
 /**
  * This class handles incomming webhooks from snipcart.com

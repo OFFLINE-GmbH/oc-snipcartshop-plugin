@@ -1,9 +1,9 @@
 <?php namespace OFFLINE\SnipcartShop\Components;
 
 use Cms\Classes\ComponentBase;
-use OFFLINE\SnipcartShop\Models\GeneralSettings;
 use OFFLINE\SnipcartShop\Models\ApiSettings;
 use OFFLINE\SnipcartShop\Models\CurrencySettings;
+use OFFLINE\SnipcartShop\Models\GeneralSettings;
 
 class SnipcartDependencies extends ComponentBase
 {
