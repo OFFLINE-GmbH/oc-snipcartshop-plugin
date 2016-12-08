@@ -2,6 +2,8 @@
 
 Ecommerce solution for October CMS using snipcart.com as a backend.
 
+**Demo:** [https://snipcart.offline.swiss](https://snipcart.offline.swiss)
+
 ## Features
 
 * Multi-currency
