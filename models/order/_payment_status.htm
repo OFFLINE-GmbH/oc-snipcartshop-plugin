@@ -1,0 +1,18 @@
+<?php if(in_array($value, ['pending', 'open'])): ?>
+<span class="list-badge badge-info">
+    <i class="icon-info"></i>
+</span>
+<?php elseif(in_array($value, ['failed', 'expired', 'cancelled'])): ?>
+<span class="list-badge badge-danger">
+    <i class="icon-times"></i>
+</span>
+<?php elseif(in_array($value, ['paid', 'paid_deferred', 'charged_back', 'refunded', 'paidout'])): ?>
+<span class="list-badge badge-success">
+    <i class="icon-check"></i>
+</span>
+<?php else: ?>
+<span class="list-badge badge-warning">
+    <i class="icon-exclamation"></i>
+</span>
+<?php endif; ?>
+<?= e(trans('offline.snipcartshop::lang.plugin.payment_status.'. $value)) ?>

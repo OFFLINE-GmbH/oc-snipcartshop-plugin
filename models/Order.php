@@ -1,15 +1,12 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
 use Model;
-use OFFLINE\SnipcartShop\Classes\MoneyFormatter;
 
 /**
  * Model
  */
 class Order extends Model
 {
-
-    use MoneyFormatter;
 
     public $timestamps = false;
     public $guarded = ['id'];
@@ -25,6 +22,26 @@ class Order extends Model
         'items' => 'OFFLINE\SnipcartShop\Models\OrderItem',
     ];
 
+    /**
+     * This method is used to provide the data for the
+     * api call to update the order's status.
+     *
+     * @return array
+     */
+    public function requestData()
+    {
+        return [
+            'status'         => studly_case($this->status),
+            'paymentStatus'  => studly_case($this->payment_status),
+            'trackingNumber' => $this->tracking_number,
+            'trackingUrl'    => $this->tracking_url,
+        ];
+    }
+
+    public static function scopeStatus() {
+        return ['a', 'b'];
+    }
+
     public function getCreationDateFormattedAttribute()
     {
         return $this->creation_date->format('d.m.Y H:i:s');
@@ -32,16 +49,16 @@ class Order extends Model
 
     public function getGrandTotalFormattedAttribute()
     {
-        return $this->formatMoney($this->grand_total);
+        return format_money($this->grand_total);
     }
 
     public function getSubtotalFormattedAttribute()
     {
-        return $this->formatMoney($this->subtotal);
+        return format_money($this->subtotal);
     }
 
     public function getShippingFeesFormattedAttribute()
     {
-        return $this->formatMoney($this->shipping_fees);
+        return format_money($this->shipping_fees);
     }
 }

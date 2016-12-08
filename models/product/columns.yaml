@@ -9,11 +9,28 @@ columns:
         type: text
         searchable: true
         sortable: true
+    price_formatted:
+        label: 'offline.snipcartshop::lang.plugin.product.price'
+        type: text
+        searchable: true
+        sortable: true
     published:
         label: 'offline.snipcartshop::lang.plugin.product.published'
         type: partial
         path: $/offline/snipcartshop/models/product/_published.htm
         sortable: true
+    taxable:
+        label: 'offline.snipcartshop::lang.plugin.product.taxable'
+        type: partial
+        path: $/offline/snipcartshop/models/product/_taxable.htm
+        sortable: true
+    categories:
+        label: 'offline.snipcartshop::lang.plugin.common.categories'
+        type: relation
+        select: name
+        sortable: true
+        searchable: true
     stock:
         label: 'offline.snipcartshop::lang.plugin.product.stock'
         type: number
+        invisible: true

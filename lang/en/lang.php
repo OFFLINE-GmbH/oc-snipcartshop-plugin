@@ -13,6 +13,9 @@
                 'update' => 'Edit category',
                 'preview' => 'Category preview',
             ],
+            'orders' => [
+                'show' => 'Order details',
+            ],
             'discounts' => [
                 'create' => 'Create discount',
                 'update' => 'Edit discount',
@@ -80,8 +83,10 @@
             'reorder' => 'Reorder entries',
             'id' => 'ID',
             'created_at' => 'Created at',
+            'hide_published' => 'Hide published',
             'slug' => 'URL',
             'use_backend_defaults' => 'Use defaults configured in backend settings',
+            'api_error' => 'Could not save discount. Error while sending changes to the Snipcart API.',
         ],
         'variant' => [
             'method' => [
@@ -129,6 +134,8 @@
             'add_currency' => 'Add currency',
             'currency' => 'Currency',
             'general' => 'General',
+            'is_taxable' => 'Use tax',
+            'is_not_taxable' => 'Use no tax',
         ],
         'category' => [
             'name' => 'Name',
@@ -161,7 +168,6 @@
             'shipping_guaranteed_days_to_delivery' => 'Guaranteed days to delivery',
             'section_type' => 'What does this discount do?',
             'section_trigger' => 'When is this discount applicable?',
-            'api_error' => 'Could not save discount. Error while sending changes to the Snipcart API.',
             'types' => [
                 'fixed_amount' => 'Fixed amount',
                 'rate' => 'Rate',
@@ -211,16 +217,23 @@
             'subtotal' => 'Subtotal',
             'taxable_total' => 'Taxable total',
             'total_weight' => 'Total weight',
-            'total_rebate_rate' => 'Totale rebate',
+            'total_rebate_rate' => 'Total rebate',
             'notes' => 'Notes',
             'custom_fields' => 'Custom fields',
             'shipping_enabled' => 'Shipping enabled',
             'payment_transaction_id' => 'Payment transaction id',
-            'change_status' => 'Change status',
-            'refund' => 'Refund',
+            'change_order_status' => 'Change order status',
+            'change_payment_status' => 'Change payment status',
             'items' => 'Items',
             'quantity' => 'Quantity',
             'shipping_address_is_same_as_billing' => 'Shipping address is same as billing address',
+            'update_tracking_info' => 'Add tracking info',
+            'invalid_status' => 'The selected status does not exist.',
+            'updated' => 'Order update successful',
+            'modal' => [
+                'cancel' => 'Cancel',
+                'update' => 'Update information',
+            ]
         ],
         'order_status' => [
             'processed' => 'Processed',
@@ -233,8 +246,8 @@
         'payment_status' => [
             'paid' => 'Paid',
             'deferred' => 'Deferred',
-            'paiddeferred' => 'Paid deferred',
-            'chargedback' => 'Charged back',
+            'paid_deferred' => 'Paid deferred',
+            'charged_back' => 'Charged back',
             'refunded' => 'Refunded',
             'paidout' => 'Paidout',
             'failed' => 'Failed',
