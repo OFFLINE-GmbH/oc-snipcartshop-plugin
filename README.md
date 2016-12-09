@@ -4,6 +4,9 @@ Ecommerce solution for October CMS using snipcart.com as a backend.
 
 **Demo:** [https://snipcart.offline.swiss](https://snipcart.offline.swiss)
 
+> Please note: this plugin is not affiliated with Snipcart directly. It simply provides an easy way to use the third-party e-commerce service with October CMS. Therefore, Snipcart-specific questions may need to be directly put through Snipcart's support. We'll provide support for plugin-specific questions, and plugin maintenance.
+
+
 ## Features
 
 * Multi-currency
