@@ -10,10 +10,10 @@ Ecommerce solution for October CMS using snipcart.com as a backend.
 ## Features
 
 * Multi-currency
-* Multi-language (via Rainlab.Translate)
+* Multi-language (via Rainlab.Translate, Backend available in german and english)
 * Discounts and coupon codes
 * Update orders directly from the October CMS backend
-* OFFLINE.SiteSearch support
+* [OFFLINE.SiteSearch](https://octobercms.com/plugin/offline-sitesearch) support
 * Fully functional and responsive [demo theme](https://github.com/OFFLINE-GmbH/oc-snipcartshop-theme) ready to download 
 
 ## Quickstart
