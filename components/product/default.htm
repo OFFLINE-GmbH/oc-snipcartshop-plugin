@@ -31,7 +31,7 @@
                     </form>
                 {% else %}
                     {# Otherwise just let snipcart handle the feedback #}
-                    <button class="snipcart-add-item" {{ product.dataAttributes | raw }}
+                    <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
                     {{ 'cart.add'|_ }}
                     </button>
                 {% endif %}
