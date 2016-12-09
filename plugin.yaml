@@ -2,7 +2,7 @@ plugin:
     name: 'offline.snipcartshop::lang.plugin.name'
     description: 'offline.snipcartshop::lang.plugin.description'
     author: 'OFFLINE GmbH'
-    icon: oc-icon-shopping-cart
+    icon: icon-shopping-cart
     homepage: ''
 navigation:
     snipcart-shop:
