@@ -136,6 +136,7 @@
             'is_not_taxable' => 'Nicht besteuert',
             'currency' => 'Währung',
             'general' => 'Allgemein',
+            'duplicate_currency' => 'Sie haben für eine Währung mehrere Preise eingetragen.',
         ],
         'category' => [
             'name' => 'Name',

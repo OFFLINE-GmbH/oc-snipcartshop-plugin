@@ -3,6 +3,7 @@
 use Illuminate\Database\Eloquent\Collection;
 use Model;
 use October\Rain\Database\Traits\Validation;
+use October\Rain\Exception\ValidationException;
 use OFFLINE\SnipcartShop\Classes\DataAttributes;
 use System\Models\File;
 
@@ -106,11 +107,25 @@ class Product extends Model
 
             // Since the price field is jsonable we'll get back
             // an array with only a single number if just one currency
-            // is configured. In this is the case we need to transform
+            // is configured. In this case we need to transform
             // it to an array and add the currency code.
             $price = array_values($this->price)[0];
+
             if ( ! is_array($price)) {
                 $this->price = [['currency' => CurrencySettings::currencies()->first(), 'price' => $price]];
+            }
+
+            // Since we are messing around with the price attribute
+            // we need to take care of the validation as well.
+            foreach ($this->price as $currency) {
+                if ( ! is_numeric($currency['price']) || $currency['price'] === '') {
+                    throw new ValidationException([trans('validation.numeric', ['attribute' => 'price'])]);
+                }
+            }
+
+            $uniqueCurrencies = collect($this->price)->pluck('currency')->unique()->count();
+            if(count($this->price) !== $uniqueCurrencies) {
+                throw new ValidationException([trans('offline.snipcartshop::lang.plugin.product.duplicate_currency')]);
             }
         }
     }

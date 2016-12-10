@@ -136,6 +136,7 @@
             'general' => 'General',
             'is_taxable' => 'Use tax',
             'is_not_taxable' => 'Use no tax',
+            'duplicate_currency' => 'You have entered multiple prices for the same currency',
         ],
         'category' => [
             'name' => 'Name',
