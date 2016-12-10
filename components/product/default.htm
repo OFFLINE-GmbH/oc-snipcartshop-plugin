@@ -16,6 +16,10 @@
             <div class="product__description">
                 {{ product.description | raw }}
             </div>
+            <div class="product__additional-data">
+                {% partial __SELF__ ~ '::properties.htm' properties = product.properties %}
+                {% partial __SELF__ ~ '::links.htm' links = product.links %}
+            </div>
             <div class="product__price">
                 {{ product.priceFormatted }}
             </div>
@@ -32,7 +36,7 @@
                 {% else %}
                     {# Otherwise just let snipcart handle the feedback #}
                     <button class="snipcart-add-item" {{ product.dataAttributes | raw }}>
-                    {{ 'cart.add'|_ }}
+                        {{ 'cart.add'|_ }}
                     </button>
                 {% endif %}
             </div>

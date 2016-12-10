@@ -1,0 +1,10 @@
+{% if links %}
+    <div class="product-info">
+        {% for link in links %}
+            <div class="product-info__item">
+                <h5 class="product-info__title">{{ link.title }}</h5>
+                <p><a href="{{ link.url }}" target="_blank">{{ link.url }}</a></p>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
