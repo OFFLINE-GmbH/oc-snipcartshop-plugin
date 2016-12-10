@@ -1,0 +1,10 @@
+{% if properties %}
+    <div class="product-info">
+        {% for property in properties %}
+            <div class="product-info__item">
+                <h5 class="product-info__title">{{ property.title }}</h5>
+                <p>{{ property.value | nl2br }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
