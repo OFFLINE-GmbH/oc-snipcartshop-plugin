@@ -70,7 +70,13 @@ class Product extends ComponentBase
             ? $product->transWhere('slug', $slug)
             : $product->where('slug', $slug);
 
-        $product = $product->with(['main_image', 'images', 'custom_fields', 'custom_fields.options'])->first();
+        $product = $product->with([
+            'main_image',
+            'images',
+            'downloads',
+            'custom_fields',
+            'custom_fields.options',
+        ])->first();
 
         if ( ! $product) {
             throw new NotFoundHttpException();

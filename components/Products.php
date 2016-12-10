@@ -151,7 +151,11 @@ class Products extends ComponentBase
             $category = $category->whereId($categoryId);
         }
 
-        $category = $category->with(['products', 'products.images', 'products.main_image'])->first();
+        $category = $category->with([
+            'products',
+            'products.images',
+            'products.main_image',
+        ])->first();
 
         if ( ! $category) {
             throw new NotFoundHttpException();

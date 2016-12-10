@@ -92,9 +92,18 @@ tabs:
             thumbOptions:
                 mode: crop
                 extension: auto
-            span: full
+            span: left
             type: fileupload
-            tab: 'offline.snipcartshop::lang.plugin.common.images'
+            tab: 'offline.snipcartshop::lang.plugin.common.attachments'
+        downloads:
+            label: 'offline.snipcartshop::lang.plugin.common.downloads'
+            oc.commentPosition: ''
+            mode: file
+            prompt: 'offline.snipcartshop::lang.plugin.common.select_file'
+            useCaption: true
+            span: right
+            type: fileupload
+            tab: 'offline.snipcartshop::lang.plugin.common.attachments'
         images:
             label: 'offline.snipcartshop::lang.plugin.common.images'
             oc.commentPosition: ''
@@ -106,9 +115,9 @@ tabs:
             thumbOptions:
                 mode: crop
                 extension: auto
-            span: full
+            span: left
             type: fileupload
-            tab: 'offline.snipcartshop::lang.plugin.common.images'
+            tab: 'offline.snipcartshop::lang.plugin.common.attachments'
         custom_fields@update:
             label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
             oc.commentPosition: ''
