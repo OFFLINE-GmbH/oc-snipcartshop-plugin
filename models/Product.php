@@ -16,7 +16,7 @@ class Product extends Model
 
     public $table = 'offline_snipcartshop_products';
     public $timestamps = true;
-    public $jsonable = ['price'];
+    public $jsonable = ['price', 'properties', 'links'];
 
     public $implement = ['RainLab.Translate.Behaviors.TranslatableModel'];
     public $translatable = [
