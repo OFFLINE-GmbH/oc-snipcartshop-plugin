@@ -21,3 +21,14 @@ variants:
         form: $/offline/snipcartshop/models/variant/fields.yaml
         recordsPerPage: 10
     deferredBinding: true
+
+accessories:
+    label: 'offline.snipcartshop::lang.plugin.common.accessories'
+    view:
+        list: $/offline/snipcartshop/models/product/columns.yaml
+        recordUrl: offline/snipcartshop/products/update/:id
+        toolbarButtons: add|remove
+    manage:
+        form: $/offline/snipcartshop/models/product/fields.yaml
+        recordsPerPage: 10
+    deferredBinding: true

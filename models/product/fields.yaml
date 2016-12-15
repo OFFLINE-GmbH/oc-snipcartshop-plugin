@@ -127,11 +127,6 @@ tabs:
                         type: text
                         required: true
 
-
-
-
-
-
         main_image:
             label: 'offline.snipcartshop::lang.plugin.common.main_image'
             oc.commentPosition: ''
@@ -172,7 +167,6 @@ tabs:
         custom_fields@update:
             label: 'offline.snipcartshop::lang.plugin.common.custom_fields'
             oc.commentPosition: ''
-            list: $/offline/snipcartshop/models/customfield/columns.yaml
             span: auto
             type: partial
             path: $/offline/snipcartshop/controllers/products/_custom_fields.htm
@@ -180,7 +174,6 @@ tabs:
         variants@update:
             label: 'offline.snipcartshop::lang.plugin.common.variants'
             oc.commentPosition: ''
-            list: $/offline/snipcartshop/models/variant/columns.yaml
             span: auto
             type: partial
             path: $/offline/snipcartshop/controllers/products/_variants.htm
@@ -240,6 +233,13 @@ tabs:
             span: left
             type: number
             tab: 'offline.snipcartshop::lang.plugin.common.cart'
+        accessories:
+            label: 'offline.snipcartshop::lang.plugin.common.accessories'
+            span: full
+            span: auto
+            type: partial
+            path: $/offline/snipcartshop/controllers/products/_accessories.htm
+            tab: 'offline.snipcartshop::lang.plugin.common.accessories'
         allow_out_of_stock_purchases:
             label: 'offline.snipcartshop::lang.plugin.product.allow_out_of_stock_purchases'
             span: left
