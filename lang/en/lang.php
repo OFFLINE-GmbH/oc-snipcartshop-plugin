@@ -65,6 +65,8 @@
             'shipping' => 'Shipping',
             'taxes' => 'Taxes',
             'inventory' => 'Inventory',
+            'accessories' => 'Accessories',
+            'accessory' => 'Accessory',
             'custom_fields' => 'Custom fields',
             'variants' => 'Variants',
             'discounts' => 'Discounts',
@@ -394,7 +396,7 @@
                 ],
                 'productPage' => [
                     'title' => 'Product page',
-                    'description' => 'Links will point to this page. If nothing is selected, the defaults from the backend settings will be used.',
+                    'description' => 'Product links will point to this page. If nothing is selected, the defaults from the backend settings will be used.',
                 ],
             ],
         ],

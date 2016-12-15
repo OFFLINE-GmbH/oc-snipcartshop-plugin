@@ -40,6 +40,12 @@
                     </button>
                 {% endif %}
             </div>
+
+            {% if product.accessories.count %}
+                {% partial __SELF__ ~ '::accessories' accessories = product.accessories %}
+            {% endif %}
         </div>
+
+
     </div>
 </div>

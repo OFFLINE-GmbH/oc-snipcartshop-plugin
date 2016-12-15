@@ -65,6 +65,8 @@
             'shipping' => 'Versand',
             'taxes' => 'Steuern',
             'inventory' => 'Lagerbestand',
+            'accessories' => 'Zubehör',
+            'accessory' => 'Zubehör',
             'custom_fields' => 'Benutzerdefinierte Felder',
             'variants' => 'Varianten',
             'discounts' => 'Rabatte',
@@ -394,7 +396,7 @@
                 ],
                 'productPage' => [
                     'title' => 'Produkt-Seite',
-                    'description' => 'Die Links werden auf diese Seite verweisen.',
+                    'description' => 'Die Produkt-Links werden auf diese Seite verweisen.',
                 ],
             ],
         ],
