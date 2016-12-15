@@ -1,6 +1,7 @@
 <?php namespace OFFLINE\SnipcartShop\Components;
 
 use Cms\Classes\ComponentBase;
+use Cms\Classes\Page;
 use OFFLINE\SnipcartShop\Models\GeneralSettings;
 use OFFLINE\SnipcartShop\Models\Product as ProductModel;
 use Redirect;
@@ -20,6 +21,11 @@ class Product extends ComponentBase
      * @var boolean
      */
     public $autoPop;
+    /**
+     * Reference to the page name for linking to products.
+     * @var string
+     */
+    public $productPage;
 
     public function componentDetails()
     {
@@ -31,22 +37,36 @@ class Product extends ComponentBase
 
     public function defineProperties()
     {
-        $langPrefix = 'offline.snipcartshop::lang.components.product.properties.';
+        $langPrefixProduct  = 'offline.snipcartshop::lang.components.product.properties.';
+        $langPrefixProducts = 'offline.snipcartshop::lang.components.products.properties.';
 
         return [
             'productSlug' => [
-                'title'       => $langPrefix . 'productSlug.title',
-                'description' => $langPrefix . 'productSlug.description',
+                'title'       => $langPrefixProduct . 'productSlug.title',
+                'description' => $langPrefixProduct . 'productSlug.description',
                 'type'        => 'string',
                 'default'     => '{{ :slug }}',
             ],
+            'productPage' => [
+                'title'       => $langPrefixProducts . 'productPage.title',
+                'description' => $langPrefixProducts . 'productPage.description',
+                'type'        => 'dropdown',
+                'default'     => '',
+            ],
         ];
+    }
+
+    public function getProductPageOptions()
+    {
+        return [null => '(' . trans('offline.snipcartshop::lang.plugin.common.use_backend_defaults') . ')']
+            + Page::sortBy('baseFileName')->lists('title', 'baseFileName');
     }
 
     public function onRun()
     {
         try {
             $this->setVar('product', $this->loadProduct());
+            $this->setVar('productPage', $this->getProductPage());
             $this->setVar('autoPop', GeneralSettings::get('auto_pop', true));
         } catch (NotFoundHttpException $e) {
             return Redirect::to('/404');
@@ -74,6 +94,7 @@ class Product extends ComponentBase
             'main_image',
             'images',
             'downloads',
+            'accessories',
             'custom_fields',
             'custom_fields.options',
         ])->first();
@@ -94,5 +115,14 @@ class Product extends ComponentBase
         if ($this->product->meta_description) {
             $this->page->meta_description = $this->product->meta_description;
         }
+    }
+
+    private function getProductPage()
+    {
+        if ($this->property('productPage')) {
+            return $this->property('productPage');
+        }
+
+        return GeneralSettings::get('product_page');
     }
 }

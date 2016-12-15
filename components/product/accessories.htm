@@ -1,0 +1,12 @@
+<div class="product__accessories">
+    <div class="accessories-grid">
+        {% for accessory in accessories %}
+        <a class="accessory" href="{{ __SELF__.productPage | page({slug: accessory.slug}) }}">
+            <div class="accessory__image">
+                <img src="{{ accessory.image.thumb(160, 'auto') }}" alt=""/>
+            </div>
+            <div class="accessory__name">{{ accessory.name }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>

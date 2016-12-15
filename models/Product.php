@@ -68,6 +68,13 @@ class Product extends Model
             'key'      => 'product_id',
             'otherKey' => 'category_id',
         ],
+        'accessories' => [
+            'OFFLINE\SnipcartShop\Models\Product',
+            'table'    => 'offline_snipcartshop_product_accessory',
+            'key'      => 'accessory_id',
+            'otherKey' => 'product_id',
+            'conditions' => 'published = 1'
+        ]
     ];
 
     /**
