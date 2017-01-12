@@ -16,3 +16,5 @@
 1.0.3:
     - 'Added support for product accessories'
     - builder_table_create_offline_snipcartshop_product_accessory.php
+1.0.4:
+    - 'Fixed incorrect database schema generation (thanks to abhi1693)'
