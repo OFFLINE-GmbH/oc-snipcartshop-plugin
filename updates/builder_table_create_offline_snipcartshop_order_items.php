@@ -34,10 +34,10 @@ class BuilderTableCreateOfflineSnipcartshopOrderItems extends Migration
             $table->boolean('taxable');
             $table->json('custom_fields');
             $table->json('taxes');
-            $table->timestamp('added_on');
+            $table->timestamp('added_on')->nullable();
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('offline_snipcartshop_order_items');
