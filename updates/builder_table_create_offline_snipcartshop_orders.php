@@ -14,9 +14,9 @@ class BuilderTableCreateOfflineSnipcartshopOrders extends Migration
             $table->uuid('token')->unique();
             $table->string('invoice_number');
             $table->string('currency');
-            $table->timestamp('creation_date');
-            $table->timestamp('modification_date');
-            $table->timestamp('completion_date');
+            $table->timestamp('creation_date')->nullable();
+            $table->timestamp('modification_date')->nullable();
+            $table->timestamp('completion_date')->nullable();
             $table->string('status');
             $table->string('payment_status');
             $table->string('email');
@@ -55,7 +55,7 @@ class BuilderTableCreateOfflineSnipcartshopOrders extends Migration
             $table->uuid('user_id');
         });
     }
-    
+
     public function down()
     {
         Schema::dropIfExists('offline_snipcartshop_orders');
