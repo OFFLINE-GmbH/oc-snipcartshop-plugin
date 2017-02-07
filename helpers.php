@@ -10,7 +10,10 @@ if ( ! function_exists('format_money')) {
      */
     function format_money($value, $currency = null)
     {
-        $number = money_format('%.2n', (float)$value);
+        setlocale(LC_ALL, '');
+        $locale = localeconv();
+
+        $number = number_format((float)$value, 2, $locale['decimal_point'], $locale['thousands_sep']);
 
         if ($currency) {
             $number = "${currency} ${number}";
