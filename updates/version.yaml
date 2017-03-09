@@ -20,3 +20,5 @@
     - 'Fixed incorrect database schema generation (thanks to abhi1693)'
 1.0.5:
     - 'Enable support on Windows systems and make Rainlab.Translate dependency optional'
+1.0.6:
+    - 'Fixed issues with MySQL instances that run in strict mode'
