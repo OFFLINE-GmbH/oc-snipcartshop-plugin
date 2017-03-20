@@ -8,7 +8,7 @@
                 {{ category.name }}
             </a>
         {% endif %}
-        {% if category.children %}
+        {% if category.children.count %}
             <ul class="categories sub-categories">
                 {% partial __SELF__ ~ "::categories" categories=category.children baseUrl=baseUrl %}
             </ul>

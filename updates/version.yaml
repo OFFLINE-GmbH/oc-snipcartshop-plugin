@@ -23,3 +23,5 @@
 1.0.6:
     - 'Fixed issues with MySQL instances that run in strict mode'
     - set_sort_order_defaults.php
+1.0.7:
+    - 'Prevent generation of empty sub-category lists'
