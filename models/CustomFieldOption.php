@@ -25,8 +25,8 @@ class CustomFieldOption extends Model
     ];
 
     public $rules = [
-        'name'  => 'required',
-        'price' => 'numeric',
+        'name' => 'required',
+        'price' => 'regex:/\d+([\.,]\d+)?/i',
     ];
 
     public $belongsTo = [
@@ -43,12 +43,27 @@ class CustomFieldOption extends Model
         ],
     ];
 
+    public function setPriceAttribute($value)
+    {
+        $this->attributes['price'] = (float)$value * 100;
+    }
+
+    public function getPriceAttribute($value)
+    {
+        return $this->formatPrice((integer)$value / 100);
+    }
+
+    public function formatPrice($price)
+    {
+        return number_format($price, 2, '.', '');
+    }
+
     public function getDataAttributeStringAttribute()
     {
         $string = $this->name;
 
         if ($this->price) {
-            $string .= sprintf("[+%s]", number_format($this->price, 2, '.', ''));
+            $string .= sprintf("[+%s]", $this->formatPrice($this->price));
         }
 
         return $string;
