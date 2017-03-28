@@ -99,11 +99,7 @@ class Category extends Model
 
             $controller = new Controller();
             foreach ($items as $item) {
-
-                // Prepend the parent categories slug if available
-                $slug = $baseUrl ? $baseUrl . '/' . $item->slug : $item->slug;
-
-                $entryUrl               = $controller->pageUrl($pageUrl, [$pageSlug => $slug]);
+                $entryUrl               = $controller->pageUrl($pageUrl, [$pageSlug => $item->slug]);
                 $branchItem             = [];
                 $branchItem['url']      = $entryUrl;
                 $branchItem['isActive'] = $entryUrl === $url;
