@@ -1,16 +1,14 @@
 {% for category in categories %}
-
-    {% set baseUrl = baseUrl == '' ? category.slug : baseUrl ~ '/' ~ category.slug %}
     <li role="presentation"
         class="category {{ category.isActive ? 'category--active' : '' }} {{ category.categorys ? 'category--has-children' : '' }} {{ category.isChildActive ? 'category--child-active' : '' }} {{ category.viewBag.cssClass }}">
         {% if category.slug %}
-            <a class="category-link" href="{{ __SELF__.categoryPage | page({slug: baseUrl}) }}">
+            <a class="category-link" href="{{ __SELF__.categoryPage | page({slug: category.slug}) }}">
                 {{ category.name }}
             </a>
         {% endif %}
         {% if category.children.count %}
             <ul class="categories sub-categories">
-                {% partial __SELF__ ~ "::categories" categories=category.children baseUrl=baseUrl %}
+                {% partial __SELF__ ~ "::categories" categories=category.children %}
             </ul>
         {% endif %}
     </li>
