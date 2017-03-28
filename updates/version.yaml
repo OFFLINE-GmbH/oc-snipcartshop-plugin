@@ -31,3 +31,5 @@
     - 'Use category slug in sub categories directly'
 1.0.10:
     - 'Added missing categoryPage param'
+1.0.11:
+    - 'Added is_accessory_of relationship to articles'

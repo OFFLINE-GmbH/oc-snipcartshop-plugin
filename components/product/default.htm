@@ -44,6 +44,9 @@
             {% if product.accessories.count %}
                 {% partial __SELF__ ~ '::accessories' accessories = product.accessories %}
             {% endif %}
+            {% if product.is_accessory_of.count %}
+                {% partial __SELF__ ~ '::accessories' accessories = product.is_accessory_of %}
+            {% endif %}
         </div>
 
 
