@@ -27,3 +27,5 @@
     - 'Prevent generation of empty sub-category lists'
 1.0.8:
     - 'Fixed price handling with product variants and generation of category slugs'
+1.0.9:
+    - 'Use category slug in sub categories directly'
