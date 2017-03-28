@@ -137,12 +137,7 @@ class Products extends ComponentBase
 
         // Use the category slug from the URL
         if ($categoryId === 'slug') {
-            // Only use the last part of the slug to find the category
-            // This should be a future improvement: Search for the full
-            // slug. This way two subcategories can have the same slug.
-            // i. e. "parent-a/child" and "parent-b/child"
-            $slugs = explode('/', $this->property('categorySlug'));
-            $slug  = end($slugs);
+            $slug = $this->property('categorySlug');
 
             $category = $category->isClassExtendedWith('RainLab.Translate.Behaviors.TranslatableModel')
                 ? $category->transWhere('slug', $slug)
