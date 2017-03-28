@@ -20,6 +20,10 @@ class Categories extends ComponentBase
      * @var
      */
     public $categories;
+    /**
+     * Categories that will be displayed
+     */
+    public $categoryPage;
 
     public function componentDetails()
     {

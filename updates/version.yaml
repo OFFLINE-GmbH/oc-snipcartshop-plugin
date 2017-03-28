@@ -29,3 +29,5 @@
     - 'Fixed price handling with product variants and generation of category slugs'
 1.0.9:
     - 'Use category slug in sub categories directly'
+1.0.10:
+    - 'Added missing categoryPage param'
