@@ -33,3 +33,5 @@
     - 'Added missing categoryPage param'
 1.0.11:
     - 'Added is_accessory_of relationship to articles'
+1.0.12:
+    - 'Added new Snipcart Webhook fields'

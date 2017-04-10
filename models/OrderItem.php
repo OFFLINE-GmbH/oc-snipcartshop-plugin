@@ -13,10 +13,35 @@ class OrderItem extends Model
      */
     protected $dateFormat = 'Y-m-d\TH:i:s\.u\Z';
 
-    public $timestamps = false;
-    public $guarded = ['id'];
+
     public $dates = ['added_on'];
     public $jsonable = ['custom_fields', 'taxes'];
+    public $timestamps = false;
+    public $fillable = [
+        'unique_id',
+        'product_id',
+        'order_id',
+        'name',
+        'price',
+        'total_price',
+        'quantity',
+        'max_quantity',
+        'url',
+        'weight',
+        'width',
+        'length',
+        'height',
+        'total_weight',
+        'description',
+        'image',
+        'stackable',
+        'duplicatable',
+        'shippable',
+        'taxable',
+        'custom_fields',
+        'taxes',
+        'added_on',
+    ];
 
     /**
      * @var string The database table used by the model.

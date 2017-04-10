@@ -58,6 +58,7 @@ class OrderCompleted
         'maxQuantity',
         'minQuantity',
         'originalPrice',
+        'addedOn',
         'initialData',
         'alternatePrices',
         'hasDimensions',
@@ -126,7 +127,7 @@ class OrderCompleted
             if ( ! array_key_exists($date, $data)) {
                 continue;
             }
-            $data[$date] = Carbon::createFromFormat('Y-m-d\TH:i:s\.u\Z', $data[$date]);
+            $data[$date] = Carbon::createFromFormat('Y-m-d\TH:i:s\Z', $data[$date]);
         }
 
         return $data;
