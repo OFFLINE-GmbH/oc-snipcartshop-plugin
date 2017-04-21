@@ -35,3 +35,5 @@
     - 'Added is_accessory_of relationship to articles'
 1.0.12:
     - 'Added new Snipcart Webhook fields'
+1.0.13:
+    - 'Fixed generation of quantitiy attributes in product markup'

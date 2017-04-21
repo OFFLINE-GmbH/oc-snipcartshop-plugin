@@ -81,13 +81,18 @@ class DataAttributes
 
     protected function quantities()
     {
-        if ($default = $this->product->quantity_default !== null) {
+        $default = $this->product->quantity_default;
+        if ($default !== null) {
             $this->setAttribute('quantity', (int)$default);
         }
-        if ($min = $this->product->quantity_min !== null) {
+
+        $min = $this->product->quantity_min;
+        if ($min !== null) {
             $this->setAttribute('min-quantity', (int)$min);
         }
-        if ($max = $this->product->quantity_max !== null) {
+
+        $max = $this->product->quantity_max;
+        if ($max !== null) {
             $this->setAttribute('max-quantity', (int)$max);
         }
     }
