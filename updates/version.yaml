@@ -39,3 +39,5 @@
     - 'Fixed generation of quantitiy attributes in product markup'
 1.0.14:
     - 'Added workaround to make translation of product attributes work as expected'
+1.0.15:
+    - 'Added maximum number of usages field to discouts'
