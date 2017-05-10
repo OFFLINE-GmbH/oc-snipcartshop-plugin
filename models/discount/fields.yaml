@@ -55,6 +55,11 @@ fields:
             field: type
             condition: value[rate]
         type: number
+    max_number_of_usages:
+        label: 'offline.snipcartshop::lang.plugin.discounts.max_number_of_usages'
+        oc.commentPosition: ''
+        span: left
+        type: text
     code:
         label: 'offline.snipcartshop::lang.plugin.discounts.code'
         oc.commentPosition: ''
