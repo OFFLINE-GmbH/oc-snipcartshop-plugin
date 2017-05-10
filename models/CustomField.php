@@ -1,5 +1,6 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
+use DB;
 use Model;
 
 /**
@@ -42,12 +43,38 @@ class CustomField extends Model
 
     public function afterSave()
     {
+        $this->setTranslatableFields();
         $this->handleFieldOptionsChanges();
     }
 
     public function afterFetch()
     {
         $this->setFieldOptions();
+    }
+
+    /**
+     * This is a temporary fix until
+     * https://github.com/rainlab/translate-plugin/issues/209
+     * is resolved.
+     */
+    protected function setTranslatableFields()
+    {
+        if ( ! post('RLTranslate')) {
+            return;
+        }
+
+        foreach (post('RLTranslate') as $key => $value) {
+            $data = json_encode($value);
+
+            $obj = DB::table('rainlab_translate_attributes')
+                     ->where('locale', $key)
+                     ->where('model_id', $this->id)
+                     ->where('model_type', get_class($this->model));
+
+            if ($obj->count() > 0) {
+                $obj->update(['attribute_data' => $data]);
+            }
+        }
     }
 
     /**

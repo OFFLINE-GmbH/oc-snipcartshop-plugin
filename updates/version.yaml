@@ -37,3 +37,5 @@
     - 'Added new Snipcart Webhook fields'
 1.0.13:
     - 'Fixed generation of quantitiy attributes in product markup'
+1.0.14:
+    - 'Added workaround to make translation of product attributes work as expected'
