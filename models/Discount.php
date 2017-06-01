@@ -86,7 +86,7 @@ class Discount extends Model
      */
     public function requestData()
     {
-        return $this->removeNullValues([
+        $data = $this->removeNullValues([
             'id'                               => $this->guid,
             'name'                             => $this->name,
             'code'                             => $this->code,
@@ -103,6 +103,17 @@ class Discount extends Model
             'shippingCost'                     => $this->shipping_cost,
             'shippingGuaranteedDaysToDelivery' => $this->shipping_guaranteed_days_to_delivery,
         ]);
+
+        // Because of a bug on Snipcart's side we need to remove any
+        // itemId from the request if the trigger type is not set to product.
+        // If any itemId is sent along the trigger type will be ignored and
+        // the coupon will be applied as soon as this product will be added to
+        // the cart.
+        if($this->trigger !== 'product') {
+            $data['itemId'] = null;
+        }
+
+        return $data;
     }
 
     /**
