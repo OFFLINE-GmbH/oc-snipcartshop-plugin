@@ -23,6 +23,9 @@
             <div class="product__price">
                 {{ product.priceFormatted }}
             </div>
+            {% if displayCustomFields and product.custom_fields %}
+                {% partial __SELF__ ~ '::custom-fields.htm' custom_fields = product.custom_fields %}
+            {% endif %}
             <div class="product__add-to-cart">
                 {% if not autoPop %}
                     {# To give the user a feedback we use the october native #}
