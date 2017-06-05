@@ -1,0 +1,9 @@
+{% set id = 'custom-field-' ~ custom_field.id %}
+<div class="form-group">
+    <label for="{{ id }}">{{ custom_field.name }}</label>
+    <input data-snipcart-custom-field="{{ custom_field.id }}"
+           class="form-control"
+           type="text"
+           id="{{ id }}"
+           {% if custom_field.required %}required{% endif %}>
+</div>

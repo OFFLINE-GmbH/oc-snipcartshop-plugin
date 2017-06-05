@@ -1,0 +1,18 @@
+{% set id = 'custom-field-' ~ custom_field.id %}
+<div class="form-group">
+    <label for="{{ id }}">{{ custom_field.name }}</label>
+    <select data-snipcart-custom-field="{{ custom_field.id }}"
+            class="form-control"
+            id="{{ id }}"
+            {% if custom_field.required %}required{% endif %}
+    >
+        {% for option in custom_field.options().get() %}
+            <option value="{{ option.name }}">
+                {{ option.name }}
+                {% if option.price > 0 %}
+                    (+ {{ option.price }})
+                {% endif %}
+            </option>
+        {% endfor %}
+    </select>
+</div>

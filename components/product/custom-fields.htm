@@ -1,0 +1,15 @@
+<div class="product__custom-fields">
+    {% for custom_field in custom_fields %}
+        {% partial __SELF__ ~ '::custom-fields/' ~ custom_field.type ~ '.htm' custom_field = custom_field %}
+    {% endfor %}
+    <script>
+        $('body').on('change', '[data-snipcart-custom-field]', function() {
+            var selector = 'data-item-custom' + $(this).data('snipcart-custom-field') + '-value';
+            var value = this.type.toLowerCase() === 'checkbox'
+                ? (this.checked ? 'true' : 'false')
+                : this.value
+
+            $('.snipcart-add-item').attr(selector, value);
+        });
+    </script>
+</div>

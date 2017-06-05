@@ -26,6 +26,11 @@ class Product extends ComponentBase
      * @var string
      */
     public $productPage;
+    /**
+     * Show custom fields directly on the product page.
+     * @var boolean
+     */
+    public $displayCustomFields;
 
     public function componentDetails()
     {
@@ -53,6 +58,12 @@ class Product extends ComponentBase
                 'type'        => 'dropdown',
                 'default'     => '',
             ],
+            'displayCustomFields' => [
+                'title'       => $langPrefixProducts . 'displayCustomFields.title',
+                'description' => $langPrefixProducts . 'displayCustomFields.description',
+                'type'        => 'checkbox',
+                'default'     => false,
+            ],
         ];
     }
 
@@ -68,6 +79,7 @@ class Product extends ComponentBase
             $this->setVar('product', $this->loadProduct());
             $this->setVar('productPage', $this->getProductPage());
             $this->setVar('autoPop', GeneralSettings::get('auto_pop', true));
+            $this->setVar('displayCustomFields', (bool)$this->property('displayCustomFields', false));
         } catch (NotFoundHttpException $e) {
             return Redirect::to('/404');
         }

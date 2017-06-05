@@ -145,8 +145,8 @@ class DataAttributes
 
     protected function customFields()
     {
-        $fields = $this->product->custom_fields()->with('options')->get()->map(function ($field, $index) {
-            $key = 'custom' . $index;
+        $fields = $this->product->custom_fields()->with('options')->get()->map(function ($field) {
+            $key = 'custom' . $field->id;
             $set = [
                 $key . '-name'     => $field->name,
                 $key . '-required' => $field->required ? 'true' : 'false',

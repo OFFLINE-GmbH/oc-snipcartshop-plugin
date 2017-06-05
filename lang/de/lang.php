@@ -383,6 +383,10 @@
                     'title' => 'Kategorie URL-Parameter',
                     'description' => 'Verwende diesen Parameter um den Kategorie-Filter aus der URL zu übernehmen',
                 ],
+                'displayCustomFields' => [
+                    'title' => 'Zeige Produkt-Optionen an',
+                    'description' => 'Zeige Auswahlfelder für Optionen für ein Produkt an',
+                ],
                 'productsPerPage' => [
                     'title' => 'Anzahl Produkte pro Seite',
                 ],

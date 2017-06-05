@@ -1,0 +1,10 @@
+{% set id = 'custom-field-' ~ custom_field.id %}
+<div class="form-group">
+    <label for="{{ id }}">{{ custom_field.name }}</label>
+    <textarea data-snipcart-custom-field="{{ custom_field.id }}"
+              class="form-control"
+              rows="5"
+              id="{{ id }}"
+              {% if custom_field.required %}required{% endif %}
+    ></textarea>
+</div>
