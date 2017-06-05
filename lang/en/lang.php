@@ -383,6 +383,10 @@
                     'title' => 'Category slug parameter',
                     'description' => 'Use this parameter to load the category from the url',
                 ],
+                'displayCustomFields' => [
+                    'title' => 'Show custom fields',
+                    'description' => 'Show all custom fields directly on the product page',
+                ],
                 'productsPerPage' => [
                     'title' => 'Number of products per page',
                 ],

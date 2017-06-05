@@ -1,0 +1,10 @@
+{% set id = 'custom-field-' ~ custom_field.id %}
+<div class="checkbox">
+    <label>
+        <input data-snipcart-custom-field="{{ custom_field.id }}"
+               type="checkbox"
+               id="{{ id }}"
+               {% if custom_field.required %}required{% endif %}>
+        {{ custom_field.name }}
+    </label>
+</div>
