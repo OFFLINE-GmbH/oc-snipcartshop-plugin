@@ -49,3 +49,6 @@
     - 'Added option to display custom fields directly on the product page'
 1.0.19:
     - 'Implemented category images'
+1.0.20:
+    - 'Added unique code field to better identify categories in frontend partials'
+    - builder_table_update_offline_snipcartshop_categories.php

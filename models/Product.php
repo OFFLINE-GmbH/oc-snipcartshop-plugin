@@ -94,7 +94,7 @@ class Product extends Model
     public function filterFields($fields)
     {
         $currencies = CurrencySettings::currencies();
-        if (count($currencies) <= 1) {
+        if (count($currencies) <= 1 && isset($fields->price)) {
             $fields->price->type = 'number';
             $fields->price->span = 'right';
 

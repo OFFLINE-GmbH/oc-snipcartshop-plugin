@@ -25,6 +25,12 @@ fields:
             field: name
             type: slug
         type: text
+    code:
+        label: 'offline.snipcartshop::lang.plugin.category.code'
+        comment: 'offline.snipcartshop::lang.plugin.category.code_comment'
+        oc.commentPosition: 'below'
+        span: left
+        type: text
     meta_title:
         label: 'offline.snipcartshop::lang.plugin.common.meta_title'
         oc.commentPosition: ''

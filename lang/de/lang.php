@@ -153,6 +153,8 @@
         ],
         'category' => [
             'name' => 'Name',
+            'code' => 'Code',
+            'code_comment' => 'Dieser Code kann im Frontend zur Identifikation der Kategorie genutzt werden.',
             'parent' => 'Elternelement',
             'no_parent' => 'Kein Elternelement',
         ],

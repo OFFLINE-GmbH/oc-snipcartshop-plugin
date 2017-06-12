@@ -2,7 +2,7 @@
     {# To access the category's image use category.image.path       #}
     {# or category.image.thumb(200, 'auto') to generate a thumbnail #}
     <li role="presentation"
-        class="category {{ category.isActive ? 'category--active' : '' }} {{ category.categorys ? 'category--has-children' : '' }} {{ category.isChildActive ? 'category--child-active' : '' }} {{ category.viewBag.cssClass }}">
+        class="category {{ category.isActive ? 'category--active' : '' }} {{ category.categorys ? 'category--has-children' : '' }} {{ category.isChildActive ? 'category--child-active' : '' }} {{ category.code ? category.code : '' }} {{ category.viewBag.cssClass }}">
         {% if category.slug %}
             <a class="category-link" href="{{ __SELF__.categoryPage | page({slug: category.slug}) }}">
                 {{ category.name }}
