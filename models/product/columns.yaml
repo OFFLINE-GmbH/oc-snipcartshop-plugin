@@ -9,9 +9,10 @@ columns:
         type: text
         searchable: true
         sortable: true
-    price_formatted:
+    price:
         label: 'offline.snipcartshop::lang.plugin.product.price'
-        type: text
+        type: partial
+        path: $/offline/snipcartshop/models/product/_price.htm
         searchable: true
         sortable: true
     published:
