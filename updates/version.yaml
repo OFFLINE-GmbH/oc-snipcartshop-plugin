@@ -52,3 +52,5 @@
 1.0.20:
     - 'Added unique code field to better identify categories in frontend partials'
     - builder_table_update_offline_snipcartshop_categories.php
+1.0.21:
+    - 'Added options for continue shopping button and split first and last name fields'
