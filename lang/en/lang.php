@@ -153,6 +153,8 @@
         ],
         'category' => [
             'name' => 'Name',
+            'code' => 'Code',
+            'code_comment' => 'This code can be used to identify this category in your frontend partials.',
             'parent' => 'Parent',
             'no_parent' => 'No parent',
         ],
