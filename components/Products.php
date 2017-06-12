@@ -170,6 +170,11 @@ class Products extends ComponentBase
     public function getCategoryFilterOptions()
     {
         $categories = Category::listsNested('name', 'id', '-- ');
+        // If no array is returned there are no categories
+        // created yet. So let's use an empty array for now.
+        if ( ! is_array($categories)) {
+            $categories = [];
+        }
 
         return [
                 ''     => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.no_filter'),
