@@ -1,4 +1,6 @@
 {% for category in categories %}
+    {# To access the category's image use category.image.path       #}
+    {# or category.image.thumb(200, 'auto') to generate a thumbnail #}
     <li role="presentation"
         class="category {{ category.isActive ? 'category--active' : '' }} {{ category.categorys ? 'category--has-children' : '' }} {{ category.isChildActive ? 'category--child-active' : '' }} {{ category.viewBag.cssClass }}">
         {% if category.slug %}

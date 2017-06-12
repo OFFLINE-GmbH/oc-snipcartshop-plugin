@@ -47,3 +47,5 @@
     - 'Prevent a bug with discounts where the trigger type gets ignored by Snipcart'
 1.0.18:
     - 'Added option to display custom fields directly on the product page'
+1.0.19:
+    - 'Implemented category images'

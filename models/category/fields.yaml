@@ -4,6 +4,19 @@ fields:
         oc.commentPosition: ''
         span: auto
         type: text
+    image:
+        label: 'offline.snipcartshop::lang.plugin.common.main_image'
+        oc.commentPosition: ''
+        mode: image
+        prompt: 'offline.snipcartshop::lang.plugin.common.select_image'
+        imageWidth: '120'
+        imageHeight: '120'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
     slug:
         label: 'offline.snipcartshop::lang.plugin.common.slug'
         oc.commentPosition: ''
