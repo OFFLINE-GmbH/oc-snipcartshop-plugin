@@ -58,3 +58,6 @@
     - 'Fixed backend search and made components work without categories'
 1.0.23:
     - 'Calculating new price immediately after changing custom fields on the product page'
+1.0.24:
+    - 'Made order fields nullable'
+    - make_order_fields_nullable.php
