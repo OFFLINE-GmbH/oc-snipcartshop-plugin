@@ -54,3 +54,5 @@
     - builder_table_update_offline_snipcartshop_categories.php
 1.0.21:
     - 'Added options for continue shopping button and split first and last name fields'
+1.0.22:
+    - 'Fixed backend search and made components work without categories'

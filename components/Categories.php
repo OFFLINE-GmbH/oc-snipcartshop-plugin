@@ -59,9 +59,16 @@ class Categories extends ComponentBase
 
     public function getParentOptions()
     {
+        $categories = Category::listsNested('name', 'id');
+        // If no array is returned there are no categories
+        // created yet. So let's use an empty array for now.
+        if ( ! is_array($categories)) {
+            $categories = [];
+        }
+
         return [null => '(' . trans('offline.snipcartshop::lang.components.categories.no_parent') . ')']
             + ['{slug}' => '(' . trans('offline.snipcartshop::lang.components.categories.by_slug') . ')']
-            + Category::listsNested('name', 'id');
+            + $categories;
     }
 
     public function onRun()
