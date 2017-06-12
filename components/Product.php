@@ -2,6 +2,8 @@
 
 use Cms\Classes\ComponentBase;
 use Cms\Classes\Page;
+use Flash;
+use OFFLINE\SnipcartShop\Models\CurrencySettings;
 use OFFLINE\SnipcartShop\Models\GeneralSettings;
 use OFFLINE\SnipcartShop\Models\Product as ProductModel;
 use Redirect;
@@ -46,13 +48,13 @@ class Product extends ComponentBase
         $langPrefixProducts = 'offline.snipcartshop::lang.components.products.properties.';
 
         return [
-            'productSlug' => [
+            'productSlug'         => [
                 'title'       => $langPrefixProduct . 'productSlug.title',
                 'description' => $langPrefixProduct . 'productSlug.description',
                 'type'        => 'string',
                 'default'     => '{{ :slug }}',
             ],
-            'productPage' => [
+            'productPage'         => [
                 'title'       => $langPrefixProducts . 'productPage.title',
                 'description' => $langPrefixProducts . 'productPage.description',
                 'type'        => 'dropdown',
@@ -89,7 +91,15 @@ class Product extends ComponentBase
 
     public function onAdd()
     {
-        \Flash::success(trans('offline.snipcartshop::lang.components.product.added_to_cart'));
+        Flash::success(trans('offline.snipcartshop::lang.components.product.added_to_cart'));
+    }
+
+    public function onRecalculatePrice()
+    {
+        $currency = CurrencySettings::activeCurrency();
+        $price    = post('price');
+
+        return format_money($price, $currency);
     }
 
     protected function loadProduct()
