@@ -33,6 +33,10 @@ class Category extends Model
         ],
     ];
 
+    public $attachOne = [
+        'image' => 'System\Models\File'
+    ];
+
     /**
      * Returns an array with possible parent categories.
      *
