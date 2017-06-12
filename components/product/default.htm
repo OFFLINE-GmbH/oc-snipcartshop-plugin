@@ -20,7 +20,7 @@
                 {% partial __SELF__ ~ '::properties.htm' properties = product.properties %}
                 {% partial __SELF__ ~ '::links.htm' links = product.links %}
             </div>
-            <div class="product__price">
+            <div class="product__price" data-snipcart-price="{{ product.getPriceInCurrency() }}">
                 {{ product.priceFormatted }}
             </div>
             {% if displayCustomFields and product.custom_fields %}
@@ -43,7 +43,6 @@
                     </button>
                 {% endif %}
             </div>
-
             {% if product.accessories.count %}
                 {% partial __SELF__ ~ '::accessories' accessories = product.accessories %}
             {% endif %}
@@ -51,7 +50,6 @@
                 {% partial __SELF__ ~ '::accessories' accessories = product.is_accessory_of %}
             {% endif %}
         </div>
-
 
     </div>
 </div>

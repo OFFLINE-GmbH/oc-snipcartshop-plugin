@@ -62,26 +62,26 @@ class Product extends Model
     ];
 
     public $belongsToMany = [
-        'categories' => [
+        'categories'      => [
             'OFFLINE\SnipcartShop\Models\Category',
             'table'    => 'offline_snipcartshop_category_product',
             'key'      => 'product_id',
             'otherKey' => 'category_id',
         ],
-        'accessories' => [
+        'accessories'     => [
             'OFFLINE\SnipcartShop\Models\Product',
-            'table'    => 'offline_snipcartshop_product_accessory',
-            'key'      => 'accessory_id',
-            'otherKey' => 'product_id',
-            'conditions' => 'published = 1'
+            'table'      => 'offline_snipcartshop_product_accessory',
+            'key'        => 'accessory_id',
+            'otherKey'   => 'product_id',
+            'conditions' => 'published = 1',
         ],
         'is_accessory_of' => [
             'OFFLINE\SnipcartShop\Models\Product',
-            'table'    => 'offline_snipcartshop_product_accessory',
-            'key'      => 'product_id',
-            'otherKey' => 'accessory_id',
-            'conditions' => 'published = 1'
-        ]
+            'table'      => 'offline_snipcartshop_product_accessory',
+            'key'        => 'product_id',
+            'otherKey'   => 'accessory_id',
+            'conditions' => 'published = 1',
+        ],
     ];
 
     /**
@@ -138,7 +138,7 @@ class Product extends Model
             }
 
             $uniqueCurrencies = collect($this->price)->pluck('currency')->unique()->count();
-            if(count($this->price) !== $uniqueCurrencies) {
+            if (count($this->price) !== $uniqueCurrencies) {
                 throw new ValidationException([trans('offline.snipcartshop::lang.plugin.product.duplicate_currency')]);
             }
         }
@@ -200,6 +200,26 @@ class Product extends Model
     }
 
     /**
+     * Returns the price in a specific currency.
+     *
+     * @param $currency
+     *
+     * @return mixed
+     */
+    public function getPriceInCurrency($currency = null)
+    {
+        if ( ! $currency) {
+            $currency = CurrencySettings::activeCurrency();
+        }
+
+        $price = collect($this->price)
+            ->where('currency', $currency)
+            ->first();
+
+        return isset($price['price']) ? $price['price'] : 0;
+    }
+
+    /**
      * Returns the price in the currently active currency
      * formatted as string.
      *
@@ -209,11 +229,8 @@ class Product extends Model
     public function getPriceFormattedAttribute()
     {
         $activeCurrency = CurrencySettings::activeCurrency();
-        $currency       = collect($this->price)
-            ->where('currency', $activeCurrency)
-            ->first();
 
-        return format_money($currency['price'], $activeCurrency);
+        return format_money($this->getPriceInCurrency($activeCurrency), $activeCurrency);
     }
 
     public function getCurrencyOptions()

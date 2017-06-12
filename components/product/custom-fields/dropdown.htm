@@ -2,12 +2,16 @@
 <div class="form-group">
     <label for="{{ id }}">{{ custom_field.name }}</label>
     <select data-snipcart-custom-field="{{ custom_field.id }}"
+            {% set initialOption = custom_field.options().first() %}
+            {% if initialOption and initialOption.price > 0 %}
+                data-snipcart-add-cost="{{ initialOption.price }}"
+            {% endif %}
             class="form-control"
             id="{{ id }}"
             {% if custom_field.required %}required{% endif %}
     >
         {% for option in custom_field.options().get() %}
-            <option value="{{ option.name }}">
+            <option value="{{ option.name }}" data-snipcart-cost="{{ option.price }}">
                 {{ option.name }}
                 {% if option.price > 0 %}
                     (+ {{ option.price }})

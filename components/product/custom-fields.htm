@@ -3,13 +3,46 @@
         {% partial __SELF__ ~ '::custom-fields/' ~ custom_field.type ~ '.htm' custom_field = custom_field %}
     {% endfor %}
     <script>
-        $('body').on('change', '[data-snipcart-custom-field]', function() {
-            var selector = 'data-item-custom' + $(this).data('snipcart-custom-field') + '-value';
-            var value = this.type.toLowerCase() === 'checkbox'
-                ? (this.checked ? 'true' : 'false')
-                : this.value
+        $(function () {
+            var $addItemButton = $('.snipcart-add-item');
+            var $finalPrice = $('[data-snipcart-final-price]');
+            var basePrice = parseFloat($('[data-snipcart-price]').attr('data-snipcart-price'));
 
-            $('.snipcart-add-item').attr(selector, value);
+            $('body').on('change', '[data-snipcart-custom-field]', function () {
+                var selector = 'data-item-custom' + $(this).data('snipcart-custom-field') + '-value';
+                var value = this.type.toLowerCase() === 'checkbox'
+                    ? (this.checked ? 'true' : 'false')
+                    : this.value;
+
+                {# Calculate the new price if a option with a cost is selected #}
+                var $selectedOption = $(this).find('option[data-snipcart-cost]:selected');
+                if ($selectedOption.length > 0) {
+                    $(this).attr('data-snipcart-add-cost', $selectedOption.data('snipcart-cost'));
+                }
+
+                $finalPrice.text(recalculatePrice());
+
+                $addItemButton.attr(selector, value);
+            });
+
+            function recalculatePrice () {
+                var $items = $('[data-snipcart-add-cost]');
+                var newPrice = basePrice;
+                $items.each(function () {
+                    var addCost = parseFloat($(this).attr('data-snipcart-add-cost'));
+                    if (addCost > 0) {
+                        newPrice += addCost;
+                    }
+                });
+                $.request('onRecalculatePrice', {
+                    data: {price: newPrice},
+                    success: function (data) {
+                        $('[data-snipcart-price]').text(data.result);
+                    }
+                });
+            }
+
+            recalculatePrice();
         });
     </script>
 </div>
