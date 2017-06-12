@@ -7,9 +7,11 @@
 <link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" rel="stylesheet" type="text/css"/>
 <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js"
         data-api-key="{{ __SELF__.apiKey }}"
-        data-autopop="{{ __SELF__.autoPop }}"
         id="snipcart"></script>
 
 <script>
     Snipcart.api.cart.currency('{{ __SELF__.activeCurrency | lower }}');
+    Snipcart.api.configure('show_continue_shopping', {{ __SELF__.showContinueShopping ? 'true' : 'false' }});
+    Snipcart.api.configure('split_firstname_and_lastname', {{ __SELF__.splitFirstNameAndLastName ? 'true' : 'false' }});
+    Snipcart.api.configure('show_cart_automatically', {{ __SELF__.autoPop ? 'true' : 'false' }});
 </script>
