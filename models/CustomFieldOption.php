@@ -22,6 +22,7 @@ class CustomFieldOption extends Model
         'name',
         'price',
         'sort_order',
+        'custom_field_id'
     ];
 
     public $rules = [
