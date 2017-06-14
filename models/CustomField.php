@@ -151,10 +151,10 @@ class CustomField extends Model
      */
     protected function createRelatedFieldOption(array $data)
     {
-        $option = CustomFieldOption::create($data);
-        $this->options()->save($option);
+        $data['id']              = null;
+        $data['custom_field_id'] = $this->id;
 
-        return $option;
+        return CustomFieldOption::create($data);
     }
 
     /**
