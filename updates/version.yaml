@@ -61,3 +61,8 @@
 1.0.24:
     - 'Made order fields nullable'
     - make_order_fields_nullable.php
+1.0.25:
+    - 'Fixed "show all products" option on products component'
+1.0.26:
+    - 'Made order items fields nullable'
+    - make_order_items_fields_nullable.php

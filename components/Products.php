@@ -129,7 +129,8 @@ class Products extends ComponentBase
 
     protected function loadCategory()
     {
-        if ( ! $categoryId = $this->property('categoryFilter')) {
+        $categoryId = $this->property('categoryFilter');
+        if ( ! $categoryId || $categoryId === 'all') {
             return null;
         }
 
@@ -177,7 +178,7 @@ class Products extends ComponentBase
         }
 
         return [
-                ''     => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.no_filter'),
+                'all'  => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.no_filter'),
                 'slug' => trans('offline.snipcartshop::lang.components.products.properties.categoryFilter.by_slug'),
             ] + $categories;
     }
@@ -215,6 +216,10 @@ class Products extends ComponentBase
 
     protected function setMetaData()
     {
+        if ( ! $this->category) {
+            return;
+        }
+
         $this->page->title = $this->category->meta_title
             ? $this->category->meta_title
             : $this->category->name;
