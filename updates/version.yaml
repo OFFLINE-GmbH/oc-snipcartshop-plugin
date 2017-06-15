@@ -68,3 +68,5 @@
     - make_order_items_fields_nullable.php
 1.0.27:
     - 'Fixed custom attribute dropdowns when using SQLite'
+1.0.28:
+    - 'Added category filter to products list'
