@@ -11,7 +11,7 @@ class Order extends Model
     public $timestamps = false;
     public $guarded = ['id'];
     public $dates = ['creation_date', 'modification_date', 'completion_date'];
-    public $jsonable = ['billing_address', 'shipping_address', 'custom_fields', 'metadata', 'taxes'];
+    public $jsonable = ['billing_address', 'shipping_address', 'custom_fields', 'metadata', 'taxes', 'discounts'];
 
     /**
      * @var string The database table used by the model.

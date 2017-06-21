@@ -75,3 +75,5 @@
 1.0.30:
     - 'Tracking used discount codes for orders'
     - builder_table_update_offline_snipcartshop_orders.php
+1.0.31:
+    - 'Implemented new Snipcart Webhook fields'
