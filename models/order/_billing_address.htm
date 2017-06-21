@@ -1,9 +1,12 @@
-<?= e($value['company']) ?>,
-<?= e($value['fullName']) ?>,
-<?= e($value['address1']) ?>,
-<?php if($value['address2']): ?>
-    <?= e($value['address2']) ?>,
-<?php endif; ?>
-<?= e($value['postalCode']) ?> <?= e($value['city']) ?>
-<?= e($value['province']) ?>,
-<?= e($value['country']) ?>
+<?php
+$values = array_filter([
+    $value['company'],
+    $value['fullName'],
+    $value['address1'],
+    $value['address2'],
+    $value['postalCode'],
+    $value['province'],
+    $value['country']
+]);
+?>
+<?= implode(', ', $values); ?>

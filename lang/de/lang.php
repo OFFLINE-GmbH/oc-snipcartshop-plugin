@@ -271,6 +271,7 @@
             'paid' => 'Bezahlt',
             'deferred' => 'Zahlung verzögert',
             'paid_deferred' => 'Verzögert bezahlt',
+            'paiddeferred' => 'Verzögert bezahlt',
             'charged_back' => 'Zahlung beglichen',
             'refunded' => 'Zahlung rückerstattet',
             'paidout' => 'Ausgezahlt',

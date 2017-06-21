@@ -271,6 +271,7 @@
             'paid' => 'Paid',
             'deferred' => 'Deferred',
             'paid_deferred' => 'Paid deferred',
+            'paiddeferred' => 'Paid deferred',
             'charged_back' => 'Charged back',
             'refunded' => 'Refunded',
             'paidout' => 'Paidout',
