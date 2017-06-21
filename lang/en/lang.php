@@ -15,6 +15,7 @@
             ],
             'orders' => [
                 'show' => 'Order details',
+                'export' => 'Export orders',
             ],
             'discounts' => [
                 'create' => 'Create discount',
@@ -100,6 +101,7 @@
             'hide_published' => 'Hide published',
             'slug' => 'URL',
             'add_value' => 'Add value',
+            'export_orders' => 'Export orders',
             'use_backend_defaults' => 'Use defaults configured in backend settings',
             'api_error' => 'Could not save discount. Error while sending changes to the Snipcart API.',
         ],
@@ -271,6 +273,7 @@
             'paid' => 'Paid',
             'deferred' => 'Deferred',
             'paid_deferred' => 'Paid deferred',
+            'paiddeferred' => 'Paid deferred',
             'charged_back' => 'Charged back',
             'refunded' => 'Refunded',
             'paidout' => 'Paidout',

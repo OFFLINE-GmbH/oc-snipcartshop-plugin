@@ -4,6 +4,11 @@ table.table.data tbody tr.orderfooter td {
     border-top: none;
 }
 
+table.table.data tbody tr.orderdiscount td {
+    background: #eee;
+    border-top: none;
+}
+
 table.table.data tbody tr.orderfooter.separator td {
     border-top: 1px solid #ccc;
 }

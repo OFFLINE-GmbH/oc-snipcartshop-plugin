@@ -10,10 +10,12 @@ use OFFLINE\SnipcartShop\Models\Order;
 class Orders extends Controller
 {
     public $implement = [
-        'Backend\Behaviors\ListController',
+        'Backend.Behaviors.ListController',
+        'Backend.Behaviors.ImportExportController',
     ];
 
     public $listConfig = 'config_list.yaml';
+    public $importExportConfig = 'config_import_export.yaml';
 
     public $requiredPermissions = ['offline.snipcartshop.manage_orders'];
     /**

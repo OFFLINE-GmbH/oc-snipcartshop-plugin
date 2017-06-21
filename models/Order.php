@@ -43,6 +43,11 @@ class Order extends Model
         return ['a', 'b'];
     }
 
+    public function getDiscountCodes()
+    {
+        return collect($this->discounts)->pluck('code')->implode(', ');
+    }
+
     public function getCreationDateFormattedAttribute()
     {
         return $this->creation_date->format('d.m.Y H:i:s');
@@ -61,5 +66,50 @@ class Order extends Model
     public function getShippingFeesFormattedAttribute()
     {
         return format_money($this->shipping_fees);
+    }
+
+    /**
+     * Returns an array as comma separated values.
+     *
+     * @param array $input
+     *
+     * @return string
+     */
+    public function commaSeparated(array $input)
+    {
+        return collect($input)->reject(function ($entry) {
+            return ! $entry;
+        })->implode(', ');
+    }
+
+    /**
+     * Returns an array as key/comma separated values.
+     *
+     * @param array $input
+     *
+     * @return string
+     */
+    public function commaSeparatedWithKeys($input)
+    {
+        $entries = collect($input)->reject(function ($entry) {
+            return ! $entry;
+        });
+
+        return $this->mapWithKeys($entries)->flatMap(function ($i) {
+            return $i;
+        })->implode(', ');
+    }
+
+    protected function mapWithKeys($entries)
+    {
+        return collect($entries)->map(function ($value, $key) {
+            if (is_array($value)) {
+                return $this->mapWithKeys($value);
+            }
+
+            return $value ? $key . ': ' . $value : false;
+        })->values()->reject(function ($value) {
+            return $value === false;
+        });
     }
 }

@@ -77,3 +77,5 @@
     - builder_table_update_offline_snipcartshop_orders.php
 1.0.31:
     - 'Implemented new Snipcart Webhook fields'
+1.0.32:
+    - 'Added orders export functionality'

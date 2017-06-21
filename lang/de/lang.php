@@ -15,6 +15,7 @@
             ],
             'orders' => [
                 'show' => 'Bestellungsdetails',
+                'export' => 'Bestellungen exportieren',
             ],
             'discounts' => [
                 'create' => 'Rabatt erstellen',
@@ -100,6 +101,7 @@
             'hide_published' => 'Verstecke veröffentlichte',
             'slug' => 'URL',
             'add_value' => 'Wert hinzufügen',
+            'export_orders' => 'Bestellungen exportieren',
             'use_backend_defaults' => 'Standard-Einstellung aus Backend-Settings übernehmen',
             'api_error' => 'Fehler beim Speichern der Änderungen. Die API-Anfrage war fehlerhaft.',
         ],
@@ -269,8 +271,9 @@
         ],
         'payment_status' => [
             'paid' => 'Bezahlt',
-            'deferred' => 'Zahlung verzögert',
-            'paid_deferred' => 'Verzögert bezahlt',
+            'deferred' => 'Auf Rechnung',
+            'paid_deferred' => 'Auf Rechnung bezahlt',
+            'paiddeferred' => 'Auf Rechnung bezahlt',
             'charged_back' => 'Zahlung beglichen',
             'refunded' => 'Zahlung rückerstattet',
             'paidout' => 'Ausgezahlt',
