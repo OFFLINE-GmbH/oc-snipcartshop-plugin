@@ -25,6 +25,14 @@ class CurrencySettings extends Model
     }
 
     /**
+     * Returns the formats for all currencies.
+     */
+    public static function currencyFormats()
+    {
+        return collect(CurrencySettings::get('currencies'))->pluck('format', 'code');
+    }
+
+    /**
      * Returns the currently active currency from the session.
      * @return string
      * @throws \RuntimeException
@@ -43,6 +51,22 @@ class CurrencySettings extends Model
         }
 
         return Session::get(static::CURRENCY_SESSION_KEY);
+    }
+
+    /**
+     * Returns the format for the currently active currency.
+     * @return string
+     * @throws \RuntimeException
+     */
+    public static function activeCurrencyFormat()
+    {
+        $currency = CurrencySettings::activeCurrency();
+        $formats  = CurrencySettings::currencyFormats();
+
+        $format  = $formats->get($currency, false);
+        $default = "{{ currency }} {{ price|number_format(2, '.', '\'') }}";
+
+        return $format ? $format : $default;
     }
 
     /**

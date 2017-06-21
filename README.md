@@ -30,3 +30,74 @@ Ecommerce solution for October CMS using snipcart.com as a backend.
 1. If you are using discounts, make sure to set up [Task scheduling](http://octobercms.com/docs/plugin/scheduling) for your October installation. This way the discount usage stats will get updated every hour.
 1. Create a public and a private API key in your Snipcart dashboard under [Account / Credentials](https://app.snipcart.com/dashboard/account/credentials). Paste both keys in the respective input field in the plugin's backend settings.
 1. Copy your custom webhook URL from the plugin's backend settings (under API and webhooks). Set the URL as Webhooks URL in your Snipcart dashboard under [Account / Webhooks](https://app.snipcart.com/dashboard/webhooks)
+
+### Custom currency format
+
+Starting with version 1.0.32 you are able to specify a custom currency format in the backend settings.
+
+If you do not enter a specific format the following will be used
+
+    {{ currency }} {{ price|number_format(2, '.', '\'') }}
+    
+The following variables are available
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Variable</th>
+        <th>Description</th>
+        <th>Example value</th>
+    </tr>
+    </thead>
+    <tr>
+        <td><code>price</code></td>
+        <td>The full price of the product as float</td>
+        <td>1500.40</td>
+    </tr>
+    <tr>
+        <td><code>integers</code></td>
+        <td>The price without decimals</td>
+        <td>1500</td>
+    </tr>
+    <tr>
+        <td><code>decimals</code></td>
+        <td>Only the decimals of the price</td>
+        <td>40</td>
+    </tr>
+    <tr>
+        <td><code>currency</code></td>
+        <td>The currency code you specified above</td>
+        <td>EUR</td>
+    </tr>
+    <tr>
+        <td><code>product</code></td>
+        <td>The product model this price is from.</td>
+        <td>A full model instance</td>
+    </tr>
+</table>
+
+These are a few example usages:
+
+```twig
+{{ currency }} {{ price|number_format(2, '.', '\'') }}
+-> EUR 1'200.40
+```
+```twig
+<div class="integers">{{ integers }}</div>    
+<div class="separator">,</div>    
+<div class="decimals">{{ decimals }}</div>    
+<div class="currency">{{ currency }}</div>    
+-> 1200,40 EUR
+```
+```twig
+{{ currency }} {{ price|number_format(2, '.', '\'') }}
+
+{% if (product.taxable) %}
+    VAT included
+{% else %}
+    VAT excluded
+{% endif %}
+
+-> 1200,40 EUR
+   VAT included
+```

@@ -79,3 +79,5 @@
     - 'Implemented new Snipcart Webhook fields'
 1.0.32:
     - 'Added orders export functionality'
+1.0.33:
+    - 'Implemented custom currency formats'

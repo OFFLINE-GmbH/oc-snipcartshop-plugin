@@ -1,11 +1,22 @@
 fields:
     currencies:
         type: repeater
-        span: left
+        span: full
         label: offline.snipcartshop::lang.plugin.currency_settings.currencies
         form:
             fields:
                 code:
                     type: text
                     label: offline.snipcartshop::lang.plugin.currency_settings.currency_code
+                    span: left
+                format:
+                    type: codeeditor
+                    label: offline.snipcartshop::lang.plugin.currency_settings.currency_format
+                    span: right
+                    size: small
+                    language: twig
 
+    help:
+        type: partial
+        span: right
+        path: $/offline/snipcartshop/models/settings/_currency_help.htm

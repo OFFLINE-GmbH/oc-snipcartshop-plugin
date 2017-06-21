@@ -21,7 +21,7 @@
                 {% partial __SELF__ ~ '::links.htm' links = product.links %}
             </div>
             <div class="product__price" data-snipcart-price="{{ product.getPriceInCurrency() }}">
-                {{ product.priceFormatted }}
+                {{ product.priceFormatted | raw }}
             </div>
             {% if displayCustomFields and product.custom_fields %}
                 {% partial __SELF__ ~ '::custom-fields.htm' custom_fields = product.custom_fields %}

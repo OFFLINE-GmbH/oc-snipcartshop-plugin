@@ -96,10 +96,9 @@ class Product extends ComponentBase
 
     public function onRecalculatePrice()
     {
-        $currency = CurrencySettings::activeCurrency();
         $price    = post('price');
 
-        return format_money($price, $currency);
+        return format_money($price, $this->product);
     }
 
     protected function loadProduct()

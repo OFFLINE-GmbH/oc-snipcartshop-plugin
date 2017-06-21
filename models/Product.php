@@ -228,9 +228,7 @@ class Product extends Model
      */
     public function getPriceFormattedAttribute()
     {
-        $activeCurrency = CurrencySettings::activeCurrency();
-
-        return format_money($this->getPriceInCurrency($activeCurrency), $activeCurrency);
+        return format_money($this->getPriceInCurrency(), $this);
     }
 
     public function getCurrencyOptions()

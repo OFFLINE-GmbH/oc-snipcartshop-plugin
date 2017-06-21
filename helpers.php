@@ -1,24 +1,31 @@
 <?php
+use OFFLINE\SnipcartShop\Models\CurrencySettings;
+use OFFLINE\SnipcartShop\Models\Product;
+
 if ( ! function_exists('format_money')) {
     /**
      * Formats a price. Adds the currency if provided.
      *
-     * @param string $value
-     * @param null   $currency
+     * @param string       $value
+     * @param Product|null $product
+     * @param null         $currency
      *
      * @return string
      */
-    function format_money($value, $currency = null)
+    function format_money($value, Product $product = null, $currency = null)
     {
-        setlocale(LC_ALL, '');
-        $locale = localeconv();
+        $format = CurrencySettings::activeCurrencyFormat();
 
-        $number = number_format((float)$value, 2, $locale['decimal_point'], $locale['thousands_sep']);
+        $value    = (float)$value;
+        $integers = floor($value);
+        $decimals = ($value - $integers) * 100;
 
-        if ($currency) {
-            $number = "${currency} ${number}";
-        }
-
-        return $number;
+        return Twig::parse($format, [
+            'price'    => $value,
+            'integers' => $integers,
+            'decimals' => str_pad($decimals, 2, '0', STR_PAD_LEFT),
+            'product'  => $product,
+            'currency' => $currency ?: CurrencySettings::activeCurrency(),
+        ]);
     }
 }
