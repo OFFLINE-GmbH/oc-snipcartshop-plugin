@@ -41,6 +41,7 @@
             'description' => 'Einstellungen zu den verwendeten Währungen',
             'currencies' => 'Geben Sie jeweils nur den offiziellen dreistelligen Währungscode ein.',
             'currency_code' => 'Währungscode',
+            'currency_format' => 'Formatierung',
         ],
         'general_settings' => [
             'category' => 'Snipcart Shop',

@@ -41,6 +41,7 @@
             'description' => 'Setup your currencies',
             'currencies' => 'Only enter official 3-char currency codes.',
             'currency_code' => 'Currency code',
+            'currency_format' => 'Format'
         ],
         'general_settings' => [
             'category' => 'Snipcart Shop',

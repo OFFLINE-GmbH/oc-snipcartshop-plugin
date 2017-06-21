@@ -3,7 +3,10 @@
     $(function () {
         var $addItemButton = $('.snipcart-add-item');
         var $finalPrice = $('[data-snipcart-final-price]');
-        var basePrice = parseFloat($('[data-snipcart-price]').attr('data-snipcart-price'));
+        var $price = $('[data-snipcart-price]');
+        var basePrice = parseFloat($price.attr('data-snipcart-price'));
+
+        $price.css('opacity', 0);
 
         $('body').on('change', '[data-snipcart-custom-field]', function () {
             var selector = 'data-item-custom' + $(this).data('snipcart-custom-field') + '-value';
@@ -17,7 +20,7 @@
                 $(this).attr('data-snipcart-add-cost', $selectedOption.data('snipcart-cost'));
             }
 
-            $finalPrice.text(recalculatePrice());
+            $finalPrice.html(recalculatePrice());
 
             $addItemButton.attr(selector, value);
         });
@@ -34,7 +37,8 @@
             $.request('onRecalculatePrice', {
                 data: {price: newPrice},
                 success: function (data) {
-                    $('[data-snipcart-price]').text(data.result);
+                    $('[data-snipcart-price]').html(data.result);
+                    $price.css('opacity', 1);
                 }
             });
         }
