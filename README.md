@@ -91,11 +91,13 @@ These are a few example usages:
 ```
 ```twig
 {{ currency }} {{ price|number_format(2, '.', '\'') }}
+
 {% if (product.taxable) %}
     VAT included
 {% else %}
     VAT excluded
 {% endif %}
+
 -> 1200,40 EUR
    VAT included
 ```
