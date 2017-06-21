@@ -269,9 +269,9 @@
         ],
         'payment_status' => [
             'paid' => 'Bezahlt',
-            'deferred' => 'Zahlung verzögert',
-            'paid_deferred' => 'Verzögert bezahlt',
-            'paiddeferred' => 'Verzögert bezahlt',
+            'deferred' => 'Auf Rechnung',
+            'paid_deferred' => 'Auf Rechnung bezahlt',
+            'paiddeferred' => 'Auf Rechnung bezahlt',
             'charged_back' => 'Zahlung beglichen',
             'refunded' => 'Zahlung rückerstattet',
             'paidout' => 'Ausgezahlt',

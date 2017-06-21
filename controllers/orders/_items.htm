@@ -53,8 +53,29 @@
             </span>
         </td>
     </tr>
+    <?php if($order['discounts']): ?>
+    <?php foreach ($order['discounts'] as $discount): ?>
+    <tr class="orderdiscount">
+        <td colspan="3">
+            <span>
+                <?= e(trans('offline.snipcartshop::lang.plugin.common.discount')) ?>:
+                <?= e($discount['name']) ?>
+            </span>
+        </td>
+        <td class="text-right">
+            <span>
+                <?php if($discount['amountSaved']): ?>
+                    <?= e(format_money(-1 * (float)($discount['amountSaved']))) ?>
+                <?php else: ?>
+                    <?= e(format_money(0)) ?>
+                <?php endif; ?>
+            </span>
+        </td>
+    </tr>
+    <?php endforeach; ?>
+    <?php endif; ?>
     <?php if ($order['shipping_method']): ?>
-    <tr class="orderfooter">
+    <tr class="orderfooter separator">
         <td colspan="3">
                 <span>
                     <?= e(trans('offline.snipcartshop::lang.plugin.common.shipping')) ?>:
@@ -70,16 +91,16 @@
     <?php endif; ?>
     <?php if ($order['taxes']): ?>
     <?php foreach ($order['taxes'] as $tax): ?>
-    <tr class="orderfooter">
+    <tr class="orderfooter separator">
         <td colspan="3">
-                    <span>
-                        <?= e($tax['taxName']) ?> (<?= e($this->formatTaxRate($tax['taxRate'])) ?>)
-                    </span>
+            <span>
+                <?= e($tax['taxName']) ?> (<?= e($this->formatTaxRate($tax['taxRate'])) ?>)
+            </span>
         </td>
         <td class="text-right">
-                    <span>
-                        <?= e(format_money($tax['amount'])) ?>
-                    </span>
+            <span>
+                <?= e(format_money($tax['amount'])) ?>
+            </span>
         </td>
     </tr>
     <?php endforeach; ?>
