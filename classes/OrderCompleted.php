@@ -11,7 +11,6 @@ class OrderCompleted
 {
     protected $ignoreFieldsOrder = [
         'items',
-        'discounts',
         'plans',
         'refunds',
         'taxesTotal',

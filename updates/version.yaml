@@ -72,3 +72,6 @@
     - 'Added category filter to products list'
 1.0.29:
     - 'Moved frontend price calculation into a separate partial'
+1.0.30:
+    - 'Tracking used discount codes for orders'
+    - builder_table_update_offline_snipcartshop_orders.php
