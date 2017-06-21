@@ -4,11 +4,12 @@ list: $/offline/snipcartshop/models/order/columns.yaml
 recordUrl: 'offline/snipcartshop/orders/show/:id'
 noRecordsMessage: 'backend::lang.list.no_records'
 showSetup: true
-showCheckboxes: true
+showCheckboxes: false
 defaultSort:
     column: creation_date
     direction: desc
 toolbar:
+    buttons: list_toolbar
     search:
         prompt: 'backend::lang.list.search_prompt'
 filter: config_filter.yaml

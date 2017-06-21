@@ -1,0 +1,8 @@
+# ===================================
+#  Import/Export Behavior Config
+# ===================================
+
+export:
+    title: offline.snipcartshop::lang.plugin.titles.orders.export
+    modelClass: OFFLINE\SnipcartShop\Models\OrderExport
+    list: $/offline/snipcartshop/models/order/export_columns.yaml
