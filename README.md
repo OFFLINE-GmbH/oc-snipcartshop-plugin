@@ -81,13 +81,15 @@ These are a few example usages:
 
 ```twig
 {{ currency }} {{ price|number_format(2, '.', '\'') }}
+
 -> EUR 1'200.40
 ```
 ```twig
 <span class="integers">{{ integers }}</span>    
 <span class="separator">,</span>    
 <span class="decimals">{{ decimals }}</span>    
-<span class="currency">{{ currency }}</span>    
+<span class="currency">{{ currency }}</span>  
+  
 -> 1200,40 EUR
 ```
 ```twig
