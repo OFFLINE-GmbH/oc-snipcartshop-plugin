@@ -34,6 +34,7 @@ Ecommerce solution for October CMS using snipcart.com as a backend.
 ### Custom currency format
 
 Starting with version 1.0.32 you are able to specify a custom currency format in the backend settings.
+The code you provide is parsed as a Twig template so all the functionality of Twig is available. 
 
 If you do not enter a specific format the following will be used
 
@@ -83,21 +84,20 @@ These are a few example usages:
 -> EUR 1'200.40
 ```
 ```twig
-<div class="integers">{{ integers }}</div>    
-<div class="separator">,</div>    
-<div class="decimals">{{ decimals }}</div>    
-<div class="currency">{{ currency }}</div>    
+<span class="integers">{{ integers }}</span>    
+<span class="separator">,</span>    
+<span class="decimals">{{ decimals }}</span>    
+<span class="currency">{{ currency }}</span>    
 -> 1200,40 EUR
 ```
 ```twig
-{{ currency }} {{ price|number_format(2, '.', '\'') }}
+{{ price|number_format(2, '.', '\'') }} {{ currency }} 
 
 {% if (product.taxable) %}
-    VAT included
+    (VAT included)
 {% else %}
-    VAT excluded
+    (VAT excluded)
 {% endif %}
 
--> 1200,40 EUR
-   VAT included
+-> 1200,40 EUR (VAT included)
 ```
