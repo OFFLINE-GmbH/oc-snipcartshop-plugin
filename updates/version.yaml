@@ -81,3 +81,5 @@
     - 'Added orders export functionality'
 1.0.33:
     - 'Implemented custom currency formats'
+1.0.34:
+    - 'Added dependency on Rainlab.Translate'
