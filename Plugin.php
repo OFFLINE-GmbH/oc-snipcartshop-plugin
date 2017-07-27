@@ -9,6 +9,8 @@ use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
 {
+    public $require = ['Rainlab.Translate'];
+
     public function registerComponents()
     {
         return [
