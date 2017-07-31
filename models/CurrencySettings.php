@@ -75,7 +75,7 @@ class CurrencySettings extends Model
      */
     public static function setActiveCurrency($currency)
     {
-        return Session::set(static::CURRENCY_SESSION_KEY, $currency);
+        return Session::put(static::CURRENCY_SESSION_KEY, $currency);
     }
 
 }
