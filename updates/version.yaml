@@ -83,3 +83,5 @@
     - 'Implemented custom currency formats'
 1.0.34:
     - 'Added dependency on Rainlab.Translate'
+1.0.35:
+    - 'Added support for new October Build 420 on Laravel 5.5'
