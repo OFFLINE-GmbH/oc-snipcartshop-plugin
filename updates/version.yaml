@@ -85,3 +85,5 @@
     - 'Added dependency on Rainlab.Translate'
 1.0.35:
     - 'Added support for new October Build 420 on Laravel 5.5'
+1.0.36:
+    - 'Fixed compatibility with new Snipcart Webhook fields'
