@@ -22,6 +22,7 @@ class OrderCompleted
         'customFieldsJson',
         'shippingMethodComplete',
         'finalGrandTotal',
+        'recoveredFromRecoveryCampaign',
         'total',
 
         // Included via jsonable billingAddress
