@@ -87,3 +87,5 @@
     - 'Added support for new October Build 420 on Laravel 5.5'
 1.0.36:
     - 'Fixed compatibility with new Snipcart Webhook fields'
+1.0.37:
+    - 'Fixed bugs when receiving Snipcart webhooks'
