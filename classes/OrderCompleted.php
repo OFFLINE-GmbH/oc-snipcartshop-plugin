@@ -9,65 +9,79 @@ use OFFLINE\SnipcartShop\Models\OrderItem;
 
 class OrderCompleted
 {
-    protected $ignoreFieldsOrder = [
-        'items',
-        'plans',
-        'refunds',
-        'taxesTotal',
-        'user',
-        'totalNumberOfItems',
-        'numberOfItemsInOrder',
-        'itemsCount',
-        'summary',
-        'customFieldsJson',
-        'shippingMethodComplete',
-        'finalGrandTotal',
-        'recoveredFromRecoveryCampaign',
-        'total',
-
-        // Included via jsonable billingAddress
-        'billingAddressFirstName',
-        'billingAddressName',
-        'billingAddressCompanyName',
-        'billingAddressAddress1',
-        'billingAddressAddress2',
-        'billingAddressCity',
-        'billingAddressCountry',
-        'billingAddressProvince',
-        'billingAddressPostalCode',
-        'billingAddressPhone',
-        'billingAddressComplete',
-        // Included via jsonable shippingAddress
-        'shippingAddressFirstName',
-        'shippingAddressName',
-        'shippingAddressCompanyName',
-        'shippingAddressAddress1',
-        'shippingAddressAddress2',
-        'shippingAddressCity',
-        'shippingAddressCountry',
-        'shippingAddressProvince',
-        'shippingAddressPostalCode',
-        'shippingAddressPhone',
-        'shippingAddressComplete',
+    protected $orderFields = [
+        'token',
+        'invoiceNumber',
+        'currency',
+        'creationDate',
+        'modificationDate',
+        'completionDate',
+        'status',
+        'paymentStatus',
+        'email',
+        'willBePaidLater',
+        'shippingAddressSameAsBilling',
+        'billingAddress',
+        'shippingAddress',
+        'creditCardLast4Digits',
+        'trackingNumber',
+        'trackingUrl',
+        'shippingMethod',
+        'cardHolderName',
+        'cardType',
+        'paymentMethod',
+        'paymentGatewayUsed',
+        'taxProvider',
+        'lang',
+        'refundsAmount',
+        'adjustedAmount',
+        'rebateAmount',
+        'taxes',
+        'itemsTotal',
+        'subtotal',
+        'taxableTotal',
+        'grandTotal',
+        'totalWeight',
+        'totalRebateRate',
+        'notes',
+        'customFields',
+        'shippingEnabled',
+        'paymentTransactionId',
+        'metadata',
+        'ipAddress',
+        'userId',
+        'discounts'
     ];
 
-    protected $ignoreFieldsItem = [
-        'token',
-        'unitPrice',
-        'modificationDate',
+    protected $itemFields = [
+        'uniqueId',
+        'orderId',
+        'name',
+        'price',
+        'totalPrice',
+        'quantity',
         'maxQuantity',
-        'minQuantity',
-        'originalPrice',
+        'url',
+        'weight',
+        'width',
+        'length',
+        'height',
+        'totalWeight',
+        'description',
+        'image',
+        'stackable',
+        'duplicatable',
+        'shippable',
+        'taxable',
+        'customFields',
+        'taxes',
         'addedOn',
-        'initialData',
-        'alternatePrices',
-        'hasDimensions',
     ];
 
     public function handle($data)
     {
         $itemsData = $data['items'];
-        $orderData = $this->normalizeData($data, $this->ignoreFieldsOrder);
+        $orderData = $this->normalizeData($data, $this->orderFields);
 
         $order = Order::firstOrCreate(['token' => $orderData['token']]);
         $order->fill($orderData);
@@ -75,7 +89,7 @@ class OrderCompleted
 
         $items = [];
         foreach ($itemsData as $item) {
-            $data               = $this->normalizeData($item, $this->ignoreFieldsItem);
+            $data               = $this->normalizeData($item, $this->itemFields);
             $data['product_id'] = $item['id'];
 
             $model = new OrderItem();
@@ -93,22 +107,21 @@ class OrderCompleted
     }
 
     /**
-     * Strip out ignored fields and convert all keys
+     * Select relveant fields and convert all keys
      * to snake_case.
      *
      * @param $data
+     * @param $useFields
      *
      * @return array
      */
-    protected function normalizeData($data, $ignoredFields)
+    protected function normalizeData($data, array $useFields)
     {
         $normalized = [];
         foreach ($data as $key => $value) {
-            if (in_array($key, $ignoredFields)) {
-                continue;
+            if (in_array($key, $useFields)) {
+                $normalized[snake_case($key)] = $value;
             }
-
-            $normalized[snake_case($key)] = $value;
         }
 
         return $this->reformatDates($normalized);
@@ -123,7 +136,7 @@ class OrderCompleted
      */
     protected function reformatDates($data)
     {
-        foreach (['creation_date', 'modification_date', 'completion_date'] as $date) {
+        foreach (['creation_date', 'modification_date', 'completion_date', 'added_on'] as $date) {
             if ( ! array_key_exists($date, $data)) {
                 continue;
             }
