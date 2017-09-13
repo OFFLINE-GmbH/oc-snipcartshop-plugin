@@ -89,3 +89,5 @@
     - 'Fixed compatibility with new Snipcart Webhook fields'
 1.0.37:
     - 'Fixed bugs when receiving Snipcart webhooks'
+1.0.38:
+    - 'Fixed dependency definition on RainLab.Translate'
