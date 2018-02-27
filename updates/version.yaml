@@ -91,3 +91,5 @@
     - 'Fixed bugs when receiving Snipcart webhooks'
 1.0.38:
     - 'Fixed dependency definition on RainLab.Translate'
+1.0.39:
+    - 'Changed json column types to text for new installations since it is causing problems with old MySQL versions'

@@ -32,8 +32,8 @@ class BuilderTableCreateOfflineSnipcartshopOrderItems extends Migration
             $table->boolean('duplicatable');
             $table->boolean('shippable');
             $table->boolean('taxable');
-            $table->json('custom_fields');
-            $table->json('taxes');
+            $table->text('custom_fields');
+            $table->text('taxes');
             $table->timestamp('added_on')->nullable();
         });
     }
