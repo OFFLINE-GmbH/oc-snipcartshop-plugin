@@ -22,8 +22,8 @@ class BuilderTableCreateOfflineSnipcartshopOrders extends Migration
             $table->string('email')->nullable();
             $table->boolean('will_be_paid_later')->nullable();
             $table->boolean('shipping_address_same_as_billing')->nullable();
-            $table->json('billing_address')->nullable();
-            $table->json('shipping_address')->nullable();
+            $table->text('billing_address')->nullable();
+            $table->text('shipping_address')->nullable();
             $table->string('credit_card_last4_digits', 4)->nullable();
             $table->string('tracking_number')->nullable();
             $table->string('tracking_url')->nullable();
@@ -39,7 +39,7 @@ class BuilderTableCreateOfflineSnipcartshopOrders extends Migration
             $table->float('refunds_amount')->nullable();
             $table->float('adjusted_amount')->nullable();
             $table->float('rebate_amount')->nullable();
-            $table->json('taxes')->nullable();
+            $table->text('taxes')->nullable();
             $table->float('items_total')->nullable();
             $table->float('subtotal')->nullable();
             $table->float('taxable_total')->nullable();
@@ -47,10 +47,10 @@ class BuilderTableCreateOfflineSnipcartshopOrders extends Migration
             $table->integer('total_weight')->nullable();
             $table->integer('total_rebate_rate')->nullable();
             $table->text('notes')->nullable();
-            $table->json('custom_fields')->nullable();
+            $table->text('custom_fields')->nullable();
             $table->boolean('shipping_enabled')->nullable();
             $table->string('payment_transaction_id')->nullable();
-            $table->json('metadata')->nullable();
+            $table->text('metadata')->nullable();
             $table->string('ip_address')->nullable();
             $table->uuid('user_id')->nullable();
         });
