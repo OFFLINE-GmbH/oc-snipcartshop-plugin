@@ -286,7 +286,7 @@ class Product extends Model
             );
         }
 
-        $entryUrl  = Page::url($pageUrl, [[$pageSlug => $product->slug]]);
+        $entryUrl  = Page::url($pageUrl, [$pageSlug => $product->slug]);
 
         $result             = [];
         $result['url']      = $entryUrl;
