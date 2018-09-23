@@ -25,6 +25,7 @@
         ],
         'menu_items' => [
             'all_categories' => 'All shop categories',
+            'product' => 'Single product'
         ],
         'api_settings' => [
             'label' => 'API and webhooks',
