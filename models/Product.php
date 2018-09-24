@@ -1,6 +1,8 @@
 <?php namespace OFFLINE\SnipcartShop\Models;
 
+use Cms\Classes\Page;
 use Illuminate\Database\Eloquent\Collection;
+use InvalidArgumentException;
 use Model;
 use October\Rain\Database\Traits\Validation;
 use October\Rain\Exception\ValidationException;
@@ -239,5 +241,57 @@ class Product extends Model
     public function scopePublished($query)
     {
         return $query->where('published', true);
+    }
+
+    /**
+     * Returns the menu type information array for the RainLab.Pages plugin
+     *
+     * @param $type string
+     *
+     * @return array
+     */
+    public static function getMenuTypeInfo($type)
+    {
+        $result = [];
+        if ($type == 'snipcartshop-product') {
+            $result = [
+                'dynamicItems' => false,
+                'references' => self::lists('name', 'id')
+            ];
+        }
+
+        return $result;
+    }
+
+    /**
+     * @param $item \RainLab\Pages\Classes\MenuItem
+     * @param $url
+     * @param $theme
+     *
+     * @return array
+     * @throws \InvalidArgumentException
+     */
+    public static function resolveMenuItem($item, $url, $theme)
+    {
+        $product  = self::findOrFail($item->reference);
+
+        $pageSlug = GeneralSettings::get('product_page_slug', 'slug');
+        if ($pageSlug === '') {
+            $pageSlug = 'slug';
+        }
+
+        if ( ! $pageUrl = GeneralSettings::get('product_page')) {
+            throw new InvalidArgumentException(
+                'SnipcartShop: Please select a product page via the backend settings.'
+            );
+        }
+
+        $entryUrl  = Page::url($pageUrl, [$pageSlug => $product->slug]);
+
+        $result             = [];
+        $result['url']      = $entryUrl;
+        $result['isActive'] = $entryUrl === $url;
+
+        return $result;
     }
 }

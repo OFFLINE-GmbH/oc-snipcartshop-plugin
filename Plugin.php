@@ -5,6 +5,7 @@ use OFFLINE\SnipcartShop\Classes\ApiClient;
 use OFFLINE\SnipcartShop\Classes\DiscountApi;
 use OFFLINE\SnipcartShop\Classes\OrderCompleted;
 use OFFLINE\SnipcartShop\Models\Category;
+use OFFLINE\SnipcartShop\Models\Product;
 use System\Classes\PluginBase;
 
 class Plugin extends PluginBase
@@ -91,6 +92,7 @@ class Plugin extends PluginBase
         Event::listen('pages.menuitem.listTypes', function () {
             return [
                 'all-snipcartshop-categories' => trans('offline.snipcartshop::lang.plugin.menu_items.all_categories'),
+                'snipcartshop-product' => trans('offline.snipcartshop::lang.plugin.menu_items.product')
             ];
         });
 
@@ -98,11 +100,17 @@ class Plugin extends PluginBase
             if ($type == 'all-snipcartshop-categories') {
                 return Category::getMenuTypeInfo($type);
             }
+            if ($type == 'snipcartshop-product') {
+                return Product::getMenuTypeInfo($type);
+            }
         });
 
         Event::listen('pages.menuitem.resolveItem', function ($type, $item, $url, $theme) {
             if ($type == 'all-snipcartshop-categories') {
                 return Category::resolveMenuItem($item, $url, $theme);
+            }
+            if ($type == 'snipcartshop-product') {
+                return Product::resolveMenuItem($item, $url, $theme);
             }
         });
     }
