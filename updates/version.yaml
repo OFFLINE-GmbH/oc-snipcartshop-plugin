@@ -93,3 +93,5 @@
     - 'Fixed dependency definition on RainLab.Translate'
 1.0.39:
     - 'Changed json column types to text for new installations since it is causing problems with old MySQL versions'
+1.0.40:
+    - 'Added single product menu type (thanks to alxy)'
