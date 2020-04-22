@@ -1,5 +1,11 @@
 # oc-snipcartshop-plugin
 
+## This plugin is no longer maintained!
+
+If you use Snipcart with October feel free to form this repo.
+
+_____________________________________________
+
 Ecommerce solution for October CMS using snipcart.com as a backend.
 
 **Demo:** [https://snipcart.offline.swiss](https://snipcart.offline.swiss)
